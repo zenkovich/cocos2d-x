@@ -37,6 +37,10 @@
 #include "platform/CCStdC.h" // ssize_t on windows
 #include "renderer/CCTexture2D.h"
 
+#if CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 && CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID
+#include <iconv.h>
+#endif
+
 NS_CC_BEGIN
 
 class Font;
@@ -139,7 +143,11 @@ protected:
     float _lineHeight = 0.f;
     Font* _font = nullptr;
     FontFreeType* _fontFreeType = nullptr;
+#if CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 && CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID
+    iconv_t _iconv = (iconv_t)-1;
+#else
     void* _iconv = nullptr;
+#endif
 
     // Dynamic GlyphCollection related stuff
     int _currentPage = 0;

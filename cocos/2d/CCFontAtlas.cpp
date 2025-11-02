@@ -127,10 +127,10 @@ FontAtlas::~FontAtlas()
     delete []_currentPageData;
 
 #if CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 && CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID
-    if (_iconv)
+    if (_iconv != (iconv_t)-1)
     {
         iconv_close(_iconv);
-        _iconv = nullptr;
+        _iconv = (iconv_t)-1;
     }
 #endif
 }
@@ -246,7 +246,7 @@ void FontAtlas::conversionU32TOGB2312(const std::u32string& u32Text, std::unorde
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
         conversionEncodingJNI((char*)u32Text.c_str(), gb2312StrSize, "UTF-32LE", gb2312Text, "GB2312");
 #else
-        if (_iconv == nullptr)
+        if (_iconv == (iconv_t)-1)
         {
             _iconv = iconv_open("GBK//TRANSLIT", "UTF-32LE");
         }

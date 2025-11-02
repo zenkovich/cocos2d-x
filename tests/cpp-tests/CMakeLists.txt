@@ -395,6 +395,26 @@ else()
 endif()
 
 target_link_libraries(${APP_NAME} cocos2d)
+if(MACOSX)
+    # Link all external libraries explicitly on macOS
+    target_link_libraries(${APP_NAME} 
+        ext_png
+        ext_websockets
+        ext_zlib
+        ext_jpeg
+        ext_webp
+        ext_freetype
+        ext_curl
+        ext_ssl
+        ext_crypto
+        ext_uv
+        ext_glfw3
+        ext_box2d
+        ext_chipmunk
+        ext_bullet
+        ext_recast
+    )
+endif()
 target_include_directories(${APP_NAME}
         PRIVATE Classes
 )
