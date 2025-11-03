@@ -52,4 +52,3 @@ private:
     int _sendTextTimes = 0;
     int _receiveTextTimes = 0;
 };
-

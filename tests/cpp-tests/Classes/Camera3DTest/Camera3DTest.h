@@ -284,4 +284,11 @@ public:
     
     virtual void onEnter() override;
 };
+// --- META ---
 
+PRE_ENUM_META(State);
+
+PRE_ENUM_META(CameraType);
+
+PRE_ENUM_META(OperateCamType);
+// --- END META ---

@@ -35,4 +35,3 @@ public:
 };
 
 #endif /* __CUSTOMTABELVIEWCELL_H__ */
-

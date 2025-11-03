@@ -1,0 +1,124 @@
+{
+    "mActor": {
+        "Type": "o2::Widget",
+        "Value": {
+            "mName": "Target",
+            "Id": 4735308710940065570,
+            "Transform": {
+                "anchorMin": {
+                    "x": 0.0,
+                    "y": 0.5
+                },
+                "anchorMax": {
+                    "x": 0.0,
+                    "y": 0.5
+                },
+                "offsetMin": {
+                    "x": 0.0,
+                    "y": -100.0
+                },
+                "offsetMax": {
+                    "x": 200.0,
+                    "y": 100.0
+                }
+            },
+            "Children": [
+                {
+                    "Type": "o2::Image",
+                    "Data": {
+                        "mName": "Icon",
+                        "Id": 7028104833231378532,
+                        "Transform": {
+                            "anchorMin": {
+                                "x": 0.0,
+                                "y": 0.5
+                            },
+                            "anchorMax": {
+                                "x": 0.0,
+                                "y": 0.5
+                            },
+                            "offsetMin": {
+                                "x": -0.00006103515625,
+                                "y": -41.0001220703125
+                            },
+                            "offsetMax": {
+                                "x": 81.99993133544922,
+                                "y": 40.9998779296875
+                            }
+                        },
+                        "InternalWidgets": [],
+                        "Layers": [
+                            {
+                                "Type": "o2::WidgetLayer",
+                                "Value": {
+                                    "name": "image",
+                                    "mDrawable": {
+                                        "Type": "o2::Sprite",
+                                        "Value": {
+                                            "mImageAsset": {
+                                                "id": "791972b27a442c2e114b6b7269aa5087",
+                                                "path": "Game field/Objects/Main/blue.png"
+                                            }
+                                        }
+                                    },
+                                    "mUID": 6906667872124897059
+                                }
+                            }
+                        ],
+                        "States": []
+                    }
+                },
+                {
+                    "Type": "o2::Label",
+                    "Data": {
+                        "mName": "UI Label",
+                        "Id": 18188834979836757434,
+                        "Transform": {
+                            "anchorMin": {
+                                "x": 1.000180721282959,
+                                "y": 0.5000048875808716
+                            },
+                            "anchorMax": {
+                                "x": 1.000180721282959,
+                                "y": 0.5000048875808716
+                            },
+                            "offsetMin": {
+                                "x": -107.82478332519531,
+                                "y": -47.0009765625
+                            },
+                            "offsetMax": {
+                                "x": -8.824783325195313,
+                                "y": 50.9990234375
+                            }
+                        },
+                        "InternalWidgets": [],
+                        "Layers": [
+                            {
+                                "Type": "o2::WidgetLayer",
+                                "Value": {
+                                    "name": "text",
+                                    "mDrawable": {
+                                        "Type": "o2::Text",
+                                        "Value": {
+                                            "mText": "40",
+                                            "mFontAssetId": "2b1c72c43d480e7f20b96b8457073253",
+                                            "mHeight": 60,
+                                            "mSymbolsDistCoef": 1.0,
+                                            "mLinesDistanceCoef": 1.0,
+                                            "mVerAlign": "Middle"
+                                        }
+                                    },
+                                    "mUID": 14297741558566621999
+                                }
+                            }
+                        ],
+                        "States": []
+                    }
+                }
+            ],
+            "InternalWidgets": [],
+            "Layers": [],
+            "States": []
+        }
+    }
+}

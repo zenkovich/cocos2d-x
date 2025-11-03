@@ -113,6 +113,27 @@ add_library(cocos2d ${COCOS_SRC})
 add_subdirectory(${COCOS2DX_ROOT_PATH}/external ${ENGINE_BINARY_PATH}/external)
 target_link_libraries(cocos2d external)
 
+# Explicitly link external libraries on macOS for ARM64 architecture
+if(APPLE)
+    target_link_libraries(cocos2d 
+        ext_png
+        ext_websockets
+        ext_zlib
+        ext_jpeg
+        ext_webp
+        ext_freetype
+        ext_curl
+        ext_ssl
+        ext_crypto
+        ext_uv
+        ext_glfw3
+        ext_box2d
+        ext_chipmunk
+        ext_bullet
+        ext_recast
+    )
+endif()
+
 # add base macro define and compile options
 use_cocos2dx_compile_define(cocos2d)
 use_cocos2dx_compile_options(cocos2d)

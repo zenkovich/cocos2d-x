@@ -1,0 +1,56 @@
+{
+	"configurations": [
+		{
+			"name": "Mac",
+			"includePath": [
+				"${workspaceFolder}/**",
+				"${workspaceFolder}/cocos",
+				"${workspaceFolder}/cocos/2d",
+				"${workspaceFolder}/cocos/3d",
+				"${workspaceFolder}/cocos/audio/include",
+				"${workspaceFolder}/cocos/base",
+				"${workspaceFolder}/cocos/editor-support",
+				"${workspaceFolder}/cocos/math",
+				"${workspaceFolder}/cocos/navmesh",
+				"${workspaceFolder}/cocos/network",
+				"${workspaceFolder}/cocos/physics",
+				"${workspaceFolder}/cocos/physics3d",
+				"${workspaceFolder}/cocos/platform",
+				"${workspaceFolder}/cocos/renderer",
+				"${workspaceFolder}/cocos/scripting",
+				"${workspaceFolder}/cocos/ui",
+				"${workspaceFolder}/external",
+				"${workspaceFolder}/external/Box2D",
+				"${workspaceFolder}/external/bullet",
+				"${workspaceFolder}/external/chipmunk/include",
+				"${workspaceFolder}/external/curl/include/mac",
+				"${workspaceFolder}/external/freetype2/include/mac",
+				"${workspaceFolder}/external/glfw3/include/mac",
+				"${workspaceFolder}/external/jpeg/include/mac",
+				"${workspaceFolder}/external/png/include/mac",
+				"${workspaceFolder}/external/recast",
+				"${workspaceFolder}/external/tinyxml2",
+				"${workspaceFolder}/external/websockets/include/mac",
+				"${workspaceFolder}/external/xxhash",
+				"${workspaceFolder}/build"
+			],
+			"defines": [
+				"CC_TARGET_OS_MAC",
+				"USE_FILE32API",
+				"_DEBUG"
+			],
+			"macFrameworkPath": [
+				"/System/Library/Frameworks",
+				"/Library/Frameworks"
+			],
+			"compilerPath": "/usr/bin/clang++",
+			"cStandard": "c11",
+			"cppStandard": "c++14",
+			"intelliSenseMode": "macos-clang-arm64",
+			"compileCommands": "${workspaceFolder}/build/compile_commands.json",
+			"configurationProvider": "ms-vscode.cmake-tools"
+		}
+	],
+	"version": 4
+}
+

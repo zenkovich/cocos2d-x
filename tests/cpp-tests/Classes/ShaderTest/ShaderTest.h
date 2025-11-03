@@ -219,4 +219,3 @@ public:
     virtual std::string subtitle() const override;
     virtual bool init() override;
 };
-

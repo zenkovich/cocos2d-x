@@ -5,3 +5,6 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "extensions/cocos-ext.h"
+
+// o2 framework support for reflection macros
+#include "o2/Utils/Reflection/Enum.h"

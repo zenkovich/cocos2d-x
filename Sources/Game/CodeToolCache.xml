@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<files>
+	<file path="/Users/andreizenkovich/PetStory/Sources/Game/Chip.h">
+		<date year="125" month="3" day="1" hour="23" minute="23" second="19" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="Chip" fullname="Chip" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Component" protection="0" />
+						<class name="CursorAreaEventsListener" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings>
+				<typedef name="o2" />
+			</usings>
+		</globalNamespace>
+	</file>
+	<file path="/Users/andreizenkovich/PetStory/Sources/Game/ChipsSpawner.h">
+		<date year="125" month="4" day="25" hour="22" minute="50" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="ChipsSpawnerComponent" fullname="ChipsSpawnerComponent" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Component" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings>
+				<typedef name="o2" />
+			</usings>
+		</globalNamespace>
+	</file>
+	<file path="/Users/andreizenkovich/PetStory/Sources/Game/GameApplication.h">
+		<date year="125" month="3" day="1" hour="23" minute="15" second="32" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="GameApplication" fullname="GameApplication" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Application" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings>
+				<typedef name="o2" />
+			</usings>
+		</globalNamespace>
+	</file>
+	<file path="/Users/andreizenkovich/PetStory/Sources/Game/Reel.h">
+		<date year="125" month="6" day="11" hour="18" minute="57" second="28" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="Reel" fullname="Reel" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections>
+						<section name="ImageInfo" fullname="Reel::ImageInfo" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+							<sections />
+							<typedefs />
+							<usings />
+							<baseClasses>
+								<class name="ISerializable" protection="0" />
+							</baseClasses>
+						</section>
+						<section name="RotatingImage" fullname="Reel::RotatingImage" isClass="true" isMeta="false" templates="" protection="1" attributeCommentDef="" attributeShortDef="">
+							<sections />
+							<typedefs />
+							<usings />
+							<baseClasses />
+						</section>
+					</sections>
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Component" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings>
+				<typedef name="o2" />
+			</usings>
+		</globalNamespace>
+	</file>
+	<file path="/Users/andreizenkovich/PetStory/Sources/Game/SceneControl.h">
+		<date year="125" month="6" day="11" hour="18" minute="57" second="28" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="SceneControl" fullname="SceneControl" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Component" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings>
+				<typedef name="o2" />
+			</usings>
+		</globalNamespace>
+	</file>
+</files>
+<parentProjects>
+	<project path="/Users/andreizenkovich/PetStory/o2/Framework/Sources/o2/CodeToolCache.xml" />
+</parentProjects>

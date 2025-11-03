@@ -47,7 +47,6 @@ BundleArtifacts
 bin/
 obj/
 gen/
-assets/
 local.properties
 
 # Ignore python compiled files
@@ -156,9 +155,6 @@ tests/cpp-tests/proj.tizen/res/
 tests/lua-empty-test/project/proj.tizen/res/
 tests/lua-tests/project/proj.tizen/res/
 
-# Ignore vscode folder
-.vscode/
-
 # Ignore static libraries
 *.a
 
@@ -183,3 +179,4 @@ temp/
 *.zip
 **/simulator/
 build
+BuiltAssets

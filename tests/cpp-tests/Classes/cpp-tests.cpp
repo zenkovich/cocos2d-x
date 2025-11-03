@@ -1,0 +1,5 @@
+
+
+extern void InitializeTypescpp-tests()
+{
+}

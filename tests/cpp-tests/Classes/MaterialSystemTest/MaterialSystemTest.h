@@ -133,6 +133,3 @@ public:
 protected:
     unsigned int _maxParsingCoumt;
 };
-
-
-

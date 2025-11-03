@@ -214,6 +214,7 @@ list(APPEND GAME_HEADER
      )
 
 list(APPEND GAME_SOURCE
+     Classes/InitializeTypes.cpp
      Classes/ActionManagerTest/ActionManagerTest.cpp
      Classes/ActionsEaseTest/ActionsEaseTest.cpp
      Classes/ActionsProgressTest/ActionsProgressTest.cpp
@@ -386,18 +387,77 @@ set(all_code_files
     ${GAME_SOURCE}
     )
 
+# Create cpp-tests library first
+add_library(cpp-tests-lib STATIC ${all_code_files})
+target_link_libraries(cpp-tests-lib PUBLIC cocos2d o2Framework)
+target_include_directories(cpp-tests-lib 
+    PUBLIC Classes
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../o2/Framework/Sources
+)
+
+# Codegen for cpp-tests
+add_custom_target(cpp-tests-Codegen
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/../../o2/CodeTool/Bin/o2CodeTool 
+            -project cpp-tests
+            -sources "${CMAKE_CURRENT_SOURCE_DIR}/Classes" 
+            -parent_projects "${CMAKE_CURRENT_SOURCE_DIR}/../../o2/Framework/Sources/o2/CodeToolCache.xml"
+    COMMENT "Run CodeTool for cpp-tests"
+)
+add_dependencies(cpp-tests-Codegen o2CodeTool)
+add_dependencies(cpp-tests-lib o2Framework o2FrameworkCodegen cpp-tests-Codegen)
+
+# Note: cpp-tests uses standard cocos2d Resources, not o2 assets
+# Assets builder is only needed for Editor
+
+# Main cpp-tests executable
 if(NOT ANDROID)
-    add_executable(${APP_NAME} ${all_code_files})
+    add_executable(${APP_NAME})
 else()
-    add_library(${APP_NAME} SHARED ${all_code_files})
+    add_library(${APP_NAME} SHARED)
     add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos/platform/android ${ENGINE_BINARY_PATH}/cocos/platform)
     target_link_libraries(${APP_NAME} -Wl,--whole-archive cpp_android_spec -Wl,--no-whole-archive)
 endif()
 
-target_link_libraries(${APP_NAME} cocos2d)
+# Platform-specific sources for executable
+if(ANDROID)
+    target_sources(${APP_NAME} PRIVATE
+        Classes/JNITest/JNITest.h
+        Classes/JNITest/JNITest.cpp
+        proj.android/app/jni/main.cpp
+    )
+elseif(LINUX)
+    target_sources(${APP_NAME} PRIVATE proj.linux/main.cpp)
+elseif(WINDOWS)
+    target_sources(${APP_NAME} PRIVATE 
+        proj.win32/main.h
+        proj.win32/main.cpp
+        ${cc_common_res}
+    )
+elseif(APPLE)
+    if(IOS)
+        target_sources(${APP_NAME} PRIVATE
+            proj.ios/Classes/testsAppDelegate.h
+            proj.ios/Classes/RootViewController.h
+            proj.ios/main.m
+            proj.ios/Classes/testsAppDelegate.mm
+            proj.ios/Classes/RootViewController.mm
+            proj.ios/Prefix.pch
+            ${APP_UI_RES}
+        )
+    elseif(MACOSX)
+        target_sources(${APP_NAME} PRIVATE
+            proj.mac/main.cpp
+            ${APP_UI_RES}
+        )
+    endif()
+    target_sources(${APP_NAME} PRIVATE ${cc_common_res})
+endif()
+
+target_link_libraries(${APP_NAME} PUBLIC cpp-tests-lib)
+add_dependencies(${APP_NAME} cpp-tests-lib)
 if(MACOSX)
     # Link all external libraries explicitly on macOS
-    target_link_libraries(${APP_NAME} 
+    target_link_libraries(${APP_NAME} PUBLIC
         ext_png
         ext_websockets
         ext_zlib
@@ -415,9 +475,6 @@ if(MACOSX)
         ext_recast
     )
 endif()
-target_include_directories(${APP_NAME}
-        PRIVATE Classes
-)
 
 # mark app resources
 setup_cocos_app_config(${APP_NAME})
@@ -450,3 +507,144 @@ if(${CMAKE_VERSION} VERSION_GREATER "3.16.0")
     target_precompile_headers(${APP_NAME} PRIVATE 
        "$<$<COMPILE_LANGUAGE:CXX>:precheader.h>")
 endif()
+
+# cpp-tests-Editor
+if(O2_EDITOR)
+    # Editor library for cpp-tests
+    add_library(cpp-tests-EditorLib STATIC)
+    
+    # Use core game sources without platform-specific entry points and spine tests (incompatible with C++20)
+    set(EDITOR_SOURCES ${GAME_HEADER} ${GAME_SOURCE})
+    list(FILTER EDITOR_SOURCES EXCLUDE REGEX ".*SpineTest.*")
+    list(FILTER EDITOR_SOURCES EXCLUDE REGEX ".*MaterialSystemTest.*")
+    list(FILTER EDITOR_SOURCES EXCLUDE REGEX ".*controller.*")
+    list(FILTER EDITOR_SOURCES EXCLUDE REGEX ".*tests\\.h$")
+    
+    target_sources(cpp-tests-EditorLib PRIVATE ${EDITOR_SOURCES})
+    target_include_directories(cpp-tests-EditorLib PUBLIC Classes)
+    
+    target_link_libraries(cpp-tests-EditorLib 
+        PUBLIC
+            o2Editor
+            cpp-tests-lib
+    )
+    
+    if(MSVC)
+        target_compile_options(cpp-tests-EditorLib PRIVATE "/MP" "/bigobj")
+    endif()
+    
+    # Codegen for cpp-tests-EditorLib
+    add_custom_target(cpp-tests-EditorLibCodegen
+        COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/../../o2/CodeTool/Bin/o2CodeTool 
+                -project cpp-tests-EditorLib 
+                -sources "${CMAKE_CURRENT_SOURCE_DIR}/Classes" 
+                -parent_projects "${CMAKE_CURRENT_SOURCE_DIR}/../../o2/Framework/Sources/o2/CodeToolCache.xml"
+        COMMENT "Run CodeTool for cpp-tests-EditorLib"
+    )
+    add_dependencies(cpp-tests-EditorLibCodegen o2CodeTool)
+    add_dependencies(cpp-tests-EditorLib cpp-tests-lib o2Editor cpp-tests-EditorLibCodegen)
+    
+    # Assets builder for cpp-tests-Editor
+    add_executable(cpp-tests-Editor-AssetsBuilder)
+    target_sources(cpp-tests-Editor-AssetsBuilder PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../o2/AssetsBuildTool/Sources/o2AssetBuilder/AssetsBuilderRunner.cpp)
+    target_link_libraries(cpp-tests-Editor-AssetsBuilder 
+        PUBLIC
+            o2AssetsBuilder
+            cpp-tests-lib
+    )
+
+    if(MSVC)
+        target_compile_options(cpp-tests-Editor-AssetsBuilder PRIVATE "/MP" "/Zc:__cplusplus" "/bigobj")
+    elseif (UNIX)
+        target_compile_options(cpp-tests-Editor-AssetsBuilder PRIVATE -Wno-pedantic)
+    endif()
+
+    set_target_output_directories(cpp-tests-Editor-AssetsBuilder)
+    
+    # Build editor assets for cpp-tests
+    add_custom_target(cpp-tests-BuildEditorAssets
+        COMMAND ${BIN_OUTPUTDIR}/cpp-tests-Editor-AssetsBuilder -platform ${O2_PLATFORM} -source "${CMAKE_CURRENT_SOURCE_DIR}/../../o2/Editor/Assets/" -target "${CMAKE_CURRENT_SOURCE_DIR}/../../BuiltAssets/${O2_PLATFORM}/cpp-tests-EditorData/" -target-tree "${CMAKE_CURRENT_SOURCE_DIR}/../../BuiltAssets/${O2_PLATFORM}/cpp-tests-EditorData.json" -compressor-config "${CMAKE_CURRENT_SOURCE_DIR}/../../o2/CompressToolsConfig.json"
+        COMMENT "Build cpp-tests editor assets"
+    )
+    add_dependencies(cpp-tests-BuildEditorAssets o2AssetsBuilder cpp-tests-Editor-AssetsBuilder)
+    
+    # cpp-tests-Editor executable
+    add_executable(cpp-tests-Editor)
+    
+    if (APPLE)
+        if(MACOSX)
+            target_sources(cpp-tests-Editor PRIVATE proj.mac/main.cpp ${APP_UI_RES})
+        endif()
+    endif()
+    
+    if (WIN32 OR UNIX)
+        if(WINDOWS)
+            target_sources(cpp-tests-Editor PRIVATE proj.win32/main.cpp proj.win32/main.h ${cc_common_res})
+        elseif(LINUX)
+            target_sources(cpp-tests-Editor PRIVATE proj.linux/main.cpp)
+        endif()
+    endif()
+    
+    target_link_libraries(cpp-tests-Editor PUBLIC cpp-tests-EditorLib)
+    add_dependencies(cpp-tests-Editor cpp-tests-EditorLib cpp-tests-BuildEditorAssets)
+    
+    if(MACOSX)
+        # Link all external libraries explicitly on macOS
+        target_link_libraries(cpp-tests-Editor PUBLIC
+            ext_png
+            ext_websockets
+            ext_zlib
+            ext_jpeg
+            ext_webp
+            ext_freetype
+            ext_curl
+            ext_ssl
+            ext_crypto
+            ext_uv
+            ext_glfw3
+            ext_box2d
+            ext_chipmunk
+            ext_bullet
+            ext_recast
+        )
+    endif()
+    
+    set_target_output_directories(cpp-tests-Editor)
+    
+    # mark app resources for editor
+    setup_cocos_app_config(cpp-tests-Editor)
+    if(APPLE)
+        set_target_properties(cpp-tests-Editor PROPERTIES RESOURCE "${APP_UI_RES}")
+        set_xcode_property(cpp-tests-Editor INSTALL_PATH "\$(LOCAL_APPS_DIR)")
+        
+        if(MACOSX)
+            set_target_properties(cpp-tests-Editor PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/proj.mac/Info.plist")
+        elseif(IOS)
+            set_target_properties(cpp-tests-Editor PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/proj.ios/Info.plist")
+        endif()
+    elseif(WINDOWS)
+        target_compile_options(cpp-tests-Editor PRIVATE /Z7)
+        cocos_copy_target_dll(cpp-tests-Editor)
+    endif()
+    
+    if(LINUX OR WINDOWS)
+        cocos_get_resource_path(APP_RES_DIR cpp-tests-Editor)
+        cocos_copy_target_res(cpp-tests-Editor LINK_TO ${APP_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
+    endif()
+    
+    if(MSVC)
+        set_property(TARGET cpp-tests-Editor PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:cpp-tests-Editor>")
+    endif()
+    
+    # Groups in IDE
+    set_target_properties(cpp-tests-EditorLib PROPERTIES FOLDER Tests)
+    set_target_properties(cpp-tests-EditorLibCodegen PROPERTIES FOLDER Tests/Codegen)
+    set_target_properties(cpp-tests-Editor PROPERTIES FOLDER Tests)
+    set_target_properties(cpp-tests-Editor-AssetsBuilder PROPERTIES FOLDER Tests/Assets)
+    set_target_properties(cpp-tests-BuildEditorAssets PROPERTIES FOLDER Tests/Assets)
+endif()
+
+# Groups in IDE for cpp-tests
+set_target_properties(cpp-tests-lib PROPERTIES FOLDER Tests)
+set_target_properties(cpp-tests-Codegen PROPERTIES FOLDER Tests/Codegen)
+set_target_properties(${APP_NAME} PROPERTIES FOLDER Tests)

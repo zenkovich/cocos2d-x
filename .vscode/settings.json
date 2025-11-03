@@ -1,0 +1,70 @@
+{
+	// CMake settings
+	"cmake.sourceDirectory": "${workspaceFolder}",
+	"cmake.buildDirectory": "${workspaceFolder}/build",
+	"cmake.configureOnOpen": false,
+	"cmake.buildBeforeRun": true,
+	
+	// C++ IntelliSense settings
+	"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+	"C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+	"C_Cpp.default.cppStandard": "c++14",
+	"C_Cpp.default.cStandard": "c11",
+	"C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
+	
+	// Include paths for IntelliSense
+	"C_Cpp.default.includePath": [
+		"${workspaceFolder}/cocos",
+		"${workspaceFolder}/cocos/2d",
+		"${workspaceFolder}/cocos/base",
+		"${workspaceFolder}/cocos/platform",
+		"${workspaceFolder}/cocos/renderer",
+		"${workspaceFolder}/cocos/ui",
+		"${workspaceFolder}/cocos/audio/include",
+		"${workspaceFolder}/external",
+		"${workspaceFolder}/external/glfw3/include/mac",
+		"${workspaceFolder}/build"
+	],
+	
+	// File associations
+	"files.associations": {
+		"*.h": "cpp",
+		"*.cpp": "cpp",
+		"*.inl": "cpp",
+		"*.mm": "objective-cpp",
+		"*.plist": "xml"
+	},
+	
+	// Files to exclude from search
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/build": false,
+		"**/bin": true,
+		"**/lib": true,
+		"**/*.o": true,
+		"**/*.a": true,
+		"**/*.dylib": true
+	},
+	
+	// Search settings
+	"search.exclude": {
+		"**/build": false,
+		"**/external": true,
+		"**/bin": true,
+		"**/lib": true
+	},
+	
+	// Editor settings for this project
+	"editor.formatOnSave": false,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": true,
+	"editor.detectIndentation": true,
+	
+	// Terminal settings
+	"terminal.integrated.env.osx": {
+		"COCOS2DX_ROOT": "${workspaceFolder}",
+		"COCOS_CONSOLE_ROOT": "${workspaceFolder}/tools/cocos2d-console/bin"
+	}
+}
+

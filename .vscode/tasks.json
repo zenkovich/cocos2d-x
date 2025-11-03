@@ -1,0 +1,250 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "CMake: Configure",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"-B",
+				"${workspaceFolder}/build",
+				"-S",
+				"${workspaceFolder}",
+				"-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+				"-DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON",
+				"-DCMAKE_OSX_ARCHITECTURES=x86_64"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"problemMatcher": [],
+			"detail": "Configure CMake project for x86_64 (Rosetta 2)"
+		},
+		{
+			"label": "CMake: Build All",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"-j",
+				"8"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build all targets"
+		},
+		{
+			"label": "CMake: Build cpp-tests",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cpp-tests",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build cpp-tests target"
+		},
+		{
+			"label": "CMake: Build cpp-empty-test",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cpp-empty-test",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build cpp-empty-test target"
+		},
+		{
+			"label": "CMake: Build HelloCpp",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"HelloCpp",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build HelloCpp template"
+		},
+		{
+			"label": "CMake: Build cocos2d",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cocos2d",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build cocos2d library only"
+		},
+		{
+			"label": "CMake: Clean",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"clean"
+			],
+			"problemMatcher": [],
+			"detail": "Clean build artifacts"
+		},
+		{
+			"label": "CMake: Clean and Reconfigure",
+			"type": "shell",
+			"command": "rm -rf ${workspaceFolder}/build && mkdir ${workspaceFolder}/build && cmake -B ${workspaceFolder}/build -S ${workspaceFolder}",
+			"problemMatcher": [],
+			"detail": "Remove build directory and reconfigure"
+		},
+		{
+			"label": "CMake: Build o2Framework",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"o2Framework",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build o2Framework library"
+		},
+		{
+			"label": "CMake: Build o2Editor",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"o2Editor",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build o2Editor library"
+		},
+		{
+			"label": "CMake: Build cpp-tests-lib",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cpp-tests-lib",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build cpp-tests library with o2 integration"
+		},
+		{
+			"label": "CMake: Build cpp-tests-Editor",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cpp-tests-Editor",
+				"-j",
+				"8"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Build cpp-tests-Editor executable"
+		},
+		{
+			"label": "CMake: Run cpp-tests-Codegen",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cpp-tests-Codegen"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "Run code generation for cpp-tests"
+		},
+		{
+			"label": "CMake: Run cpp-tests-EditorLibCodegen",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cpp-tests-EditorLibCodegen"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "Run code generation for cpp-tests-EditorLib"
+		},
+		{
+			"label": "CMake: Build cpp-tests Editor Assets",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"cpp-tests-BuildEditorAssets"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "Build cpp-tests editor assets (o2 Editor Assets only)"
+		}
+	]
+}

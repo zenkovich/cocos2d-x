@@ -2720,3 +2720,14 @@ std::string Issue16155Test::subtitle() const
 {
     return "Should not leak texture. See console";
 }
+// --- META ---
+
+ENUM_META(Sprite3DFakeShadowTest::State)
+{
+    ENUM_ENTRY(State_Idle);
+    ENUM_ENTRY(State_Move);
+    ENUM_ENTRY(State_None);
+    ENUM_ENTRY(State_Rotate);
+}
+END_ENUM_META;
+// --- END META ---

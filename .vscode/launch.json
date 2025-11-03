@@ -1,0 +1,92 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug cpp-tests",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/bin/cpp-tests/cpp-tests.app/Contents/MacOS/cpp-tests",
+			"args": [],
+			"cwd": "${workspaceFolder}/build/bin/cpp-tests/cpp-tests.app/Contents/MacOS",
+			"preLaunchTask": "CMake: Build cpp-tests",
+			"stopAtEntry": false,
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb"
+		},
+		{
+			"name": "Run cpp-tests (No Debug)",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/bin/cpp-tests/cpp-tests.app/Contents/MacOS/cpp-tests",
+			"args": [],
+			"cwd": "${workspaceFolder}/build/bin/cpp-tests/cpp-tests.app/Contents/MacOS",
+			"preLaunchTask": "CMake: Build cpp-tests",
+			"stopAtEntry": false,
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb",
+			"noDebug": true
+		},
+		{
+			"name": "Debug cpp-empty-test",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/bin/cpp-empty-test/cpp-empty-test.app/Contents/MacOS/cpp-empty-test",
+			"args": [],
+			"cwd": "${workspaceFolder}/build/bin/cpp-empty-test/cpp-empty-test.app/Contents/MacOS",
+			"preLaunchTask": "CMake: Build cpp-empty-test",
+			"stopAtEntry": false,
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb"
+		},
+		{
+			"name": "Debug HelloCpp",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/bin/HelloCpp/HelloCpp.app/Contents/MacOS/HelloCpp",
+			"args": [],
+			"cwd": "${workspaceFolder}/build/bin/HelloCpp/HelloCpp.app/Contents/MacOS",
+			"preLaunchTask": "CMake: Build HelloCpp",
+			"stopAtEntry": false,
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb"
+		},
+		{
+			"name": "Debug cpp-tests-Editor",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/bin/cpp-tests-Editor/cpp-tests-Editor.app/Contents/MacOS/cpp-tests-Editor",
+			"args": [],
+			"cwd": "${workspaceFolder}/build/bin/cpp-tests-Editor/cpp-tests-Editor.app/Contents/MacOS",
+			"preLaunchTask": "CMake: Build cpp-tests-Editor",
+			"stopAtEntry": false,
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb"
+		},
+		{
+			"name": "Run cpp-tests-Editor (No Debug)",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/bin/cpp-tests-Editor/cpp-tests-Editor.app/Contents/MacOS/cpp-tests-Editor",
+			"args": [],
+			"cwd": "${workspaceFolder}/build/bin/cpp-tests-Editor/cpp-tests-Editor.app/Contents/MacOS",
+			"preLaunchTask": "CMake: Build cpp-tests-Editor",
+			"stopAtEntry": false,
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb",
+			"noDebug": true
+		},
+		{
+			"name": "Attach to Process",
+			"type": "lldb",
+			"request": "attach",
+			"pid": "${command:pickProcess}"
+		}
+	]
+}
+

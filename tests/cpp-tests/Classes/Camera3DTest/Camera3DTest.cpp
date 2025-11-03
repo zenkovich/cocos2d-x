@@ -1565,3 +1565,33 @@ void BackgroundColorBrushTest::onEnter()
         model->runAction(RepeatForever::create(RotateBy::create(1.f, Vec3(10.0f, 20.0f, 30.0f))));
     }
 }
+// --- META ---
+
+ENUM_META(State)
+{
+    ENUM_ENTRY(State_Attack);
+    ENUM_ENTRY(State_Idle);
+    ENUM_ENTRY(State_MeleeAttack);
+    ENUM_ENTRY(State_Move);
+    ENUM_ENTRY(State_None);
+    ENUM_ENTRY(State_RemoteAttack);
+    ENUM_ENTRY(State_Rotate);
+    ENUM_ENTRY(State_Speak);
+}
+END_ENUM_META;
+
+ENUM_META(CameraType)
+{
+    ENUM_ENTRY(FirstPerson);
+    ENUM_ENTRY(Free);
+    ENUM_ENTRY(ThirdPerson);
+}
+END_ENUM_META;
+
+ENUM_META(OperateCamType)
+{
+    ENUM_ENTRY(MoveCamera);
+    ENUM_ENTRY(RotateCamera);
+}
+END_ENUM_META;
+// --- END META ---

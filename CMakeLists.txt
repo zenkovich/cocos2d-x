@@ -28,7 +28,11 @@
 
 cmake_minimum_required(VERSION 3.6)
 
-project(Cocos2d-x)
+if(APPLE)
+    project(Cocos2d-x LANGUAGES C CXX OBJC OBJCXX)
+else()
+    project(Cocos2d-x LANGUAGES C CXX)
+endif()
 
 # set default minimum deployment target
 if(XCODE)
@@ -47,7 +51,26 @@ include(PreventInSourceBuilds)
 # works before build libcocos2d
 include(CocosBuildSet)
 
-set(BUILD_LUA_LIBS ON) 
+set(BUILD_LUA_LIBS ON)
+
+# Common definitions
+set(CMAKE_CXX_STANDARD 20)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+# o2 libraries
+add_subdirectory(o2)
+
+set(BIN_OUTPUTDIR "${CMAKE_CURRENT_SOURCE_DIR}/Bin/${O2_PLATFORM}")
+
+function(set_target_output_directories TARGET_NAME)
+    set_target_properties(${TARGET_NAME} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${BIN_OUTPUTDIR}
+        RUNTIME_OUTPUT_DIRECTORY_DEBUG ${BIN_OUTPUTDIR}
+        RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL ${BIN_OUTPUTDIR}
+        RUNTIME_OUTPUT_DIRECTORY_RELEASE ${BIN_OUTPUTDIR}
+        RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${BIN_OUTPUTDIR}
+    )
+endfunction()
 
 add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos ${ENGINE_BINARY_PATH}/cocos/core)
 

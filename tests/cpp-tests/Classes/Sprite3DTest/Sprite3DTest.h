@@ -614,3 +614,7 @@ public:
     virtual std::string title() const override;
     virtual std::string subtitle() const override;
 };
+// --- META ---
+
+PRE_ENUM_META(Sprite3DFakeShadowTest::State);
+// --- END META ---
