@@ -27,7 +27,6 @@
 #include "MaterialSystemTest.h"
 
 #include <ctime>
-#include <spine/spine-cocos2dx.h>
 
 #include "../testResource.h"
 #include "cocos2d.h"

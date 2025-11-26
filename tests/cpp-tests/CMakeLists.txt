@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.6)
 set(APP_NAME cpp-tests)
 
 project(${APP_NAME})
+set(CMAKE_CXX_STANDARD 20)
+
+set(BUILD_EDITOR_SPINE OFF CACHE BOOL "Disable spine editor" FORCE)
 
 if(XCODE)
     if(NOT DEFINED CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET)
@@ -156,7 +159,6 @@ list(APPEND GAME_HEADER
      Classes/SceneTest/SceneTest.h
      Classes/ReleasePoolTest/ReleasePoolTest.h
      Classes/InputTest/MouseTest.h
-     Classes/SpineTest/SpineTest.h
     #  Classes/Scene3DTest/Scene3DTest.h
      Classes/ParticleTest/ParticleTest.h
      Classes/EffectsTest/EffectsTest.h
@@ -284,7 +286,6 @@ list(APPEND GAME_SOURCE
      Classes/SchedulerTest/SchedulerTest.cpp
      Classes/ShaderTest/ShaderTest.cpp
      Classes/ShaderTest/ShaderTest2.cpp
-     Classes/SpineTest/SpineTest.cpp
     #  Classes/Scene3DTest/Scene3DTest.cpp
      Classes/Sprite3DTest/DrawNode3D.cpp
      Classes/Sprite3DTest/Sprite3DTest.cpp
@@ -394,7 +395,7 @@ else()
     target_link_libraries(${APP_NAME} -Wl,--whole-archive cpp_android_spec -Wl,--no-whole-archive)
 endif()
 
-target_link_libraries(${APP_NAME} cocos2d)
+target_link_libraries(${APP_NAME} PUBLIC o2Framework cocos2d)
 target_include_directories(${APP_NAME}
         PRIVATE Classes
 )
