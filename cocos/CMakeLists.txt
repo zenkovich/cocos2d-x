@@ -31,6 +31,8 @@
 # The version number
 set(COCOS2D_X_VERSION 4.0)
 
+set(CMAKE_CXX_STANDARD 20)
+
 set(COCOS_CORE_LIB cocos2d)
 project(cocos2d_libs)
 
@@ -111,7 +113,7 @@ add_library(cocos2d ${COCOS_SRC})
 
 # use external libs
 add_subdirectory(${COCOS2DX_ROOT_PATH}/external ${ENGINE_BINARY_PATH}/external)
-target_link_libraries(cocos2d external)
+target_link_libraries(cocos2d external o2Framework)
 
 # add base macro define and compile options
 use_cocos2dx_compile_define(cocos2d)
@@ -148,11 +150,12 @@ if(XCODE OR VS)
     cocos_mark_code_files("cocos2d")
 endif()
 
-if(${CMAKE_VERSION} VERSION_GREATER "3.16.0")
-    message("CMake 3.16 target_precompile_headers")
-    target_precompile_headers(cocos2d PRIVATE 
-       "$<$<COMPILE_LANGUAGE:CXX>:cocos2d.h>")
-endif()
+# Precompiled headers disabled due to compatibility issues with mixed C/C++ projects
+# PCH generation was causing "STL1003: Unexpected compiler" errors on cmake_pch.c
+#if(${CMAKE_VERSION} VERSION_GREATER "3.16.0")
+#    message("CMake 3.16 target_precompile_headers")
+#    target_precompile_headers(cocos2d PRIVATE cocos2d.h)
+#endif()
 
 #if(XCODE)
 #    # Later versions of Xcode clang want to compile C++17 with aligned allocation turned on and this is only supported on iOS 11.0+

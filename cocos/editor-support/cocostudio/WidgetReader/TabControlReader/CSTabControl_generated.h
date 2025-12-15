@@ -28,11 +28,11 @@
 #define FLATBUFFERS_GENERATED_CSTABCONTROL_FLATBUFFERS_H_
 
 #include "flatbuffers/flatbuffers.h"
+#include "../../CSParseBinary_generated.h"
 
 
 namespace flatbuffers {
 
-struct WidgetOptions;
 struct PanelOptions;
 struct Color;
 struct TabControlOption;

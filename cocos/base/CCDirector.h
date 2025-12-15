@@ -37,6 +37,7 @@ THE SOFTWARE.
 #include "2d/CCScene.h"
 #include "math/CCMath.h"
 #include "platform/CCGLView.h"
+#include "o2/Integration.h"
 
 NS_CC_BEGIN
 
@@ -88,7 +89,7 @@ enum class MATRIX_STACK_TYPE
  Since the Director is a singleton, the standard way to use it is by calling:
  _ Director::getInstance()->methodName();
  */
-class CC_DLL Director : public Ref
+class CC_DLL Director : public Ref, public o2::Integration
 {
 public:
     /** Director will trigger an event before set next scene. */

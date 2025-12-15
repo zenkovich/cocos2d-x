@@ -34,7 +34,6 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 class ProgressTimer;
-class RenderTexture;
 
 /**
  * @addtogroup _2d

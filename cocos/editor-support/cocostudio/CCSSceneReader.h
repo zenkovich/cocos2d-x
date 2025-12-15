@@ -31,6 +31,8 @@ THE SOFTWARE.
 
 namespace cocostudio {
 
+class CocoLoader;
+struct stExpCocoNode;
 
 class CC_STUDIO_DLL SceneReader
 {

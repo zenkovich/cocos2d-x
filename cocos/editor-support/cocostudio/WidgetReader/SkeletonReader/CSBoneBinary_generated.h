@@ -28,12 +28,12 @@
 #define FLATBUFFERS_GENERATED_CSBONEBINARY_FLATBUFFERS_H_
 
 #include "flatbuffers/flatbuffers.h"
+#include "../../CSParseBinary_generated.h"
 
 namespace flatbuffers {
 struct CSParseBinary;
 struct NodeTree;
 struct Options;
-struct WidgetOptions;
 struct LayoutComponentTable;
 struct SingleNodeOptions;
 struct SpriteOptions;

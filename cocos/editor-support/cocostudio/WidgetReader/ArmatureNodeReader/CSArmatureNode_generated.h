@@ -28,6 +28,7 @@
 #define FLATBUFFERS_GENERATED_CSARMATURENODE_FLATBUFFERS_H_
 
 #include "flatbuffers/flatbuffers.h"
+#include "../../CSParseBinary_generated.h"
 
 
 namespace flatbuffers {

@@ -151,7 +151,9 @@ bool Director::init()
     initTextureCache();
     initMatrixStack();
 
-    _renderer = new (std::nothrow) Renderer;
+	_renderer = new (std::nothrow) Renderer;
+
+	//o2::Integration::Initialize();
 
     return true;
 }

@@ -25,6 +25,8 @@
 #include "main.h"
 #include "AppDelegate.h"
 
+#include "o2/O2.h"
+
 USING_NS_CC;
 
 int WINAPI _tWinMain(HINSTANCE hInstance,
@@ -34,6 +36,9 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+
+
+	INITIALIZE_O2;
 
     // create the application instance
     AppDelegate app;
