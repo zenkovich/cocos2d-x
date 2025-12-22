@@ -184,3 +184,4 @@ temp/
 **/simulator/
 build
 BuiltAssets
+CMakeSettings.json

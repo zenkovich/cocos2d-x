@@ -89,8 +89,10 @@ enum class MATRIX_STACK_TYPE
  Since the Director is a singleton, the standard way to use it is by calling:
  _ Director::getInstance()->methodName();
  */
-class CC_DLL Director : public Ref, public o2::Integration
+class CC_DLL Director : public Ref
 {
+public:
+
 public:
     /** Director will trigger an event before set next scene. */
     static const char* EVENT_BEFORE_SET_NEXT_SCENE;
@@ -539,6 +541,36 @@ protected:
     void destroyTextureCache();
 
     void initMatrixStack();
+
+	struct Integration : public o2::Integration
+	{
+    public:
+        Integration(o2::RefCounter* refCounter, Director* director);
+
+        void InitializeBeforeRender();
+        void InitializeAfterRender();
+
+		void ProcessFrame();
+
+        o2::Vec2I GetContentSize() const;
+		float GetGraphicsScale() const;
+
+        using o2::Integration::CalculateAndSyncFPS;
+		using o2::Integration::PreUpdateFrame;
+		using o2::Integration::MainUpdateFrame;
+		using o2::Integration::UpdateFrameFixed;
+		using o2::Integration::PreDrawFrame;
+		using o2::Integration::DrawFrame;
+		using o2::Integration::PostDrawFrame;
+        using o2::Integration::PostUpdateFrame;
+
+        void OnDraw() override;
+
+    private:
+		Director* mDirector = nullptr;
+	};
+
+    o2::Ref<Integration> mIntegration;
 
     std::stack<Mat4> _modelViewMatrixStack;
     std::stack<Mat4> _textureMatrixStack;

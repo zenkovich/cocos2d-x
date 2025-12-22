@@ -30,6 +30,10 @@
 // #include "editor-support/cocostudio/CocoStudio.h"
 #include "extensions/cocos-ext.h"
 
+#include "o2/Scene/CameraActor.h"
+#include "o2/Scene/UI/UIManager.h"
+#include "o2/Utils/Debug/Debug.h"
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate()
@@ -105,6 +109,11 @@ bool AppDelegate::applicationDidFinishLaunching()
     console->listenOnTCP(5678);
 
     _testController = TestController::getInstance();
+
+    auto camera = mmake<o2::CameraActor>();
+    camera->fillBackground = false;
+
+    auto button = o2UI.CreateButton("Hello", []() { o2Debug.DrawCircle(o2::Vec2F(), 10, 1); });
 
     return true;
 }

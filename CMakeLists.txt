@@ -49,6 +49,10 @@ include(PreventInSourceBuilds)
 # works before build libcocos2d
 include(CocosBuildSet)
 
+# add o2 with options
+set(O2_PLATFORM_INITIALIZATION_ENABLED OFF CACHE BOOL "Enables platform initialization" FORCE)
+set(O2_ENABLE_LINK_ZLIB OFF CACHE BOOL "Enables linking zlib library" FORCE)
+set(O2_ENABLE_LINK_LIBPNG OFF CACHE BOOL "Enables linking libpng library" FORCE)
 add_subdirectory(${COCOS2DX_ROOT_PATH}/o2)
 
 set(BUILD_LUA_LIBS ON) 

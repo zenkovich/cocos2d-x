@@ -65,6 +65,9 @@ THE SOFTWARE.
 #include "base/CCScriptSupport.h"
 #endif
 
+#include "o2/Render/Render.h"
+#include "o2/Render/Sprite.h"
+
 /**
  Position of the FPS
  
@@ -153,7 +156,8 @@ bool Director::init()
 
 	_renderer = new (std::nothrow) Renderer;
 
-	//o2::Integration::Initialize();
+    mIntegration = mmake<Integration>(this);
+    mIntegration->InitializeBeforeRender();
 
     return true;
 }
@@ -249,7 +253,10 @@ void Director::setGLDefaultValues()
 // Draw the Scene
 void Director::drawScene()
 {
-    _renderer->beginFrame();
+	_renderer->beginFrame();
+
+	float dt = 0, realDt = 0;
+	mIntegration->CalculateAndSyncFPS(dt, realDt);
 
     // calculate "global" dt
     calculateDeltaTime();
@@ -262,7 +269,12 @@ void Director::drawScene()
     //tick before glClear: issue #533
     if (! _paused)
     {
-        _eventDispatcher->dispatchEvent(_eventBeforeUpdate);
+		_eventDispatcher->dispatchEvent(_eventBeforeUpdate);
+
+		mIntegration->PreUpdateFrame(dt, realDt);
+		mIntegration->MainUpdateFrame(dt);
+		mIntegration->UpdateFrameFixed(dt);
+
         _scheduler->update(_deltaTime);
         _eventDispatcher->dispatchEvent(_eventAfterUpdate);
     }
@@ -294,7 +306,12 @@ void Director::drawScene()
             _openGLView->renderScene(_runningScene, _renderer);
         
         _eventDispatcher->dispatchEvent(_eventAfterVisit);
-    }
+	}
+
+    o2Render.ResetState();
+	mIntegration->PreDrawFrame();
+	mIntegration->DrawFrame();
+	mIntegration->PostDrawFrame();
 
     // draw the notifications node
     if (_notificationNode)
@@ -325,7 +342,9 @@ void Director::drawScene()
         _openGLView->swapBuffers();
     }
     
-    _renderer->endFrame();
+	_renderer->endFrame();
+
+	mIntegration->PostUpdateFrame(dt);
 
     if (_displayStats)
     {
@@ -400,7 +419,9 @@ void Director::setOpenGLView(GLView *openGLView)
         if (_eventDispatcher)
         {
             _eventDispatcher->setEnabled(true);
-        }
+		}
+
+		mIntegration->InitializeAfterRender();
     }
 }
 
@@ -1423,6 +1444,53 @@ void Director::setAnimationInterval(float interval, SetIntervalReason reason)
         stopAnimation();
         startAnimation(reason);
     }
+}
+
+Director::Integration::Integration(o2::RefCounter* refCounter, Director* director):
+	o2::Integration(refCounter), mDirector(director)
+{}
+
+void Director::Integration::InitializeBeforeRender()
+{
+	o2::Integration::InitalizeSystems();
+	o2::Integration::InitializePlatform();
+}
+
+void Director::Integration::InitializeAfterRender()
+{
+	o2::Integration::InitiazeRender();
+	o2::Integration::InitilizeUIStyles();
+
+	o2::Integration::mReady = true;
+}
+
+void Director::Integration::ProcessFrame()
+{
+    o2::Integration::ProcessFrame();
+}
+
+o2::Vec2I Director::Integration::GetContentSize() const
+{
+    auto size = mDirector->_openGLView->getFrameSize();
+	return o2::Vec2I((int)size.width, (int)size.height);
+}
+
+float Director::Integration::GetGraphicsScale() const
+{
+	return 1.0f;
+}
+
+void Director::Integration::OnDraw()
+{
+    static float angle = 0.0f;
+
+    o2::Sprite sprt;
+    sprt.SetSize(o2::Vec2F(10000, 10));
+
+    sprt.SetAngleDegrees(angle);
+	angle += 1.0f;
+
+    sprt.Draw();
 }
 
 NS_CC_END
