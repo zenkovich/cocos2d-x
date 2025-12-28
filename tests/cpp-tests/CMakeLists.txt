@@ -431,3 +431,31 @@ if(${CMAKE_VERSION} VERSION_GREATER "3.16.0")
     target_precompile_headers(${APP_NAME} PRIVATE 
        "$<$<COMPILE_LANGUAGE:CXX>:precheader.h>")
 endif()
+
+# Assets builder
+add_executable(AssetsBuilder)
+target_sources(AssetsBuilder PRIVATE ${COCOS2DX_ROOT_PATH}/o2/AssetsBuildTool/Sources/o2AssetBuilder/AssetsBuilderRunner.cpp)
+target_link_libraries(AssetsBuilder PUBLIC o2AssetsBuilder cocos2d)
+cocos_copy_target_dll(AssetsBuilder)
+
+# Editor App
+if(O2_EDITOR)
+    # build editor assets
+    add_custom_target(BuildEditorAssets
+        COMMAND ${BIN_OUTPUTDIR}AssetsBuilder -platform ${O2_PLATFORM} -source "${COCOS2DX_ROOT_PATH}/o2/Editor/Assets/" -target "${COCOS2DX_ROOT_PATH}/BuiltAssets/${O2_PLATFORM}/EditorData/" -target-tree "${COCOS2DX_ROOT_PATH}/BuiltAssets/${O2_PLATFORM}/EditorData.json" -compressor-config "${COCOS2DX_ROOT_PATH}/o2/CompressToolsConfig.json"
+        COMMENT "Build o2 editor assets: -platform ${O2_PLATFORM} -source \"${COCOS2DX_ROOT_PATH}/o2/Editor/Assets/\" -target \"${COCOS2DX_ROOT_PATH}/BuiltAssets/${O2_PLATFORM}/EditorData/\" -target-tree \"${COCOS2DX_ROOT_PATH}/BuiltAssets/${O2_PLATFORM}/EditorData.json\" -compressor-config \"${COCOS2DX_ROOT_PATH}/o2/CompressToolsConfig.json\"\n"
+    )
+
+    add_dependencies(BuildEditorAssets o2AssetsBuilder AssetsBuilder)
+
+    # Editor executable
+    add_executable(Editor)
+
+    if (WIN32 OR UNIX)
+        target_sources(Editor PRIVATE "EditorMain.cpp")
+    endif()
+
+    target_link_libraries(Editor PUBLIC o2Editor cocos2d)  
+    add_dependencies(Editor o2Editor cocos2d BuildEditorAssets)
+    cocos_copy_target_dll(Editor)
+endif() 

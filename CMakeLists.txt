@@ -49,13 +49,15 @@ include(PreventInSourceBuilds)
 # works before build libcocos2d
 include(CocosBuildSet)
 
+# external libs (needed early so submodules like o2 can link against ext_* targets)
+set(BUILD_LUA_LIBS ON)
+add_subdirectory(${COCOS2DX_ROOT_PATH}/external ${ENGINE_BINARY_PATH}/external)
+
 # add o2 with options
 set(O2_PLATFORM_INITIALIZATION_ENABLED OFF CACHE BOOL "Enables platform initialization" FORCE)
 set(O2_ENABLE_LINK_ZLIB OFF CACHE BOOL "Enables linking zlib library" FORCE)
 set(O2_ENABLE_LINK_LIBPNG OFF CACHE BOOL "Enables linking libpng library" FORCE)
 add_subdirectory(${COCOS2DX_ROOT_PATH}/o2)
-
-set(BUILD_LUA_LIBS ON) 
 
 add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos ${ENGINE_BINARY_PATH}/cocos/core)
 

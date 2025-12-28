@@ -1,0 +1,29 @@
+#include "o2/stdafx.h"
+#include "o2/O2.h"
+#include "o2/Utils/Memory/MemoryAnalyzer.h"
+#include "o2Editor/EditorApplication.h"
+#include "o2Editor/EditorConfig.h"
+#include "o2Editor/ToolsPanel.h"
+#include "o2Editor/Windows/WindowsManager.h"
+
+using namespace o2;
+
+DECLARE_SINGLETON(Editor::WindowsManager);
+DECLARE_SINGLETON(Editor::EditorConfig);
+DECLARE_SINGLETON(Editor::ToolsPanel);
+
+extern void InitializeTypeso2Editor();
+
+int main()
+{
+    o2::MemoryAnalyzer::enabledObjectsTracking = false;
+    InitializeTypeso2Editor();
+	INITIALIZE_O2;
+    o2::MemoryAnalyzer::enabledObjectsTracking = true;
+
+	auto app = mmake<Editor::EditorApplication>();
+    app->Initialize();
+    app->Launch();
+
+	return 0;
+}

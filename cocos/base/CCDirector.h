@@ -555,6 +555,9 @@ protected:
         o2::Vec2I GetContentSize() const;
 		float GetGraphicsScale() const;
 
+		// Returns is platform-specific initialization needed
+		bool IsNeedPlatformInitialization() const override { return false; }
+
         using o2::Integration::CalculateAndSyncFPS;
 		using o2::Integration::PreUpdateFrame;
 		using o2::Integration::MainUpdateFrame;
