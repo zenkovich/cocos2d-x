@@ -59,6 +59,7 @@ class EventListenerCustom;
 class TextureCache;
 class Renderer;
 class Camera;
+class O2Integration;
 
 class Console;
 
@@ -542,38 +543,9 @@ protected:
 
     void initMatrixStack();
 
-	struct Integration : public o2::Integration
-	{
-    public:
-        Integration(o2::RefCounter* refCounter, Director* director);
+    friend class O2Integration;
 
-        void InitializeBeforeRender();
-        void InitializeAfterRender();
-
-		void ProcessFrame();
-
-        o2::Vec2I GetContentSize() const;
-		float GetGraphicsScale() const;
-
-		// Returns is platform-specific initialization needed
-		bool IsNeedPlatformInitialization() const override { return false; }
-
-        using o2::Integration::CalculateAndSyncFPS;
-		using o2::Integration::PreUpdateFrame;
-		using o2::Integration::MainUpdateFrame;
-		using o2::Integration::UpdateFrameFixed;
-		using o2::Integration::PreDrawFrame;
-		using o2::Integration::DrawFrame;
-		using o2::Integration::PostDrawFrame;
-        using o2::Integration::PostUpdateFrame;
-
-        void OnDraw() override;
-
-    private:
-		Director* mDirector = nullptr;
-	};
-
-    o2::Ref<Integration> mIntegration;
+    o2::Ref<O2Integration> mIntegration;
 
     std::stack<Mat4> _modelViewMatrixStack;
     std::stack<Mat4> _textureMatrixStack;

@@ -28,6 +28,7 @@ THE SOFTWARE.
 
 // cocos2d includes
 #include "base/CCDirector.h"
+#include "base/CCO2Integration.h"
 
 // standard includes
 #include <string>
@@ -66,7 +67,6 @@ THE SOFTWARE.
 #endif
 
 #include "o2/Render/Render.h"
-#include "o2/Render/Sprite.h"
 
 /**
  Position of the FPS
@@ -156,7 +156,7 @@ bool Director::init()
 
 	_renderer = new (std::nothrow) Renderer;
 
-    mIntegration = mmake<Integration>(this);
+    mIntegration = mmake<O2Integration>(this);
     mIntegration->InitializeBeforeRender();
 
     return true;
@@ -1444,53 +1444,6 @@ void Director::setAnimationInterval(float interval, SetIntervalReason reason)
         stopAnimation();
         startAnimation(reason);
     }
-}
-
-Director::Integration::Integration(o2::RefCounter* refCounter, Director* director):
-	o2::Integration(refCounter), mDirector(director)
-{}
-
-void Director::Integration::InitializeBeforeRender()
-{
-	o2::Integration::InitalizeSystems();
-	o2::Integration::InitializePlatform();
-}
-
-void Director::Integration::InitializeAfterRender()
-{
-	o2::Integration::InitiazeRender();
-	o2::Integration::InitilizeUIStyles();
-
-	o2::Integration::mReady = true;
-}
-
-void Director::Integration::ProcessFrame()
-{
-    o2::Integration::ProcessFrame();
-}
-
-o2::Vec2I Director::Integration::GetContentSize() const
-{
-    auto size = mDirector->_openGLView->getFrameSize();
-	return o2::Vec2I((int)size.width, (int)size.height);
-}
-
-float Director::Integration::GetGraphicsScale() const
-{
-	return 1.0f;
-}
-
-void Director::Integration::OnDraw()
-{
-    static float angle = 0.0f;
-
-    o2::Sprite sprt;
-    sprt.SetSize(o2::Vec2F(10000, 10));
-
-    sprt.SetAngleDegrees(angle);
-	angle += 1.0f;
-
-    sprt.Draw();
 }
 
 NS_CC_END
