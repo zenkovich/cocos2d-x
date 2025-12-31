@@ -28,7 +28,7 @@ THE SOFTWARE.
 
 // cocos2d includes
 #include "base/CCDirector.h"
-#include "base/CCO2Integration.h"
+#include "base/o2Integration/CCO2Integration.h"
 
 // standard includes
 #include <string>
@@ -156,7 +156,7 @@ bool Director::init()
 
 	_renderer = new (std::nothrow) Renderer;
 
-    mIntegration = mmake<O2Integration>(this);
+    mIntegration = mmake<::O2Integration>(this);
     mIntegration->InitializeBeforeRender();
 
     return true;

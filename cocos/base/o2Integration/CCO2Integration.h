@@ -4,13 +4,13 @@
 #include "o2/Integration.h"
 
 NS_CC_BEGIN
-
 class Director;
+NS_CC_END
 
 class O2Integration : public o2::Integration
 {
 public:
-    O2Integration(o2::RefCounter* refCounter, Director* director);
+    O2Integration(o2::RefCounter* refCounter, cocos2d::Director* director);
 
     void InitializeBeforeRender();
     void InitializeAfterRender();
@@ -35,10 +35,6 @@ public:
     void OnDraw() override;
 
 private:
-    Director* mDirector = nullptr;
+    cocos2d::Director* mDirector = nullptr;
 };
-
-NS_CC_END
-
-
 

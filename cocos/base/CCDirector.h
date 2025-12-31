@@ -38,6 +38,7 @@ THE SOFTWARE.
 #include "math/CCMath.h"
 #include "platform/CCGLView.h"
 #include "o2/Integration.h"
+#include "o2Integration/CCO2Integration.h"
 
 NS_CC_BEGIN
 
@@ -543,9 +544,7 @@ protected:
 
     void initMatrixStack();
 
-    friend class O2Integration;
-
-    o2::Ref<O2Integration> mIntegration;
+    o2::Ref<::O2Integration> mIntegration;
 
     std::stack<Mat4> _modelViewMatrixStack;
     std::stack<Mat4> _textureMatrixStack;
