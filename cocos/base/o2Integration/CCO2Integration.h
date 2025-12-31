@@ -37,4 +37,3 @@ public:
 private:
     cocos2d::Director* mDirector = nullptr;
 };
-

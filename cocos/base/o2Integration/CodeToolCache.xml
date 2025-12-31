@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<files>
+	<file path="C:/work/cocos2d-x/cocos/base/o2Integration\CCO2Actor.h">
+		<date year="126" month="0" day="1" hour="0" minute="29" second="25" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="O2CocosActor" fullname="O2CocosActor" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="o2::Actor" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos/base/o2Integration\CCO2Integration.h">
+		<date year="125" month="11" day="31" hour="14" minute="8" second="20" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+</files>
+<parentProjects>
+	<project path="C:/work/cocos2d-x/o2/Framework/Sources/o2/CodeToolCache.xml" />
+</parentProjects>

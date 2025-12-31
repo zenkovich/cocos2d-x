@@ -29,6 +29,8 @@
 
 USING_NS_CC;
 
+extern void InitializeTypeso2Integration();
+
 int WINAPI _tWinMain(HINSTANCE hInstance,
 					   HINSTANCE hPrevInstance,
                        LPTSTR    lpCmdLine,
@@ -39,6 +41,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
 
 
 	INITIALIZE_O2;
+    InitializeTypeso2Integration();
 
     // create the application instance
     AppDelegate app;

@@ -13,11 +13,13 @@ DECLARE_SINGLETON(Editor::EditorConfig);
 DECLARE_SINGLETON(Editor::ToolsPanel);
 
 extern void InitializeTypeso2Editor();
+extern void InitializeTypeso2Integration();
 
 int main()
 {
     o2::MemoryAnalyzer::enabledObjectsTracking = false;
     InitializeTypeso2Editor();
+    InitializeTypeso2Integration();
 	INITIALIZE_O2;
     o2::MemoryAnalyzer::enabledObjectsTracking = true;
 

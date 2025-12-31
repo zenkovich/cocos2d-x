@@ -110,6 +110,7 @@ set(COCOS_SRC cocos2d.cpp
 list(APPEND COCOS_SRC ${COCOS_HEADER})
 
 add_library(cocos2d ${COCOS_SRC})
+add_dependencies(cocos2d o2IntegrationCodegen)
 
 # use external libs
 if(NOT TARGET external)
