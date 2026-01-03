@@ -113,8 +113,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto camera = mmake<o2::CameraActor>();
     camera->fillBackground = false;
 
-    auto button = o2UI.CreateButton("Hello", []() { o2Debug.DrawCircle(o2::Vec2F(), 10, 1); });
-
     return true;
 }
 

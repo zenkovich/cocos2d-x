@@ -452,7 +452,11 @@ if(O2_EDITOR)
     add_executable(Editor)
 
     if (WIN32 OR UNIX)
-        target_sources(Editor PRIVATE "EditorMain.cpp")
+        target_sources(Editor PRIVATE 
+            "EditorMain.cpp"
+            "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.h"
+            "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.cpp"
+        )
     endif()
 
     target_link_libraries(Editor PUBLIC o2Editor cocos2d)  

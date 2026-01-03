@@ -156,8 +156,11 @@ bool Director::init()
 
 	_renderer = new (std::nothrow) Renderer;
 
-    mIntegration = mmake<::O2Integration>(this);
-    mIntegration->InitializeBeforeRender();
+    if (initializeO2Integration)
+    {
+        mIntegration = mmake<::O2Integration>(this);
+        mIntegration->InitializeBeforeRender();
+    }
 
     return true;
 }
@@ -421,7 +424,8 @@ void Director::setOpenGLView(GLView *openGLView)
             _eventDispatcher->setEnabled(true);
 		}
 
-		mIntegration->InitializeAfterRender();
+		if (initializeO2Integration)
+		    mIntegration->InitializeAfterRender();
     }
 }
 
@@ -1445,6 +1449,8 @@ void Director::setAnimationInterval(float interval, SetIntervalReason reason)
         startAnimation(reason);
     }
 }
+
+bool Director::initializeO2Integration = true;
 
 NS_CC_END
 

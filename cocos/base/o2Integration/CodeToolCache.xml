@@ -1,7 +1,29 @@
 <?xml version="1.0"?>
 <files>
+	<file path="C:/work/cocos2d-x/cocos/base/o2Integration\CCEditorApplication.h">
+		<date year="126" month="0" day="2" hour="22" minute="58" second="55" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="CocosEditorApplication" fullname="CocosEditorApplication" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Editor::EditorApplication" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
 	<file path="C:/work/cocos2d-x/cocos/base/o2Integration\CCO2Actor.h">
-		<date year="126" month="0" day="1" hour="0" minute="29" second="25" />
+		<date year="126" month="0" day="1" hour="19" minute="46" second="7" />
 		<globalNamespace name="" fullname="">
 			<sections>
 				<section name="cocos2d" fullname="cocos2d">

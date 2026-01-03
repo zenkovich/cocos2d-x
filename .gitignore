@@ -185,3 +185,4 @@ temp/
 build
 BuiltAssets
 CMakeSettings.json
+cocos/base/o2Integration/CodeToolCache.xml

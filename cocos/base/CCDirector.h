@@ -94,6 +94,7 @@ enum class MATRIX_STACK_TYPE
 class CC_DLL Director : public Ref
 {
 public:
+    static bool initializeO2Integration;
 
 public:
     /** Director will trigger an event before set next scene. */
