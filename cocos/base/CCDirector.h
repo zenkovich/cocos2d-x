@@ -38,7 +38,6 @@ THE SOFTWARE.
 #include "math/CCMath.h"
 #include "platform/CCGLView.h"
 #include "o2/Integration.h"
-#include "o2Integration/CCO2Integration.h"
 
 NS_CC_BEGIN
 
@@ -93,9 +92,6 @@ enum class MATRIX_STACK_TYPE
  */
 class CC_DLL Director : public Ref
 {
-public:
-    static bool initializeO2Integration;
-
 public:
     /** Director will trigger an event before set next scene. */
     static const char* EVENT_BEFORE_SET_NEXT_SCENE;
@@ -544,8 +540,6 @@ protected:
     void destroyTextureCache();
 
     void initMatrixStack();
-
-    o2::Ref<::O2Integration> mIntegration;
 
     std::stack<Mat4> _modelViewMatrixStack;
     std::stack<Mat4> _textureMatrixStack;

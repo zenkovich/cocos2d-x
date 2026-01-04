@@ -66,8 +66,6 @@ THE SOFTWARE.
 #include "base/CCScriptSupport.h"
 #endif
 
-#include "o2/Render/Render.h"
-
 /**
  Position of the FPS
  
@@ -155,12 +153,6 @@ bool Director::init()
     initMatrixStack();
 
 	_renderer = new (std::nothrow) Renderer;
-
-    if (initializeO2Integration)
-    {
-        mIntegration = mmake<::O2Integration>(this);
-        mIntegration->InitializeBeforeRender();
-    }
 
     return true;
 }
@@ -258,9 +250,6 @@ void Director::drawScene()
 {
 	_renderer->beginFrame();
 
-	float dt = 0, realDt = 0;
-	mIntegration->CalculateAndSyncFPS(dt, realDt);
-
     // calculate "global" dt
     calculateDeltaTime();
     
@@ -273,10 +262,6 @@ void Director::drawScene()
     if (! _paused)
     {
 		_eventDispatcher->dispatchEvent(_eventBeforeUpdate);
-
-		mIntegration->PreUpdateFrame(dt, realDt);
-		mIntegration->MainUpdateFrame(dt);
-		mIntegration->UpdateFrameFixed(dt);
 
         _scheduler->update(_deltaTime);
         _eventDispatcher->dispatchEvent(_eventAfterUpdate);
@@ -311,11 +296,6 @@ void Director::drawScene()
         _eventDispatcher->dispatchEvent(_eventAfterVisit);
 	}
 
-    o2Render.ResetState();
-	mIntegration->PreDrawFrame();
-	mIntegration->DrawFrame();
-	mIntegration->PostDrawFrame();
-
     // draw the notifications node
     if (_notificationNode)
     {
@@ -346,8 +326,6 @@ void Director::drawScene()
     }
     
 	_renderer->endFrame();
-
-	mIntegration->PostUpdateFrame(dt);
 
     if (_displayStats)
     {
@@ -423,9 +401,6 @@ void Director::setOpenGLView(GLView *openGLView)
         {
             _eventDispatcher->setEnabled(true);
 		}
-
-		if (initializeO2Integration)
-		    mIntegration->InitializeAfterRender();
     }
 }
 
@@ -1396,7 +1371,7 @@ void Director::startAnimation(SetIntervalReason reason)
 
     _cocos2d_thread_id = std::this_thread::get_id();
 
-    Application::getInstance()->setAnimationInterval(_animationInterval);
+    //Application::getInstance()->setAnimationInterval(_animationInterval);
 
     // fix issue #3509, skip one fps to avoid incorrect time calculation.
     setNextDeltaTimeZero(true);
@@ -1449,8 +1424,6 @@ void Director::setAnimationInterval(float interval, SetIntervalReason reason)
         startAnimation(reason);
     }
 }
-
-bool Director::initializeO2Integration = true;
 
 NS_CC_END
 

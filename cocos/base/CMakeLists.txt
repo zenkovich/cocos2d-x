@@ -57,6 +57,7 @@ set(COCOS_BASE_HEADER
     base/CCDirector.h
     base/o2Integration/CCO2Integration.h
     base/o2Integration/CCO2Actor.h
+    base/o2Integration/CCO2Application.h
     base/CCEventListenerFocus.h
     base/CCUserDefault.h
     base/ccConfig.h
@@ -96,6 +97,7 @@ set(COCOS_BASE_SRC
     base/o2Integration/CCO2Integration.cpp
     base/o2Integration/o2Integration.cpp
     base/o2Integration/CCO2Actor.cpp
+    base/o2Integration/CCO2Application.cpp
     base/CCEvent.cpp
     base/CCEventAcceleration.cpp
     base/CCEventController.cpp

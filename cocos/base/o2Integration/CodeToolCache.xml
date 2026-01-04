@@ -44,6 +44,28 @@
 			<usings />
 		</globalNamespace>
 	</file>
+	<file path="C:/work/cocos2d-x/cocos/base/o2Integration\CCO2Application.h">
+		<date year="126" month="0" day="4" hour="13" minute="52" second="22" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="CocosO2Application" fullname="CocosO2Application" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="o2::Application" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
 	<file path="C:/work/cocos2d-x/cocos/base/o2Integration\CCO2Integration.h">
 		<date year="125" month="11" day="31" hour="14" minute="8" second="20" />
 		<globalNamespace name="" fullname="">

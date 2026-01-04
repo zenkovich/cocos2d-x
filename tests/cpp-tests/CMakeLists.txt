@@ -99,6 +99,7 @@ list(APPEND GAME_HEADER
      Classes/ConfigurationTest/ConfigurationTest.h
      Classes/CurrentLanguageTest/CurrentLanguageTest.h
      Classes/AppDelegate.h
+     Classes/TestsO2Application.h
      Classes/LabelTest/LabelTestNew.h
     #  Classes/LabelTest/LabelTest.h
      Classes/Particle3DTest/Particle3DTest.h
@@ -221,6 +222,7 @@ list(APPEND GAME_SOURCE
      Classes/ActionsProgressTest/ActionsProgressTest.cpp
      Classes/ActionsTest/ActionsTest.cpp
      Classes/AppDelegate.cpp
+     Classes/TestsO2Application.cpp
      Classes/BaseTest.cpp
      Classes/BillBoardTest/BillBoardTest.cpp
      Classes/BugsTest/Bug-CCDrawNode.cpp

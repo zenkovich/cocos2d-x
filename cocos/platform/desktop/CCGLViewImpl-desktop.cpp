@@ -1007,43 +1007,43 @@ static bool glew_dynamic_binding()
 // helper
 bool GLViewImpl::initGlew()
 {
-
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
-    GLenum GlewInitResult = glewInit();
-    if (GLEW_OK != GlewInitResult)
-    {
-        ccMessageBox((char *)glewGetErrorString(GlewInitResult), "OpenGL error");
-        return false;
-    }
-
-    if (GLEW_ARB_vertex_shader && GLEW_ARB_fragment_shader)
-    {
-        log("Ready for GLSL");
-    }
-    else
-    {
-        log("Not totally ready :(");
-    }
-
-    if (glewIsSupported("GL_VERSION_2_0"))
-    {
-        log("Ready for OpenGL 2.0");
-    }
-    else
-    {
-        log("OpenGL 2.0 not supported");
-    }
-
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    if(glew_dynamic_binding() == false)
-    {
-        ccMessageBox("No OpenGL framebuffer support. Please upgrade the driver of your video card.", "OpenGL error");
-        return false;
-    }
-#endif //#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-
-#endif //#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
+// 
+// #if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
+//     GLenum GlewInitResult = glewInit();
+//     if (GLEW_OK != GlewInitResult)
+//     {
+//         ccMessageBox((char *)glewGetErrorString(GlewInitResult), "OpenGL error");
+//         return false;
+//     }
+// 
+//     if (GLEW_ARB_vertex_shader && GLEW_ARB_fragment_shader)
+//     {
+//         log("Ready for GLSL");
+//     }
+//     else
+//     {
+//         log("Not totally ready :(");
+//     }
+// 
+//     if (glewIsSupported("GL_VERSION_2_0"))
+//     {
+//         log("Ready for OpenGL 2.0");
+//     }
+//     else
+//     {
+//         log("OpenGL 2.0 not supported");
+//     }
+// 
+// 
+// #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+//     if(glew_dynamic_binding() == false)
+//     {
+//         ccMessageBox("No OpenGL framebuffer support. Please upgrade the driver of your video card.", "OpenGL error");
+//         return false;
+//     }
+// #endif //#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+// 
+// #endif //#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 
     return true;
 }

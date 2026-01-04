@@ -110,9 +110,6 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     _testController = TestController::getInstance();
 
-    auto camera = mmake<o2::CameraActor>();
-    camera->fillBackground = false;
-
     return true;
 }
 

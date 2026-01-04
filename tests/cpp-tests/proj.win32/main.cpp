@@ -25,7 +25,10 @@
 #include "main.h"
 #include "AppDelegate.h"
 
+#include "o2/stdafx.h"
 #include "o2/O2.h"
+#include "o2/Utils/Memory/MemoryAnalyzer.h"
+#include "TestsO2Application.h"
 
 USING_NS_CC;
 
@@ -43,7 +46,9 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
 	INITIALIZE_O2;
     InitializeTypeso2Integration();
 
-    // create the application instance
-    AppDelegate app;
-    return Application::getInstance()->run();
+	auto app = mmake<TestsO2Application>();
+	app->Initialize();
+	app->Launch();
+
+	return 0;
 }
