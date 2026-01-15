@@ -4,6 +4,7 @@
 namespace cocos2d
 {
 	class Director;
+	class GLView;
 }
 
 // ---------------------------------------------------------
@@ -41,6 +42,22 @@ protected:
 	// Calling when application is closing
 	void OnClosing() override;
 
+	// Process input events and forward them to Cocos2d-x
+	void ProcessInputEvents();
+
+	// Convert O2 coordinate system to Cocos coordinate system
+	// O2: center = (0,0), Y up
+	// Cocos: bottom-left = (0,0), Y up
+	o2::Vec2F O2ToCocosCoords(const o2::Vec2F& o2Pos) const;
+
 protected:
 	cocos2d::Director* mCocosDirector = nullptr;
+	cocos2d::GLView* mCocosGLView = nullptr;
+
+	// Mouse state tracking
+	bool mLeftButtonPressed = false;
+	bool mRightButtonPressed = false;
+	bool mMiddleButtonPressed = false;
+	float mLastMouseX = 0.0f;
+	float mLastMouseY = 0.0f;
 };

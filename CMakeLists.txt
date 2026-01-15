@@ -57,6 +57,7 @@ add_subdirectory(${COCOS2DX_ROOT_PATH}/external ${ENGINE_BINARY_PATH}/external)
 set(O2_PLATFORM_INITIALIZATION_ENABLED OFF CACHE BOOL "Enables platform initialization" FORCE)
 set(O2_ENABLE_LINK_ZLIB OFF CACHE BOOL "Enables linking zlib library" FORCE)
 set(O2_ENABLE_LINK_LIBPNG OFF CACHE BOOL "Enables linking libpng library" FORCE)
+set(O2_TRACY OFF CACHE BOOL "Enables Tracy profiling" FORCE)
 add_subdirectory(${COCOS2DX_ROOT_PATH}/o2)
 
 add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos ${ENGINE_BINARY_PATH}/cocos/core)

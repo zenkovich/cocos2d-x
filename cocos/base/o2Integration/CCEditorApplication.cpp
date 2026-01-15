@@ -18,39 +18,26 @@
 #include "base/CCDirector.h"
 #include "platform/CCGLView.h"
 
+#include "o2/Render/Render.h"
+
 class EditorGLView : public cocos2d::GLView
 {
 public:
-	EditorGLView()
+	EditorGLView(CocosEditorApplication& app) :
+		mApplication(app)
 	{
+		_designResolutionSize.width = app.GetContentSize().x;
+		_designResolutionSize.height = app.GetContentSize().y;
 	}
 
+	void end() override {}
+	bool isOpenGLReady() override { return true; }
+	void swapBuffers() override {}
+	void setIMEKeyboardState(bool open) override {}
+	HWND getWin32Window() override { return mApplication.GetWindowHandle(); }
 
-	void end() override
-	{
-	}
-
-
-	bool isOpenGLReady() override
-	{
-		return true;
-	}
-
-
-	void swapBuffers() override
-	{
-	}
-
-
-	void setIMEKeyboardState(bool open) override
-	{
-	}
-
-
-	HWND getWin32Window() override
-	{
-		return o2Application.GetWindowHandle();
-	}
+protected:
+	CocosEditorApplication& mApplication;
 };
 
 CocosEditorApplication::CocosEditorApplication(o2::RefCounter* refCounter) :
@@ -66,15 +53,13 @@ void CocosEditorApplication::BasicInitialize()
 {
 	::Editor::EditorApplication::BasicInitialize();
 
-	cocos2d::Director::initializeO2Integration = false;
 	mCocosDirector = cocos2d::Director::getInstance();
-	mCocosDirector->setOpenGLView(new EditorGLView());
+	mCocosDirector->setOpenGLView(new EditorGLView(*this));
 }
 
 void CocosEditorApplication::Deinitialize()
 {
-	// Deinitialize o2 Editor
-	::Editor::EditorApplication::Deinitialize();
+	Editor::EditorApplication::Deinitialize();
 }
 
 void CocosEditorApplication::ProcessFrame()
@@ -83,48 +68,28 @@ void CocosEditorApplication::ProcessFrame()
 
 	PreCocosUpdate(dt);
 
-	::Editor::EditorApplication::ProcessFrame();
+	Editor::EditorApplication::ProcessFrame();
 
 	PostCocosUpdate(dt);
 }
 
 void CocosEditorApplication::PreCocosUpdate(float dt)
 {
-	// TODO: Prepare Cocos2d-x subsystems before o2 update
-	// - Update Director mainLoop (partial)
-	// - Process Cocos events
-	// - Update Cocos scheduler
+	mCocosDirector->mainLoop();
+
+	o2Render.ResetState();
 }
 
 void CocosEditorApplication::PostCocosUpdate(float dt)
 {
-	// TODO: Finalize Cocos2d-x subsystems after o2 update
-	// - Render Cocos scene graph
-	// - Swap buffers
-	// - Cleanup temporary objects
 }
 
 void CocosEditorApplication::OnStarted()
 {
-	o2Debug.Log("CocosEditorApplication: Application started");
-
-	// Call parent implementation
-	::Editor::EditorApplication::OnStarted();
-
-	// TODO: Additional Cocos-specific startup
-	// - Load Cocos resources
-	// - Setup initial Cocos scene
+	Editor::EditorApplication::OnStarted();
 }
 
 void CocosEditorApplication::OnClosing()
 {
-	o2Debug.Log("CocosEditorApplication: Application closing");
-
-	// TODO: Cocos-specific cleanup
-	// - Save Cocos state
-	// - Unload Cocos resources
-
-	// Call parent implementation
-	::Editor::EditorApplication::OnClosing();
+	Editor::EditorApplication::OnClosing();
 }
-

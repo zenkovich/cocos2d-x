@@ -24,6 +24,8 @@ endif()
 # record sources, headers, resources...
 set(GAME_SOURCE)
 set(GAME_HEADER)
+set(GAME_PLATFORM_SOURCE)
+set(GAME_PLATFORM_HEADER)
 
 set(GAME_RES_FOLDER
     "${CMAKE_CURRENT_SOURCE_DIR}/Resources"
@@ -40,23 +42,25 @@ if(ANDROID)
          )
     list(APPEND GAME_SOURCE
          Classes/JNITest/JNITest.cpp
+         )
+    list(APPEND GAME_PLATFORM_SOURCE
          proj.android/app/jni/main.cpp
          )
 elseif(LINUX)
-    list(APPEND GAME_SOURCE
+    list(APPEND GAME_PLATFORM_SOURCE
          proj.linux/main.cpp
          )
 elseif(WINDOWS)
-    list(APPEND GAME_HEADER
+    list(APPEND GAME_PLATFORM_HEADER
          proj.win32/main.h
          )
-    list(APPEND GAME_SOURCE
+    list(APPEND GAME_PLATFORM_SOURCE
          proj.win32/main.cpp
          ${cc_common_res}
          )
 elseif(APPLE)
     if(IOS)
-        list(APPEND GAME_HEADER
+        list(APPEND GAME_PLATFORM_HEADER
              proj.ios/Classes/testsAppDelegate.h
              proj.ios/Classes/RootViewController.h
              )
@@ -65,7 +69,7 @@ elseif(APPLE)
             proj.ios/LaunchScreenBackground.png
             proj.ios/Images.xcassets
             )
-        list(APPEND GAME_SOURCE
+        list(APPEND GAME_PLATFORM_SOURCE
              proj.ios/main.m
              proj.ios/Classes/testsAppDelegate.mm
              proj.ios/Classes/RootViewController.mm
@@ -79,12 +83,12 @@ elseif(APPLE)
             proj.mac/Prefix.pch
             proj.mac/en.lproj/InfoPlist.strings
             )
-        list(APPEND GAME_SOURCE
+        list(APPEND GAME_PLATFORM_SOURCE
              proj.mac/main.cpp
              ${APP_UI_RES}
              )
     endif()
-    list(APPEND GAME_SOURCE ${cc_common_res})
+    list(APPEND GAME_PLATFORM_SOURCE ${cc_common_res})
 endif()
 
 list(APPEND GAME_HEADER
@@ -383,10 +387,28 @@ if(NOT LINUX)
          )
 endif()
 
-# mark app complie info and libs info
-set(all_code_files
+# Create static library with test classes
+set(cpp_tests_lib_files
     ${GAME_HEADER}
     ${GAME_SOURCE}
+    )
+
+add_library(cpp_tests_lib STATIC ${cpp_tests_lib_files})
+target_link_libraries(cpp_tests_lib PUBLIC cocos2d)
+target_include_directories(cpp_tests_lib
+        PUBLIC Classes
+)
+
+if(${CMAKE_VERSION} VERSION_GREATER "3.16.0")
+    message("CMake 3.16 target_precompile_headers for cpp_tests_lib")
+    target_precompile_headers(cpp_tests_lib PRIVATE 
+       "$<$<COMPILE_LANGUAGE:CXX>:precheader.h>")
+endif()
+
+# mark app complie info and libs info
+set(all_code_files
+    ${GAME_PLATFORM_HEADER}
+    ${GAME_PLATFORM_SOURCE}
     )
 
 if(NOT ANDROID)
@@ -397,7 +419,7 @@ else()
     target_link_libraries(${APP_NAME} -Wl,--whole-archive cpp_android_spec -Wl,--no-whole-archive)
 endif()
 
-target_link_libraries(${APP_NAME} PUBLIC cocos2d)
+target_link_libraries(${APP_NAME} PUBLIC cpp_tests_lib cocos2d)
 target_include_directories(${APP_NAME}
         PRIVATE Classes
 )
@@ -428,12 +450,6 @@ if(LINUX OR WINDOWS)
     cocos_copy_target_res(${APP_NAME} LINK_TO ${APP_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
 endif()
 
-if(${CMAKE_VERSION} VERSION_GREATER "3.16.0")
-    message("CMake 3.16 target_precompile_headers")
-    target_precompile_headers(${APP_NAME} PRIVATE 
-       "$<$<COMPILE_LANGUAGE:CXX>:precheader.h>")
-endif()
-
 # Assets builder
 add_executable(AssetsBuilder)
 target_sources(AssetsBuilder PRIVATE ${COCOS2DX_ROOT_PATH}/o2/AssetsBuildTool/Sources/o2AssetBuilder/AssetsBuilderRunner.cpp)
@@ -451,17 +467,33 @@ if(O2_EDITOR)
     add_dependencies(BuildEditorAssets o2AssetsBuilder AssetsBuilder)
 
     # Editor executable
-    add_executable(Editor)
+    add_executable(Editor WIN32)
 
     if (WIN32 OR UNIX)
         target_sources(Editor PRIVATE 
             "EditorMain.cpp"
             "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.h"
             "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.cpp"
+            "Classes/TestsO2EditorApplication.h"
+            "Classes/TestsO2EditorApplication.cpp"
         )
     endif()
 
-    target_link_libraries(Editor PUBLIC o2Editor cocos2d)  
-    add_dependencies(Editor o2Editor cocos2d BuildEditorAssets)
+    target_link_libraries(Editor PUBLIC cpp_tests_lib o2Editor cocos2d)  
+    add_dependencies(Editor cpp_tests_lib o2Editor cocos2d BuildEditorAssets)
+    
+    # Setup output directories same as cpp-tests
+    setup_cocos_app_config(Editor)
+    
+    if(WINDOWS)
+        # "too large PDB" error often occurs in cpp-tests when using default "/Zi"
+        target_compile_options(Editor PRIVATE /Z7)
+    endif()
+    
     cocos_copy_target_dll(Editor)
+    
+    if(LINUX OR WINDOWS)
+        cocos_get_resource_path(EDITOR_RES_DIR Editor)
+        cocos_copy_target_res(Editor LINK_TO ${EDITOR_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
+    endif()
 endif() 
