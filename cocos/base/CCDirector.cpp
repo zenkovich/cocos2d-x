@@ -248,8 +248,12 @@ void Director::setGLDefaultValues()
 // Draw the Scene
 void Director::drawScene()
 {
-	_renderer->beginFrame();
+    updateScene();
+    renderScene();
+}
 
+void Director::updateScene()
+{
     // calculate "global" dt
     calculateDeltaTime();
     
@@ -261,13 +265,18 @@ void Director::drawScene()
     //tick before glClear: issue #533
     if (! _paused)
     {
-		_eventDispatcher->dispatchEvent(_eventBeforeUpdate);
+        _eventDispatcher->dispatchEvent(_eventBeforeUpdate);
 
         _scheduler->update(_deltaTime);
         _eventDispatcher->dispatchEvent(_eventAfterUpdate);
     }
+}
 
-    _renderer->clear(ClearFlag::ALL, _clearColor, 1, 0, -10000.0);
+void Director::renderScene()
+{
+    _renderer->beginFrame();
+
+    //_renderer->clear(ClearFlag::ALL, _clearColor, 1, 0, -10000.0);
     
     _eventDispatcher->dispatchEvent(_eventBeforeDraw);
     
@@ -294,7 +303,7 @@ void Director::drawScene()
             _openGLView->renderScene(_runningScene, _renderer);
         
         _eventDispatcher->dispatchEvent(_eventAfterVisit);
-	}
+    }
 
     // draw the notifications node
     if (_notificationNode)
@@ -311,7 +320,7 @@ void Director::drawScene()
 #endif
     }
     
-   _renderer->render();
+    _renderer->render();
 
     _eventDispatcher->dispatchEvent(_eventAfterDraw);
 
@@ -325,7 +334,7 @@ void Director::drawScene()
         _openGLView->swapBuffers();
     }
     
-	_renderer->endFrame();
+    _renderer->endFrame();
 
     if (_displayStats)
     {
@@ -1379,6 +1388,14 @@ void Director::startAnimation(SetIntervalReason reason)
 
 void Director::mainLoop()
 {
+    mainLoopUpdate();
+    mainLoopRender();
+}
+
+void Director::mainLoopUpdate()
+{
+    _shouldRenderThisFrame = false;
+
     if (_purgeDirectorInNextLoop)
     {
         _purgeDirectorInNextLoop = false;
@@ -1391,10 +1408,95 @@ void Director::mainLoop()
     }
     else if (! _invalid)
     {
-        drawScene();
-     
-        // release the objects
-        PoolManager::getInstance()->getCurrentPool()->clear();
+        updateScene();
+        _shouldRenderThisFrame = true;
+    }
+}
+
+void Director::mainLoopUpdate(float dt)
+{
+    _deltaTime = dt;
+    _deltaTimePassedByCaller = true;
+    mainLoopUpdate();
+}
+
+void Director::mainLoopRender()
+{
+    if (! _shouldRenderThisFrame || _invalid)
+    {
+        return;
+    }
+
+    renderScene();
+ 
+    // release the objects
+    PoolManager::getInstance()->getCurrentPool()->clear();
+}
+
+void Director::customLoopRender(const Viewport& viewPort, const Mat4& transform)
+{
+    _renderer->beginFrame();
+
+    _eventDispatcher->dispatchEvent(_eventBeforeDraw);
+
+    /* to avoid flickr, nextScene MUST be here: after tick and before draw.
+     * FIXME: Which bug is this one. It seems that it can't be reproduced with v0.9
+     */
+    if (_nextScene)
+    {
+        setNextScene();
+	}
+
+	pushMatrix(cocos2d::MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+	multiplyMatrix(cocos2d::MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION, transform);
+
+    pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+
+    if (_runningScene)
+    {
+#if (CC_USE_PHYSICS || (CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION) || CC_USE_NAVMESH)
+        _runningScene->stepPhysicsAndNavigation(_deltaTime);
+#endif
+        //clear draw stats
+        _renderer->clearDrawStats();
+
+        //render the scene
+		_runningScene->render(_renderer, Mat4::IDENTITY, nullptr, &viewPort);
+
+        _eventDispatcher->dispatchEvent(_eventAfterVisit);
+    }
+
+    // draw the notifications node
+    if (_notificationNode)
+    {
+        _notificationNode->visit(_renderer, Mat4::IDENTITY, 0);
+    }
+
+    updateFrameRate();
+
+    if (_displayStats)
+    {
+#if !CC_STRIP_FPS
+        showStats();
+#endif
+    }
+
+    _renderer->render();
+
+    _eventDispatcher->dispatchEvent(_eventAfterDraw);
+
+    popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+	popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+
+    _totalFrames++;
+
+    _renderer->endFrame();
+
+    if (_displayStats)
+    {
+#if !CC_STRIP_FPS
+        calculateMPF();
+#endif
     }
 }
 

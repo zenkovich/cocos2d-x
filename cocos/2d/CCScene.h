@@ -112,7 +112,7 @@ public:
      * @param eyeProjection The projection matrix of camera.
      * @js NA
      */
-    virtual void render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eyeProjection = nullptr);
+    virtual void render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eyeProjection = nullptr, const Viewport* viewPort = nullptr);
   
     /** override function */
     virtual void removeAllChildren() override;

@@ -382,11 +382,29 @@ public:
     void setClearColor(const Color4F& clearColor);
 
     void mainLoop();
+    /** Update part of the main loop.
+     * Call it before `mainLoopRender()` if you drive the loop manually.
+     */
+    void mainLoopUpdate();
+    /** Update part of the main loop with delta time provided by caller.
+     * Call it before `mainLoopRender()` if you drive the loop manually.
+     */
+    void mainLoopUpdate(float dt);
+    /** Render part of the main loop.
+     * Call it after `mainLoopUpdate()` if you drive the loop manually.
+     */
+    void mainLoopRender();
     /** Invoke main loop with delta time. Then `calculateDeltaTime` can just use the delta time directly.
      * The delta time paseed may include vsync time. See issue #17806
      * @since 3.16
      */
     void mainLoop(float dt);
+
+    /* Custom rendering function.
+     * You can use this function to render your own things after/before scene is rendered.
+     * @warning Don't call this function to start the main loop. To run the main loop call runWithScene.
+	 */
+    void customLoopRender(const Viewport& viewPort, const Mat4& transform);
 
     /** The size in pixels of the surface. It could be different than the screen size.
      * High-res devices might have a higher surface size than the screen size.
@@ -534,6 +552,8 @@ protected:
     
     /** calculates delta time since last time it was called */    
     void calculateDeltaTime();
+    void updateScene();
+    void renderScene();
 
     //textureCache creation or release
     void initTextureCache();
@@ -645,6 +665,7 @@ protected:
 
     /* whether or not the director is in a valid state */
     bool _invalid = false;
+    bool _shouldRenderThisFrame = false;
 
     // GLView will recreate stats labels to fit visible rect
     friend class GLView;

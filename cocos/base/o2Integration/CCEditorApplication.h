@@ -19,6 +19,9 @@ public:
 	// Destructor
 	~CocosEditorApplication();
 
+	// Draws external renderers
+	void DrawExternal();
+
 protected:
 	// Initialize Cocos2d-x systems alongside o2 systems
 	void BasicInitialize() override;

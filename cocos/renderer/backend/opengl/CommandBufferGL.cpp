@@ -107,6 +107,7 @@ void CommandBufferGL::beginRenderPass(const RenderPassDescriptor& descirptor)
 
 void CommandBufferGL::applyRenderPassDescriptor(const RenderPassDescriptor& descirptor)
 {
+    return; 
     bool useColorAttachmentExternal = descirptor.needColorAttachment && descirptor.colorAttachmentsTexture[0];
     bool useDepthAttachmentExternal = descirptor.depthTestEnabled && descirptor.depthAttachmentTexture;
     bool useStencilAttachmentExternal = descirptor.stencilTestEnabled && descirptor.stencilAttachmentTexture;

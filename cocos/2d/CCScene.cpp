@@ -172,7 +172,7 @@ const std::vector<Camera*>& Scene::getCameras()
     return _cameras;
 }
 
-void Scene::render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eyeProjection)
+void Scene::render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eyeProjection, const Viewport* viewPort)
 {
     auto director = Director::getInstance();
     Camera* defaultCamera = nullptr;
@@ -182,6 +182,10 @@ void Scene::render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eye
     {
         if (!camera->isVisible())
             continue;
+
+        if (viewPort) {
+            camera->setDefaultViewport(*viewPort);
+        }
 
         Camera::_visitingCamera = camera;
         if (Camera::_visitingCamera->getCameraFlag() == CameraFlag::DEFAULT)
@@ -200,8 +204,11 @@ void Scene::render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eye
             camera->setAdditionalProjection(*eyeProjection * camera->getProjectionMatrix().getInversed());
 
         camera->setAdditionalTransform(eyeTransform.getInversed());
-        director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
-        director->loadMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION, Camera::_visitingCamera->getViewProjectionMatrix());
+
+        if (!viewPort) {
+            director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+            director->loadMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION, Camera::_visitingCamera->getViewProjectionMatrix());
+        }
 
         camera->apply();
         //clear background with max depth
@@ -217,7 +224,9 @@ void Scene::render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eye
 
         renderer->render();
 
-        director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+        if (!viewPort) {
+            director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+        }
 
         // we shouldn't restore the transform matrix since it could be used
         // from "update" or other parts of the game to calculate culling or something else.

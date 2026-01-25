@@ -49,6 +49,36 @@ CocosEditorApplication::~CocosEditorApplication()
 {
 }
 
+void CocosEditorApplication::DrawExternal()
+{
+	o2Render.BeginCustomRender();
+
+	Vec2I currentResolutionI = o2Render.GetCurrentResolution();
+	Vec2F currentResolution = (Vec2F)currentResolutionI;
+
+	Basis defaultCameraBasis(currentResolution * -0.5f, Vec2F::Right() * currentResolution.x, Vec2F().Up() * currentResolution.y);
+	Basis camTransf = o2Render.GetCamera().GetBasis().Inverted() * defaultCameraBasis;
+
+	auto cocosDesignResolution = mCocosDirector->getOpenGLView()->getDesignResolutionSize();
+	Vec2F cocosResolution( cocosDesignResolution.width, cocosDesignResolution.height);
+	Basis cocosResolutionBasis(Vec2F(), Vec2F::Right() * cocosResolution.x, Vec2F().Up() * cocosResolution.y);
+	Basis cocosResolutionCorrection = defaultCameraBasis.Inverted() * cocosResolutionBasis;
+
+	Basis finalCamTransf = camTransf * cocosResolutionCorrection;
+
+	cocos2d::Mat4 transform(
+		finalCamTransf.xv.x, finalCamTransf.yv.x, 0.0f, finalCamTransf.origin.x,
+		finalCamTransf.xv.y, finalCamTransf.yv.y, 0.0f, finalCamTransf.origin.y,
+		0.0f,                0.0f,                0.0f, 0.0f,
+		0.0f,                0.0f,                0.0f, 1.0f
+	);
+
+	cocos2d::Viewport viewport{ 0, 0, (UInt)currentResolutionI.x, (UInt)currentResolutionI.y };
+	mCocosDirector->customLoopRender(viewport, transform);
+
+	o2Render.EndCustomRender();
+}
+
 void CocosEditorApplication::BasicInitialize()
 {
 	::Editor::EditorApplication::BasicInitialize();
@@ -75,7 +105,8 @@ void CocosEditorApplication::ProcessFrame()
 
 void CocosEditorApplication::PreCocosUpdate(float dt)
 {
-	mCocosDirector->mainLoop();
+	mCocosDirector->mainLoopUpdate(dt);
+	mCocosDirector->mainLoopRender();
 
 	o2Render.ResetState();
 }
