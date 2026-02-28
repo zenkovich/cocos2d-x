@@ -40,5 +40,3 @@ THE SOFTWARE.
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
 #include "platform/linux/CCPlatformDefine-linux.h"
 #endif
-
-

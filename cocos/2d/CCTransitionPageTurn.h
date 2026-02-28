@@ -123,4 +123,3 @@ protected:
 NS_CC_END
 
 #endif // __CCPAGE_TURN_TRANSITION_H__
-

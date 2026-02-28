@@ -60,4 +60,3 @@ private:
 
 /// @endcond
 #endif /* HTTP_COOKIE_H */
-

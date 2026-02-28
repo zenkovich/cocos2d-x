@@ -42,4 +42,3 @@ namespace cocos2d { namespace network
         void* _impl;
     };
 }}  // namespace cocos2d::network
-

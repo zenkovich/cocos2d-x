@@ -312,5 +312,3 @@ private:
 NS_CC_END
 
 #endif //__CCTMX_TILE_MAP_H__
-
-

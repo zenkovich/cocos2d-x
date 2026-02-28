@@ -388,4 +388,3 @@ namespace ui {
 NS_CC_END
 
 #endif // __UITABVIEW_H__
-

@@ -1090,4 +1090,3 @@ private:
 NS_CC_END
 
 #endif // __CCTRANSITION_H__
-

@@ -244,4 +244,3 @@ NS_CC_END
 /// @}
 
 #endif //__CCHTTPCLIENT_H__
-

@@ -357,4 +357,3 @@ NS_CC_END
 /// @}
 
 #endif //__HTTP_REQUEST_H__
-

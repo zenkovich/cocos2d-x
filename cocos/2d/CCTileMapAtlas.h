@@ -119,4 +119,3 @@ protected:
 NS_CC_END
 
 #endif //__CCTILE_MAP_ATLAS__
-

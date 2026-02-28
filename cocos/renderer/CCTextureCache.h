@@ -295,4 +295,3 @@ private:
 NS_CC_END
 
 #endif //__CCTEXTURE_CACHE_H__
-

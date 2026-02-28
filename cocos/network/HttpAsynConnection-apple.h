@@ -69,4 +69,3 @@
 
 /// @endcond
 #endif //__HTTPASYNCONNECTION_H__
-

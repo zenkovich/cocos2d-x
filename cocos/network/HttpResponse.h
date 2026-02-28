@@ -242,4 +242,3 @@ NS_CC_END
 /// @}
 
 #endif //__HTTP_RESPONSE_H__
-

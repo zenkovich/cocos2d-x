@@ -92,4 +92,3 @@ NS_CC_END
 #endif /* #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS) */
 
 #endif /* __UIEditBoxIMPLIOS_H__ */
-

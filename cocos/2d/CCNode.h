@@ -27,6 +27,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
+ //@CODETOOL_NON_EXCLUDE
 #ifndef __CCNODE_H__
 #define __CCNODE_H__
 
@@ -39,10 +40,12 @@
 #include "math/CCMath.h"
 #include "2d/CCComponentContainer.h"
 #include "2d/CCComponent.h"
+#include "o2/Utils/Basic/IObject.h"
 
 #if CC_USE_PHYSICS
 #include "physics/CCPhysicsBody.h"
 #endif
+
 
 NS_CC_BEGIN
 
@@ -108,9 +111,11 @@ class EventListener;
 
  */
 
-class CC_DLL Node : public Ref
+class CC_DLL Node : public Ref, public o2::IObject
 {
 public:
+    IOBJECT(Node);
+
     /** Default tag used for all the nodes */
     static const int INVALID_TAG = -1;
 
@@ -1976,3 +1981,230 @@ bool CC_DLL isScreenPointInRect(const Vec2 &pt, const Camera* camera, const Mat4
 NS_CC_END
 
 #endif // __CCNODE_H__
+// --- META ---
+
+CLASS_BASES_META(cocos2d::Node)
+{
+    BASE_CLASS(Ref);
+    BASE_CLASS(o2::IObject);
+}
+END_META;
+CLASS_FIELDS_META(cocos2d::Node)
+{
+    FIELD().PUBLIC().NAME(Node);
+    FIELD().PUBLIC().NAME(short);
+    FIELD().PROTECTED().NAME(_rotationX);
+}
+END_META;
+CLASS_METHODS_META(cocos2d::Node)
+{
+
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(int, getAttachedNodeCount);
+    FUNCTION().PUBLIC().SIGNATURE(std::string, getDescription);
+    FUNCTION().PUBLIC().SIGNATURE(void, setLocalZOrder, std::int32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, _setLocalZOrder, std::int32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateOrderOfArrival);
+    FUNCTION().PUBLIC().SIGNATURE(std::int32_t, getLocalZOrder);
+    FUNCTION().PUBLIC().SIGNATURE(void, setGlobalZOrder, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getGlobalZOrder);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScaleX, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getScaleX);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScaleY, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getScaleY);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScaleZ, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getScaleZ);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScale, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getScale);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScale, float, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPosition, const Vec2);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionNormalized, const Vec2);
+    FUNCTION().PUBLIC().SIGNATURE(void, setNormalizedPosition, const Vec2);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getPosition);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getPositionNormalized);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getNormalizedPosition);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPosition, float, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, getPosition, float*, float*);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionX, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getPositionX);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionY, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getPositionY);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPosition3D, const Vec3&);
+    FUNCTION().PUBLIC().SIGNATURE(Vec3, getPosition3D);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionZ, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getPositionZ);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSkewX, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getSkewX);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSkewY, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getSkewY);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAnchorPoint, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getAnchorPoint);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getAnchorPointInPoints);
+    FUNCTION().PUBLIC().SIGNATURE(void, setContentSize, const Size&);
+    FUNCTION().PUBLIC().SIGNATURE(const Size&, getContentSize);
+    FUNCTION().PUBLIC().SIGNATURE(void, setVisible, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isVisible);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotation, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getRotation);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotation3D, const Vec3&);
+    FUNCTION().PUBLIC().SIGNATURE(Vec3, getRotation3D);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotationQuat, const Quaternion&);
+    FUNCTION().PUBLIC().SIGNATURE(Quaternion, getRotationQuat);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotationSkewX, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getRotationSkewX);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotationSkewY, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getRotationSkewY);
+    FUNCTION().PUBLIC().SIGNATURE(void, setIgnoreAnchorPointForPosition, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isIgnoreAnchorPointForPosition);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(Node*, getChildByName, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, enumerateChildren, const std::string, std::function<bool(Node* node)>);
+    FUNCTION().PUBLIC().SIGNATURE(Vector<Node*>&, getChildren);
+    FUNCTION().PUBLIC().SIGNATURE(const Vector<Node*>&, getChildren);
+    FUNCTION().PUBLIC().SIGNATURE(ssize_t, getChildrenCount);
+    FUNCTION().PUBLIC().SIGNATURE(void, setParent, Node*);
+    FUNCTION().PUBLIC().SIGNATURE(Node*, getParent);
+    FUNCTION().PUBLIC().SIGNATURE(const Node*, getParent);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeFromParent);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeFromParentAndCleanup, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeChild, Node*, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeChildByTag, int, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeChildByName, const std::string, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeAllChildren);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeAllChildrenWithCleanup, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, reorderChild, Node, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, sortAllChildren);
+    FUNCTION().PUBLIC().SIGNATURE(int, getTag);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTag, int);
+    FUNCTION().PUBLIC().SIGNATURE(const std::string&, getName);
+    FUNCTION().PUBLIC().SIGNATURE(void, setName, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void*, getUserData);
+    FUNCTION().PUBLIC().SIGNATURE(const void*, getUserData);
+    FUNCTION().PUBLIC().SIGNATURE(void, setUserData, void);
+    FUNCTION().PUBLIC().SIGNATURE(Ref*, getUserObject);
+    FUNCTION().PUBLIC().SIGNATURE(const Ref*, getUserObject);
+    FUNCTION().PUBLIC().SIGNATURE(void, setUserObject, Ref);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isRunning);
+    FUNCTION().PUBLIC().SIGNATURE(void, scheduleUpdateWithPriorityLua, int, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, onEnter);
+    FUNCTION().PUBLIC().SIGNATURE(void, onEnterTransitionDidFinish);
+    FUNCTION().PUBLIC().SIGNATURE(void, onExit);
+    FUNCTION().PUBLIC().SIGNATURE(void, onExitTransitionDidStart);
+    FUNCTION().PUBLIC().SIGNATURE(void, cleanup);
+    FUNCTION().PUBLIC().SIGNATURE(void, draw, Renderer, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, draw);
+    FUNCTION().PUBLIC().SIGNATURE(void, visit, Renderer, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, visit);
+    FUNCTION().PUBLIC().SIGNATURE(Scene*, getScene);
+    FUNCTION().PUBLIC().SIGNATURE(Rect, getBoundingBox);
+    FUNCTION().PUBLIC().SIGNATURE(void, setEventDispatcher, EventDispatcher*);
+    FUNCTION().PUBLIC().SIGNATURE(EventDispatcher*, getEventDispatcher);
+    FUNCTION().PUBLIC().SIGNATURE(void, setActionManager, ActionManager*);
+    FUNCTION().PUBLIC().SIGNATURE(ActionManager*, getActionManager);
+    FUNCTION().PUBLIC().SIGNATURE(const ActionManager*, getActionManager);
+    FUNCTION().PUBLIC().SIGNATURE(Action*, runAction, Action*);
+    FUNCTION().PUBLIC().SIGNATURE(void, stopAllActions);
+    FUNCTION().PUBLIC().SIGNATURE(void, stopAction, Action*);
+    FUNCTION().PUBLIC().SIGNATURE(void, stopActionByTag, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, stopAllActionsByTag, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, stopActionsByFlags, unsigned);
+    FUNCTION().PUBLIC().SIGNATURE(Action*, getActionByTag, int);
+    FUNCTION().PUBLIC().SIGNATURE(ssize_t, getNumberOfRunningActions);
+    FUNCTION().PUBLIC().SIGNATURE(ssize_t, getNumberOfRunningActionsByTag, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScheduler, Scheduler*);
+    FUNCTION().PUBLIC().SIGNATURE(Scheduler*, getScheduler);
+    FUNCTION().PUBLIC().SIGNATURE(const Scheduler*, getScheduler);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isScheduled, SEL_SCHEDULE);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isScheduled, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, scheduleUpdate);
+    FUNCTION().PUBLIC().SIGNATURE(void, scheduleUpdateWithPriority, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, unscheduleUpdate);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, SEL_SCHEDULE, float, unsigned, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, SEL_SCHEDULE, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, scheduleOnce, SEL_SCHEDULE, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, scheduleOnce, const std::function<void(float)>&, float, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, SEL_SCHEDULE);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, float, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, float, unsigned, float, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, unschedule, SEL_SCHEDULE);
+    FUNCTION().PUBLIC().SIGNATURE(void, unschedule, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, unscheduleAllCallbacks);
+    FUNCTION().PUBLIC().SIGNATURE(void, resume);
+    FUNCTION().PUBLIC().SIGNATURE(void, pause);
+    FUNCTION().PUBLIC().SIGNATURE(void, update, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateTransform);
+    FUNCTION().PUBLIC().SIGNATURE(const Mat4&, getNodeToParentTransform);
+    FUNCTION().PUBLIC().SIGNATURE(AffineTransform, getNodeToParentAffineTransform);
+    FUNCTION().PUBLIC().SIGNATURE(Mat4, getNodeToParentTransform, Node*);
+    FUNCTION().PUBLIC().SIGNATURE(AffineTransform, getNodeToParentAffineTransform, Node*);
+    FUNCTION().PUBLIC().SIGNATURE(void, setNodeToParentTransform, const Mat4&);
+    FUNCTION().PUBLIC().SIGNATURE(const Mat4&, getParentToNodeTransform);
+    FUNCTION().PUBLIC().SIGNATURE(AffineTransform, getParentToNodeAffineTransform);
+    FUNCTION().PUBLIC().SIGNATURE(Mat4, getNodeToWorldTransform);
+    FUNCTION().PUBLIC().SIGNATURE(AffineTransform, getNodeToWorldAffineTransform);
+    FUNCTION().PUBLIC().SIGNATURE(Mat4, getWorldToNodeTransform);
+    FUNCTION().PUBLIC().SIGNATURE(AffineTransform, getWorldToNodeAffineTransform);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertToNodeSpace, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertToWorldSpace, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertToNodeSpaceAR, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertToWorldSpaceAR, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertTouchToNodeSpace, Touch);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertTouchToNodeSpaceAR, Touch);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAdditionalTransform, const Mat4*);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAdditionalTransform, const Mat4&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAdditionalTransform, const AffineTransform&);
+    FUNCTION().PUBLIC().SIGNATURE(Component*, getComponent, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, addComponent, Component);
+    FUNCTION().PUBLIC().SIGNATURE(bool, removeComponent, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, removeComponent, Component);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeAllComponents);
+    FUNCTION().PUBLIC().SIGNATURE(uint8_t, getOpacity);
+    FUNCTION().PUBLIC().SIGNATURE(uint8_t, getDisplayedOpacity);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOpacity, uint8_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateDisplayedOpacity, uint8_t);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isCascadeOpacityEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCascadeOpacityEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(const Color3B&, getColor);
+    FUNCTION().PUBLIC().SIGNATURE(const Color3B&, getDisplayedColor);
+    FUNCTION().PUBLIC().SIGNATURE(void, setColor, const Color3B&);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateDisplayedColor, const Color3B&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isCascadeColorEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCascadeColorEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOpacityModifyRGB, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isOpacityModifyRGB);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOnEnterCallback, const std::function<void()>&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::function<void()>&, getOnEnterCallback);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOnExitCallback, const std::function<void()>&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::function<void()>&, getOnExitCallback);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOnEnterTransitionDidFinishCallback, const std::function<void()>&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::function<void()>&, getOnEnterTransitionDidFinishCallback);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOnExitTransitionDidStartCallback, const std::function<void()>&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::function<void()>&, getOnExitTransitionDidStartCallback);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCameraMask, unsigned, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setProgramState, backend::ProgramState*);
+    FUNCTION().PUBLIC().SIGNATURE(backend::ProgramState*, getProgramState);
+    FUNCTION().PUBLIC().CONSTRUCTOR();
+    FUNCTION().PUBLIC().SIGNATURE(bool, init);
+    FUNCTION().PROTECTED().SIGNATURE(void, childrenAlloc);
+    FUNCTION().PROTECTED().SIGNATURE(void, insertChild, Node*, int);
+    FUNCTION().PROTECTED().SIGNATURE(void, detachChild, Node, ssize_t, bool);
+    FUNCTION().PROTECTED().SIGNATURE(Vec2, convertToWindowSpace, const Vec2&);
+    FUNCTION().PROTECTED().SIGNATURE(Mat4, transform, const Mat4);
+    FUNCTION().PROTECTED().SIGNATURE(uint32_t, processParentFlags, const Mat4&, uint32_t);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateCascadeOpacity);
+    FUNCTION().PROTECTED().SIGNATURE(void, disableCascadeOpacity);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateCascadeColor);
+    FUNCTION().PROTECTED().SIGNATURE(void, disableCascadeColor);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateColor);
+    FUNCTION().PROTECTED().SIGNATURE(bool, doEnumerate, std::string, std::function<bool (Node *)>);
+    FUNCTION().PROTECTED().SIGNATURE(bool, doEnumerateRecursive, const Node*, const std::string, std::function<bool (Node *)>);
+    FUNCTION().PROTECTED().SIGNATURE(bool, isVisitableByVisitingCamera);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateRotationQuat);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateRotation3D);
+    FUNCTION().PRIVATE().SIGNATURE(void, addChildHelper, Node*, int, int, const std::string, bool);
+}
+END_META;
+// --- END META ---

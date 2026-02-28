@@ -169,4 +169,3 @@ NS_CC_END
 
 
 #endif /* __UIEditBoxIMPLICOMMON_H__ */
-

@@ -54,4 +54,3 @@ NS_CC_END
 /// @}
 
 #endif /* __CCVERTEX_H__ */
-

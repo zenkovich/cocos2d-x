@@ -109,4 +109,3 @@ namespace cocos2d { namespace network {
     };
 
 }}  // namespace cocos2d::network
-

@@ -86,4 +86,3 @@ NS_CC_END
 #endif /* #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) */
 
 #endif /* __UIEDITBOXIMPLANDROID_H__ */
-

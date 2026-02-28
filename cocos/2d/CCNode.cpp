@@ -2197,3 +2197,7 @@ backend::ProgramState* Node::getProgramState() const
 }
 
 NS_CC_END
+// --- META ---
+
+DECLARE_CLASS(cocos2d::Node, cocos2d__Node);
+// --- END META ---

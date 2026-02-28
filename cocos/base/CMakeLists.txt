@@ -143,11 +143,3 @@ set(COCOS_BASE_SRC
     ${COCOS_BASE_SPECIFIC_SRC}
 
     )
-
-# Codegen for o2Integration
-add_custom_target(o2IntegrationCodegen
-                  COMMAND ${COCOS2DX_ROOT_PATH}/o2/CodeTool/Bin/o2CodeTool -project o2Integration -sources "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration" -parent_projects "${COCOS2DX_ROOT_PATH}/o2/Framework/Sources/o2/CodeToolCache.xml"
-                  COMMENT "Run CodeTool: ${COCOS2DX_ROOT_PATH}/o2/CodeTool/Bin/o2CodeTool -project o2Integration -sources \"${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration\" -parent_projects \"${COCOS2DX_ROOT_PATH}/o2/Framework/Sources/o2/CodeToolCache.xml\"\n"
-)
-add_dependencies(o2IntegrationCodegen o2CodeTool)
-set_target_properties(o2IntegrationCodegen PROPERTIES FOLDER cocos/Codegen)

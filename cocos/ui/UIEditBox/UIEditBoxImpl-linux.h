@@ -88,4 +88,3 @@ NS_CC_END
 #endif /* #if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX) */
 
 #endif /* __UIEDITBOXIMPLLINUX_H__ */
-

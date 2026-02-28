@@ -1,3 +1,4 @@
+//@CODETOOL_NON_EXCLUDE
 #pragma once
 
 #include "platform/CCPlatformMacros.h"

@@ -117,5 +117,3 @@ private:
 NS_CC_END
 
 #endif //__CCPARALLAX_NODE_H__
-
-

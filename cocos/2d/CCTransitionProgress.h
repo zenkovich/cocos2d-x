@@ -260,4 +260,3 @@ protected:
 NS_CC_END
 
 #endif /* __CCTRANSITIONPROGRESS_H__ */
-

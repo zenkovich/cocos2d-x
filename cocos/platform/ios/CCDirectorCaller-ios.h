@@ -39,4 +39,3 @@
 +(id) sharedDirectorCaller;
 +(void) destroy;
 @end
-

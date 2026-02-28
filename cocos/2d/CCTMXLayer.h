@@ -343,4 +343,3 @@ protected:
 NS_CC_END
 
 #endif //__CCTMX_LAYER_H__
-

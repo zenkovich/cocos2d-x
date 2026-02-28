@@ -716,4 +716,3 @@ namespace ui {
 NS_CC_END
 
 #endif /* __UIEDITTEXT_H__ */
-

@@ -501,4 +501,3 @@ static inline audio_channel_mask_t audio_channel_out_mask_from_count(uint32_t ch
     return audio_channel_mask_from_representation_and_bits(
             AUDIO_CHANNEL_REPRESENTATION_POSITION, bits);
 }
-

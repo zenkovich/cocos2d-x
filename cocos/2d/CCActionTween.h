@@ -124,5 +124,3 @@ protected:
 NS_CC_END
 
 #endif /* __CCACTIONTWEEN_H__ */
-
-

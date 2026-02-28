@@ -55,4 +55,3 @@ namespace cocos2d { namespace network
         //  perform in sub-thread cause java downloader unusable
         void _preloadJavaDownloaderClass();
     }}  // namespace cocos2d::network
-

@@ -1,0 +1,4587 @@
+<?xml version="1.0"?>
+<files>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCAction.h">
+		<date year="126" month="2" day="1" hour="0" minute="5" second="59" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionCamera.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionCatmullRom.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionEase.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionGrid.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionGrid3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionInstant.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionInterval.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionManager.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionPageTurn3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionProgressTimer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionTiledGrid.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCActionTween.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCAnimation.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCAnimationCache.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCAtlasNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCAutoPolygon.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCCamera.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCCameraBackgroundBrush.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCClippingNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCClippingRectangleNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCComponent.h">
+		<date year="126" month="2" day="1" hour="0" minute="5" second="59" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCComponentContainer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCDrawNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFastTMXLayer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFastTMXTiledMap.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFont.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFontAtlas.h">
+		<date year="125" month="10" day="22" hour="21" minute="33" second="34" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFontAtlasCache.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFontCharMap.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFontFNT.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCFontFreeType.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCGrid.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCLabel.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCLabelAtlas.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCLabelTextFormatter.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCLayer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCLight.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCMenu.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCMenuItem.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCMotionStreak.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCNode.h">
+		<date year="126" month="2" day="1" hour="1" minute="58" second="47" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections>
+						<section name="backend" fullname="cocos2d::backend">
+							<sections />
+							<typedefs />
+							<usings />
+						</section>
+						<section name="Node" fullname="cocos2d::Node" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+							<sections />
+							<typedefs />
+							<usings />
+							<baseClasses>
+								<class name="Ref" protection="0" />
+								<class name="o2::IObject" protection="0" />
+							</baseClasses>
+						</section>
+					</sections>
+					<typedefs />
+					<usings />
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCNodeGrid.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCParallaxNode.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCParticleBatchNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCParticleExamples.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCParticleSystem.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCParticleSystemQuad.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCProgressTimer.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCProtectedNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCRenderTexture.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCScene.h">
+		<date year="126" month="0" day="22" hour="22" minute="31" second="42" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCSprite.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCSpriteBatchNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCSpriteFrame.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCSpriteFrameCache.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTMXLayer.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTMXObjectGroup.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTMXTiledMap.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTMXXMLParser.h">
+		<date year="126" month="2" day="1" hour="0" minute="5" second="59" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTextFieldTTF.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTileMapAtlas.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTransition.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTransitionPageTurn.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTransitionProgress.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\2d\CCTweenFunction.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CC3DProgramInfo.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCAABB.h">
+		<date year="125" month="10" day="27" hour="23" minute="55" second="36" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCAnimate3D.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCAnimation3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCAnimationCurve.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCAttachNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCBillBoard.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCBundle3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCBundle3DData.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCBundleReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCFrustum.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCMesh.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCMeshSkin.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCMeshVertexIndexData.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCMotionStreak3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCOBB.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCObjLoader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCPlane.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCRay.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCSkeleton3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCSkybox.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCSprite3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCSprite3DMaterial.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCTerrain.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\CCVertexAttribBinding.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\3d\cocos3d.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AssetFd.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioBufferProvider.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioDecoder.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioDecoderMp3.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioDecoderOgg.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioDecoderProvider.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioDecoderSLES.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioDecoderWav.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioEngine-inl.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioMixer.h">
+		<date year="126" month="2" day="1" hour="0" minute="5" second="59" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioMixerController.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioMixerOps.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioPlayerProvider.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioResampler.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioResamplerCubic.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\AudioResamplerPublic.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\CCThreadPool.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\IAudioPlayer.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\ICallerThreadUtils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\IVolumeProvider.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\OpenSLHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\PcmAudioPlayer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\PcmAudioService.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\PcmBufferProvider.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\PcmData.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\Track.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\UrlAudioPlayer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\audio.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\audio_utils\include\audio_utils\format.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\audio_utils\include\audio_utils\minifloat.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\audio_utils\include\audio_utils\primitives.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\audio_utils\private\private.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\ccdandroidUtils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\cutils\bitops.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\cutils\log.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\mp3reader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\tinysndfile.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\utils\Compat.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\utils\Errors.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\android\utils\Utils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\apple\AudioCache.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\apple\AudioDecoder.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\apple\AudioEngine-inl.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\apple\AudioMacros.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\apple\AudioPlayer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\include\AudioEngine.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\include\Export.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\linux\AudioEngine-linux.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioCache.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioDecoder.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioDecoderManager.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioDecoderMp3.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioDecoderOgg.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioEngine-win32.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioMacros.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\AudioPlayer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\audio\win32\MciPlayer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCAsyncTaskPool.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCAutoreleasePool.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCConfiguration.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCConsole.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCController.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCData.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCDirector.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEnumClass.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEvent.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventAcceleration.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventController.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventCustom.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventDispatcher.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventFocus.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventKeyboard.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListener.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListenerAcceleration.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListenerController.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListenerCustom.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListenerFocus.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListenerKeyboard.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListenerMouse.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventListenerTouch.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventMouse.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventTouch.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCEventType.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCGameController.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCIMEDelegate.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCIMEDispatcher.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCMap.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCNS.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCNinePatchImageParser.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCProfiling.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCProperties.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCProtocols.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCRef.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCRefPtr.h">
+		<date year="125" month="10" day="27" hour="23" minute="55" second="36" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCScheduler.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCScriptSupport.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCStencilStateManager.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCTouch.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCUserDefault.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCValue.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\CCVector.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ObjectFactory.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\TGAlib.h">
+		<date year="126" month="2" day="1" hour="0" minute="5" second="59" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ZipUtils.h">
+		<date year="126" month="2" day="1" hour="0" minute="5" second="59" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\atitc.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\base64.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccCArray.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccConfig.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccConstants.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccFPSImages.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccMacros.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccRandom.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccTypes.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccUTF8.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\ccUtils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\etc1.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\firePngData.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\o2Integration\CCEditorApplication.h">
+		<date year="126" month="2" day="1" hour="1" minute="44" second="58" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="CocosEditorApplication" fullname="CocosEditorApplication" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Editor::EditorApplication" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\o2Integration\CCO2Actor.h">
+		<date year="126" month="2" day="1" hour="1" minute="44" second="58" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="O2CocosActor" fullname="O2CocosActor" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="o2::Actor" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\o2Integration\CCO2Application.h">
+		<date year="126" month="2" day="1" hour="1" minute="44" second="58" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="CocosO2Application" fullname="CocosO2Application" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="o2::Application" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\o2Integration\CCO2Integration.h">
+		<date year="126" month="2" day="1" hour="1" minute="44" second="58" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="O2Integration" fullname="O2Integration" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="o2::Integration" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\pvr.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\s3tc.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\uthash.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\base\utlist.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\cocos2d.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCActionTimeline.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCActionTimelineCache.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCActionTimelineNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCBoneNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCFrame.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCSkeletonNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCSkinNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCTimeLine.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CCTimelineMacro.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\ActionTimeline\CSLoader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCActionFrame.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCActionFrameEasing.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCActionManagerEx.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCActionNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCActionObject.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCArmature.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCArmatureAnimation.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCArmatureDataManager.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCArmatureDefine.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCBatchNode.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCBone.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCColliderDetector.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCComAttribute.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCComAudio.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCComBase.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCComController.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCComExtensionData.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCComRender.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCDataReaderHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCDatas.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCDecorativeDisplay.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCDisplayFactory.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCDisplayManager.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCInputDelegate.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCProcessBase.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCSGUIReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCSSceneReader.h">
+		<date year="125" month="11" day="15" hour="23" minute="27" second="14" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCSkin.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCSpriteFrameCacheHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCTransformHelp.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCTween.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CCUtilMath.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CSLanguageDataBinary_generated.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CSParse3DBinary_generated.h">
+		<date year="125" month="11" day="15" hour="23" minute="34" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CSParseBinary_generated.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CocoLoader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CocoStudio.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CocosStudioExport.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\CocosStudioExtension.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\DictionaryHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\FlatBuffersSerialize.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\LocalizationManager.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\SimpleAudioEngine.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\TriggerBase.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\TriggerMng.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\TriggerObj.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetCallBackHandlerProtocol.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ArmatureNodeReader\ArmatureNodeReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ArmatureNodeReader\CSArmatureNode_generated.h">
+		<date year="125" month="11" day="15" hour="23" minute="30" second="30" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ButtonReader\ButtonReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\CheckBoxReader\CheckBoxReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ComAudioReader\ComAudioReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\GameMapReader\GameMapReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\GameNode3DReader\GameNode3DReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ImageViewReader\ImageViewReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\LayoutReader\LayoutReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\Light3DReader\Light3DReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ListViewReader\ListViewReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\LoadingBarReader\LoadingBarReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\Node3DReader\Node3DReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\NodeReaderDefine.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\NodeReaderProtocol.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\NodeReader\NodeReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\PageViewReader\PageViewReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\Particle3DReader\Particle3DReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ParticleReader\ParticleReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ProjectNodeReader\ProjectNodeReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\ScrollViewReader\ScrollViewReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\SingleNodeReader\SingleNodeReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\SkeletonReader\BoneNodeReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\SkeletonReader\CSBoneBinary_generated.h">
+		<date year="125" month="11" day="15" hour="23" minute="30" second="4" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\SkeletonReader\SkeletonNodeReader.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\SliderReader\SliderReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\Sprite3DReader\Sprite3DReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\SpriteReader\SpriteReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\TabControlReader\CSTabControl_generated.h">
+		<date year="125" month="11" day="15" hour="23" minute="29" second="17" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\TabControlReader\TabControlReader.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\TextAtlasReader\TextAtlasReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\TextBMFontReader\TextBMFontReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\TextFieldReader\TextFieldReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\TextReader\TextReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\UserCameraReader\UserCameraReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\WidgetReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\editor-support\cocostudio\WidgetReader\WidgetReaderProtocol.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\CCAffineTransform.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\CCGeometry.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\CCMath.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\CCMathBase.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\CCVertex.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\Mat4.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\MathUtil.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\Quaternion.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\TransformUtils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\Vec2.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\Vec3.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\math\Vec4.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\navmesh\CCNavMesh.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\navmesh\CCNavMeshAgent.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\navmesh\CCNavMeshDebugDraw.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\navmesh\CCNavMeshObstacle.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\navmesh\CCNavMeshUtils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\CCDownloader-android.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\CCDownloader-apple.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\CCDownloader-curl.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\CCDownloader.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\CCIDownloaderImpl.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\HttpAsynConnection-apple.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\HttpClient.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\HttpCookie.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\HttpRequest.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\HttpResponse.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\SocketIO.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\Uri.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\network\WebSocket.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysics3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysics3DComponent.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysics3DConstraint.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysics3DDebugDrawer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysics3DObject.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysics3DShape.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysics3DWorld.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics3d\CCPhysicsSprite3D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics\CCPhysicsBody.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics\CCPhysicsContact.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics\CCPhysicsHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics\CCPhysicsJoint.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics\CCPhysicsShape.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics\CCPhysicsWorld.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\physics\cpCompat62.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCApplication.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCApplicationProtocol.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCCommon.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCDevice.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCFileUtils.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCGL.h">
+		<date year="126" month="0" day="4" hour="11" minute="36" second="2" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCGLView.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCImage.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCPlatformConfig.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCPlatformDefine.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCPlatformMacros.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCSAXParser.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\CCStdC.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\CCApplication-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\CCEnhanceAPI-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\CCFileUtils-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\CCGL-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\CCGLViewImpl-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\CCPlatformDefine-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\CCStdC-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\jni\Java_org_cocos2dx_lib_Cocos2dxBitmap.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\jni\Java_org_cocos2dx_lib_Cocos2dxHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\android\jni\JniHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\apple\CCDevice-apple.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\apple\CCFileUtils-apple.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\desktop\CCGLViewImpl-desktop.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\ios\CCApplication-ios.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\ios\CCDirectorCaller-ios.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\ios\CCEAGLView-ios.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\ios\CCGLViewImpl-ios.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\ios\CCInputView-ios.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\ios\CCPlatformDefine-ios.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\ios\CCStdC-ios.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\linux\CCApplication-linux.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\linux\CCFileUtils-linux.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\linux\CCGL-linux.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\linux\CCPlatformDefine-linux.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\linux\CCStdC-linux.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\mac\CCApplication-mac.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\mac\CCGLViewImpl-mac.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\mac\CCPlatformDefine-mac.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\mac\CCStdC-mac.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\CCApplication-win32.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\CCFileUtils-win32.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\CCGL-win32.h">
+		<date year="126" month="0" day="4" hour="11" minute="42" second="35" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\CCPlatformDefine-win32.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\CCStdC-win32.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\CCUtils-win32.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\compat\stdint.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\platform\win32\inet_pton_mingw.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\precheader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCCallbackCommand.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCCustomCommand.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCGroupCommand.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCMaterial.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCMeshCommand.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCPass.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCPipelineDescriptor.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCQuadCommand.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCRenderCommand.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCRenderCommandPool.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCRenderState.h">
+		<date year="126" month="2" day="1" hour="0" minute="5" second="59" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCRenderer.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCTechnique.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCTexture2D.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCTextureAtlas.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCTextureCache.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCTextureCube.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCTextureUtils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\CCTrianglesCommand.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\Backend.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\Buffer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\CommandBuffer.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\DepthStencilState.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\Device.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\DeviceInfo.h">
+		<date year="126" month="2" day="1" hour="1" minute="3" second="0" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\Macros.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\Program.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\ProgramCache.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\ProgramState.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\RenderPassDescriptor.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\RenderPipeline.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\RenderPipelineDescriptor.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\ShaderCache.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\ShaderModule.h">
+		<date year="126" month="2" day="1" hour="1" minute="3" second="0" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\Texture.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\Types.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\VertexLayout.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\BufferMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\BufferManager.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\CommandBufferMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\DepthStencilStateMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\DeviceInfoMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\DeviceMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\ProgramMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\RenderPipelineMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\ShaderModuleMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\TextureMTL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\metal\Utils.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\BufferGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\CommandBufferGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\DepthStencilStateGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\DeviceGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\DeviceInfoGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\ProgramGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\RenderPipelineGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\ShaderModuleGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\TextureGL.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\backend\opengl\UtilsGL.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\renderer\ccShaders.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCArray.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCBool.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCDataVisitor.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCDeprecated.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCDictionary.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCDouble.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCFloat.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCInteger.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCNotificationCenter.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCSet.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\deprecated\CCString.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="52" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\3d\lua_cocos2dx_3d_manual.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\CCComponentLua.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\CCLuaBridge.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\CCLuaEngine.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\CCLuaStack.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\CCLuaValue.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\Cocos2dxLuaLoader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\Lua-BindingsExport.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\LuaBasicConversions.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\audioengine\lua_cocos2dx_audioengine_manual.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\cocos2d\LuaScriptHandlerMgr.h">
+		<date year="126" month="2" day="1" hour="1" minute="3" second="0" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\cocos2d\lua_cocos2dx_deprecated.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\cocostudio\CustomGUIReader.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\cocostudio\lua-cocos-studio-conversions.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\extension\lua_cocos2dx_extension_manual.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\lua_module_register.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\navmesh\lua_cocos2dx_navmesh_conversions.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\navmesh\lua_cocos2dx_navmesh_manual.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\network\Lua_web_socket.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\network\lua_cocos2dx_network_manual.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\network\lua_downloader.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\network\lua_extensions.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\network\lua_xml_http_request.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\physics3d\lua_cocos2dx_physics3d_manual.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\platform\android\CCLuaJavaBridge.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\platform\android\jni\Cocos2dxLuaJavaBridge.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\platform\ios\CCLuaObjcBridge.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\spine\LuaSkeletonAnimation.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\scripting\lua-bindings\manual\tolua_fix.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\CocosGUI.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\GUIDefine.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\GUIExport.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIAbstractCheckButton.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIButton.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UICheckBox.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\Mac\CCUIEditBoxMac.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\Mac\CCUIMultilineTextField.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\Mac\CCUIPasswordTextField.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\Mac\CCUISingleLineTextField.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\Mac\CCUITextFieldFormatter.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\Mac\CCUITextInput.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBox.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBoxImpl-android.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBoxImpl-common.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBoxImpl-ios.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBoxImpl-linux.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBoxImpl-mac.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBoxImpl-win32.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\UIEditBoxImpl.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\iOS\CCUIEditBoxIOS.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\iOS\CCUIMultilineTextField.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\iOS\CCUISingleLineTextField.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\iOS\CCUITextInput.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\iOS\UITextField+CCUITextInput.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIEditBox\iOS\UITextView+CCUITextInput.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIHBox.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIHelper.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIImageView.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UILayout.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UILayoutComponent.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UILayoutManager.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UILayoutParameter.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIListView.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UILoadingBar.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIPageView.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIPageViewIndicator.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIRadioButton.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIRelativeBox.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIRichText.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIScale9Sprite.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIScrollView.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIScrollViewBar.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UISlider.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UITabControl.h">
+		<date year="126" month="2" day="1" hour="1" minute="45" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIText.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UITextAtlas.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UITextBMFont.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UITextField.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIVBox.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIVideoPlayer.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIWebView\UIWebView-inl.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIWebView\UIWebView.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIWebView\UIWebViewImpl-android.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIWebView\UIWebViewImpl-ios.h">
+		<date year="125" month="10" day="3" hour="11" minute="38" second="53" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+	<file path="C:/work/cocos2d-x/cocos\ui\UIWidget.h">
+		<date year="126" month="2" day="1" hour="1" minute="41" second="1" />
+		<globalNamespace name="" fullname="">
+			<sections />
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+</files>
+<parentProjects>
+	<project path="C:/work/cocos2d-x/o2/Framework/Sources/o2/CodeToolCache.xml" />
+</parentProjects>
