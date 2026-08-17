@@ -45,6 +45,7 @@
 #include "2d/CCComponentContainer.h"
 #include "2d/CCComponent.h"
 #include "o2/Utils/Basic/IObject.h"
+#include "o2/Utils/Property.h"
 #include "o2/Utils/Editor/SceneEditableObject.h"
 #include "o2/Events/CursorAreaEventsListener.h"
 
@@ -132,6 +133,33 @@ public:
 
     /** Default tag used for all the nodes */
     static const int INVALID_TAG = -1;
+
+    /// @{ o2 properties over the existing accessors: a shorter API (node->rotation = 45) and editor
+    /// rows going through the setters. The ones the viewer already shows in its transform block are
+    /// marked @EDITOR_IGNORE, so the panel doesn't list them twice
+
+    PROPERTIES(Node);
+
+    PROPERTY(float, rotation, setRotation, getRotation);         // Rotation in degrees @EDITOR_IGNORE
+    PROPERTY(float, scaleX, setScaleX, getScaleX);               // X scale @EDITOR_IGNORE
+    PROPERTY(float, scaleY, setScaleY, getScaleY);               // Y scale @EDITOR_IGNORE
+    PROPERTY(float, positionX, setPositionX, getPositionX);      // X position @EDITOR_IGNORE
+    PROPERTY(float, positionY, setPositionY, getPositionY);      // Y position @EDITOR_IGNORE
+    PROPERTY(int, localZOrder, setLocalZOrder, getLocalZOrder);  // Draw order inside the parent @EDITOR_IGNORE
+    PROPERTY(bool, visible, setVisible, isVisible);              // Visibility @EDITOR_IGNORE
+
+    PROPERTY(float, rotationSkewX, setRotationSkewX, getRotationSkewX); // X axis rotation, degrees
+    PROPERTY(float, rotationSkewY, setRotationSkewY, getRotationSkewY); // Y axis rotation, degrees
+    PROPERTY(float, skewX, setSkewX, getSkewX);                         // X skew, degrees
+    PROPERTY(float, skewY, setSkewY, getSkewY);                         // Y skew, degrees
+    PROPERTY(float, globalZOrder, setGlobalZOrder, getGlobalZOrder);    // Draw order across the scene
+    PROPERTY(int, tag, setTag, getTag);                                 // User tag
+
+    PROPERTY(bool, cascadeOpacityEnabled, setCascadeOpacityEnabled, isCascadeOpacityEnabled); // Opacity affects children
+    PROPERTY(bool, cascadeColorEnabled, setCascadeColorEnabled, isCascadeColorEnabled);       // Color affects children
+    PROPERTY(bool, opacityModifyRGB, setOpacityModifyRGB, isOpacityModifyRGB);                // Opacity premultiplies the color
+
+    /// @}
 
     /// @{ o2 editor integration (SceneEditableObject overrides)
 
@@ -2068,6 +2096,22 @@ CLASS_BASES_META(cocos2d::Node)
 END_META;
 CLASS_FIELDS_META(cocos2d::Node)
 {
+    FIELD().PUBLIC().EDITOR_IGNORE_ATTRIBUTE().NAME(rotation);
+    FIELD().PUBLIC().EDITOR_IGNORE_ATTRIBUTE().NAME(scaleX);
+    FIELD().PUBLIC().EDITOR_IGNORE_ATTRIBUTE().NAME(scaleY);
+    FIELD().PUBLIC().EDITOR_IGNORE_ATTRIBUTE().NAME(positionX);
+    FIELD().PUBLIC().EDITOR_IGNORE_ATTRIBUTE().NAME(positionY);
+    FIELD().PUBLIC().EDITOR_IGNORE_ATTRIBUTE().NAME(localZOrder);
+    FIELD().PUBLIC().EDITOR_IGNORE_ATTRIBUTE().NAME(visible);
+    FIELD().PUBLIC().NAME(rotationSkewX);
+    FIELD().PUBLIC().NAME(rotationSkewY);
+    FIELD().PUBLIC().NAME(skewX);
+    FIELD().PUBLIC().NAME(skewY);
+    FIELD().PUBLIC().NAME(globalZOrder);
+    FIELD().PUBLIC().NAME(tag);
+    FIELD().PUBLIC().NAME(cascadeOpacityEnabled);
+    FIELD().PUBLIC().NAME(cascadeColorEnabled);
+    FIELD().PUBLIC().NAME(opacityModifyRGB);
     FIELD().PROTECTED().NAME(_rotationX);
 }
 END_META;

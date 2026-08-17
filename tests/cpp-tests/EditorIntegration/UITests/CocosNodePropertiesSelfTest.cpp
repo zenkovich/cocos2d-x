@@ -37,6 +37,7 @@
 
 #include "o2Editor/EditorApplication.h"
 #include "o2Editor/Properties/Basic/BooleanProperty.h"
+#include "o2Editor/Properties/Basic/IntegerProperty.h"
 #include "o2Editor/Properties/IObjectPropertiesViewer.h"
 #include "o2Editor/Properties/Properties.h"
 #include "o2Editor/UI/SpoilerWithHead.h"
@@ -197,6 +198,18 @@ namespace
 
 		// Header (visibility, name) and the transform rows are built for every node type
 		Check(fields.Count() >= 7, typeName + " viewer builds the base rows");
+
+		// Rows built from o2 properties go through the cocos setters
+		if (auto tagField = DynamicCast<IntegerProperty>(FindField(fields, "Tag")))
+		{
+			int tag = node->getTag() + 17;
+			tagField->SetValue(tag, true);
+			AppTestDriver::PumpFrames(2);
+
+			Check(node->getTag() == tag, typeName + " property row writes through the node setter");
+		}
+		else
+			Check(false, typeName + " has the Tag property row");
 
 		// A reflected field is written straight into the node, so the node has to be asked to
 		// rebuild what the setter would have rebuilt: check it on the sprite quads, they carry

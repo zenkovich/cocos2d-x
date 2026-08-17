@@ -62,6 +62,10 @@ class SpriteFrame;
 class CC_DLL MenuItem : public Node
 {
 public:
+    PROPERTIES(MenuItem);
+    PROPERTY(bool, enabled, setEnabled, isEnabled); // Item accepts touches and draws in the normal color
+    // No property for isSelected: MenuItem already has a selected() method
+
     IOBJECT(MenuItem);
 
 
@@ -526,6 +530,7 @@ CLASS_BASES_META(cocos2d::MenuItem)
 END_META;
 CLASS_FIELDS_META(cocos2d::MenuItem)
 {
+    FIELD().PUBLIC().NAME(enabled);
     FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_selected);
     FIELD().PROTECTED().NAME(_enabled);
     FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_callback);

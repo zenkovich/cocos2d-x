@@ -98,6 +98,11 @@ struct transformValues_;
 class CC_DLL Sprite : public Node, public TextureProtocol
 {
 public:
+    PROPERTIES(Sprite);
+    PROPERTY(bool, flippedX, setFlippedX, isFlippedX);                     // Mirror horizontally
+    PROPERTY(bool, flippedY, setFlippedY, isFlippedY);                     // Mirror vertically
+    PROPERTY(bool, stretchEnabled, setStretchEnabled, isStretchEnabled);   // Stretch the texture to the content size
+
     IOBJECT(Sprite);
 
 
@@ -704,18 +709,18 @@ protected:
     PolygonInfo  _polyInfo;
 
     // opacity and RGB protocol
-    bool _opacityModifyRGB = false; // @EDITOR_PROPERTY
+    bool _opacityModifyRGB = false;
 
     // image is flipped
-    bool _flippedX = false; // @EDITOR_PROPERTY  Whether the sprite is flipped horizontally or not
-    bool _flippedY = false; // @EDITOR_PROPERTY  Whether the sprite is flipped vertically or not
+    bool _flippedX = false;  // Whether the sprite is flipped horizontally or not
+    bool _flippedY = false;  // Whether the sprite is flipped vertically or not
 
     bool _insideBounds = true;              /// whether or not the sprite was inside bounds the previous frame
 
     std::string _fileName;
     int _fileType = 0;
 
-    bool _stretchEnabled = true; // @EDITOR_PROPERTY
+    bool _stretchEnabled = true;
     
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Sprite);
@@ -738,6 +743,9 @@ CLASS_BASES_META(cocos2d::Sprite)
 END_META;
 CLASS_FIELDS_META(cocos2d::Sprite)
 {
+    FIELD().PUBLIC().NAME(flippedX);
+    FIELD().PUBLIC().NAME(flippedY);
+    FIELD().PUBLIC().NAME(stretchEnabled);
     FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_textureAtlas);
     FIELD().PROTECTED().DEFAULT_VALUE(0).NAME(_atlasIndex);
     FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_batchNode);
@@ -769,11 +777,11 @@ CLASS_FIELDS_META(cocos2d::Sprite)
     FIELD().PROTECTED().NAME(_polyInfo);
     FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_opacityModifyRGB);
     FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_flippedX);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().DEFAULT_VALUE(false).NAME(_flippedY);
+    FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_flippedY);
     FIELD().PROTECTED().DEFAULT_VALUE(true).NAME(_insideBounds);
     FIELD().PROTECTED().NAME(_fileName);
     FIELD().PROTECTED().DEFAULT_VALUE(0).NAME(_fileType);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().DEFAULT_VALUE(true).NAME(_stretchEnabled);
+    FIELD().PROTECTED().DEFAULT_VALUE(true).NAME(_stretchEnabled);
 }
 END_META;
 CLASS_METHODS_META(cocos2d::Sprite)

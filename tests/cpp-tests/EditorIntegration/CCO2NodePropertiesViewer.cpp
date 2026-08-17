@@ -130,10 +130,6 @@ void CocosNodeViewer::RefreshTypeViewer()
 		}
 	}
 
-	// Nothing to show for a plain Node: its properties are in the header and transform
-	if (commonType == &TypeOf(cocos2d::Node))
-		commonType = nullptr;
-
 	if (mViewedNodeType != commonType)
 	{
 		if (mViewedNodeType)

@@ -121,6 +121,23 @@ public:
         HIGHLIGHT
     };
 
+    PROPERTIES(Widget);
+    PROPERTY(bool, enabled, setEnabled, isEnabled);                        // Widget updates and handles touches
+    PROPERTY(bool, bright, setBright, isBright);                           // Normal or dimmed look
+    PROPERTY(bool, highlighted, setHighlighted, isHighlighted);            // Highlighted look
+    PROPERTY(bool, touchEnabled, setTouchEnabled, isTouchEnabled);         // Receives touches
+    PROPERTY(bool, propagateTouchEvents, setPropagateTouchEvents, isPropagateTouchEvents); // Passes touches to the parent widget
+    PROPERTY(bool, swallowTouches, setSwallowTouches, isSwallowTouches);   // Stops the touch from going further
+    PROPERTY(bool, focused, setFocused, isFocused);                        // Has the focus now
+    PROPERTY(bool, focusEnabled, setFocusEnabled, isFocusEnabled);         // Can take the focus
+    PROPERTY(bool, flippedX, setFlippedX, isFlippedX);                     // Mirror horizontally
+    PROPERTY(bool, flippedY, setFlippedY, isFlippedY);                     // Mirror vertically
+    PROPERTY(bool, ignoreSize, ignoreContentAdaptWithSize, isIgnoreContentAdaptWithSize); // Keep the custom size instead of fitting the content
+    PROPERTY(bool, unifySizeEnabled, setUnifySizeEnabled, isUnifySizeEnabled); // Size and position percents share one base
+    PROPERTY(int, actionTag, setActionTag, getActionTag);                  // Tag used by the actions and the layouts
+    PROPERTY(Widget::PositionType, positionType, setPositionType, getPositionType); // Absolute or percent position
+    PROPERTY(Widget::SizeType, sizeType, setSizeType, getSizeType);        // Absolute or percent size
+
     
     /**
      * Widget touch event callback.
@@ -806,21 +823,21 @@ protected:
 
 protected:
     bool _usingLayoutComponent;
-    bool _unifySize; // @EDITOR_PROPERTY
-    bool _enabled; // @EDITOR_PROPERTY
-    bool _bright; // @EDITOR_PROPERTY
-    bool _touchEnabled; // @EDITOR_PROPERTY
-    bool _highlight; // @EDITOR_PROPERTY
+    bool _unifySize;
+    bool _enabled;
+    bool _bright;
+    bool _touchEnabled;
+    bool _highlight;
     bool _affectByClipping;
-    bool _ignoreSize; // @EDITOR_PROPERTY
-    bool _propagateTouchEvents; // @EDITOR_PROPERTY
+    bool _ignoreSize;
+    bool _propagateTouchEvents;
 
     BrightStyle _brightStyle;
     SizeType _sizeType;
     PositionType _positionType;
 
     //used for search widget by action tag in UIHelper class
-    int _actionTag; // @EDITOR_PROPERTY
+    int _actionTag;
 
     Size _customSize;
 
@@ -836,15 +853,15 @@ protected:
     Vec2 _touchMovePosition;
     Vec2 _touchEndPosition;
 
-    bool _flippedX; // @EDITOR_PROPERTY
-    bool _flippedY; // @EDITOR_PROPERTY
+    bool _flippedX;
+    bool _flippedY;
 
     //use map to enable switch back and forth for user layout parameters
     Map<int,LayoutParameter*> _layoutParameterDictionary;
     LayoutParameter::Type _layoutParameterType;
 
     bool _focused;
-    bool _focusEnabled; // @EDITOR_PROPERTY
+    bool _focusEnabled;
     /**
      * store the only one focused widget
      */
@@ -890,17 +907,32 @@ CLASS_BASES_META(cocos2d::ui::Widget)
 END_META;
 CLASS_FIELDS_META(cocos2d::ui::Widget)
 {
+    FIELD().PUBLIC().NAME(enabled);
+    FIELD().PUBLIC().NAME(bright);
+    FIELD().PUBLIC().NAME(highlighted);
+    FIELD().PUBLIC().NAME(touchEnabled);
+    FIELD().PUBLIC().NAME(propagateTouchEvents);
+    FIELD().PUBLIC().NAME(swallowTouches);
+    FIELD().PUBLIC().NAME(focused);
+    FIELD().PUBLIC().NAME(focusEnabled);
+    FIELD().PUBLIC().NAME(flippedX);
+    FIELD().PUBLIC().NAME(flippedY);
+    FIELD().PUBLIC().NAME(ignoreSize);
+    FIELD().PUBLIC().NAME(unifySizeEnabled);
+    FIELD().PUBLIC().NAME(actionTag);
+    FIELD().PUBLIC().NAME(positionType);
+    FIELD().PUBLIC().NAME(sizeType);
     FIELD().PUBLIC().NAME(onFocusChanged);
     FIELD().PUBLIC().NAME(onNextFocusedWidget);
     FIELD().PROTECTED().NAME(_usingLayoutComponent);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_unifySize);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_enabled);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_bright);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_touchEnabled);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_highlight);
+    FIELD().PROTECTED().NAME(_unifySize);
+    FIELD().PROTECTED().NAME(_enabled);
+    FIELD().PROTECTED().NAME(_bright);
+    FIELD().PROTECTED().NAME(_touchEnabled);
+    FIELD().PROTECTED().NAME(_highlight);
     FIELD().PROTECTED().NAME(_affectByClipping);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_ignoreSize);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_propagateTouchEvents);
+    FIELD().PROTECTED().NAME(_ignoreSize);
+    FIELD().PROTECTED().NAME(_propagateTouchEvents);
     FIELD().PROTECTED().NAME(_brightStyle);
     FIELD().PROTECTED().NAME(_sizeType);
     FIELD().PROTECTED().NAME(_positionType);
@@ -914,12 +946,12 @@ CLASS_FIELDS_META(cocos2d::ui::Widget)
     FIELD().PROTECTED().NAME(_touchBeganPosition);
     FIELD().PROTECTED().NAME(_touchMovePosition);
     FIELD().PROTECTED().NAME(_touchEndPosition);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_flippedX);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_flippedY);
+    FIELD().PROTECTED().NAME(_flippedX);
+    FIELD().PROTECTED().NAME(_flippedY);
     FIELD().PROTECTED().NAME(_layoutParameterDictionary);
     FIELD().PROTECTED().NAME(_layoutParameterType);
     FIELD().PROTECTED().NAME(_focused);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_focusEnabled);
+    FIELD().PROTECTED().NAME(_focusEnabled);
     FIELD().PROTECTED().NAME(_touchEventListener);
     FIELD().PROTECTED().NAME(_touchEventCallback);
     FIELD().PROTECTED().NAME(_clickEventListener);

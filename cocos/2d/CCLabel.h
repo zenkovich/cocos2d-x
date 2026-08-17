@@ -598,6 +598,48 @@ public:
     virtual Sprite * getLetter(int lettetIndex);
 
     /** Clips upper and lower margin to reduce height of Label.*/
+    /** Text in the o2 string type: the editor and the o2 side of the integration work with it */
+    void setTextString(const o2::String& text);
+    o2::String getTextString() const;
+
+    /** Effects as flags: cocos exposes them as enableX()/disableEffect(X) pairs only */
+    void setShadowEnabled(bool enabled); // Turns the shadow on with the current or default parameters
+
+    void setBoldEnabled(bool enabled);
+    bool isBoldEnabled() const { return _boldEnabled; }
+
+    void setItalicsEnabled(bool enabled);
+    bool isItalicsEnabled() const; // Italics is a skew, cocos keeps no flag for it
+
+    void setUnderlineEnabled(bool enabled);
+    bool isUnderlineEnabled() const { return _underlineNode != nullptr; }
+
+    void setStrikethroughEnabled(bool enabled);
+    bool isStrikethroughEnabled() const { return _strikethroughEnabled; }
+
+    /** Line breaking mode, the setter alone was public */
+    bool isLineBreakWithoutSpace() const { return _lineBreakWithoutSpaces; }
+
+    PROPERTIES(Label);
+    PROPERTY(o2::String, text, setTextString, getTextString);                    // Displayed text
+    PROPERTY(float, systemFontSize, setSystemFontSize, getSystemFontSize);       // System font size
+    PROPERTY(float, width, setWidth, getWidth);                                  // Label box width, 0 fits the text
+    PROPERTY(float, height, setHeight, getHeight);                               // Label box height, 0 fits the text
+    PROPERTY(float, lineHeight, setLineHeight, getLineHeight);                   // Line height
+    PROPERTY(float, lineSpacing, setLineSpacing, getLineSpacing);                // Space between lines
+    PROPERTY(float, additionalKerning, setAdditionalKerning, getAdditionalKerning); // Extra space between characters
+    PROPERTY(float, maxLineWidth, setMaxLineWidth, getMaxLineWidth);             // Wrapping width
+    PROPERTY(Label::Overflow, overflow, setOverflow, getOverflow);               // What happens to the text outside the box
+    PROPERTY(bool, wrapEnabled, enableWrap, isWrapEnabled);                      // Wrap the text by the box width
+    PROPERTY(bool, lineBreakWithoutSpace, setLineBreakWithoutSpace, isLineBreakWithoutSpace); // Break lines anywhere
+    PROPERTY(bool, clipMarginEnabled, setClipMarginEnabled, isClipMarginEnabled);            // Clip the glyph margins
+    PROPERTY(bool, shadowEnabled, setShadowEnabled, isShadowEnabled);            // Text shadow
+    PROPERTY(bool, boldEnabled, setBoldEnabled, isBoldEnabled);                  // Bold
+    PROPERTY(bool, italicsEnabled, setItalicsEnabled, isItalicsEnabled);         // Italics
+    PROPERTY(bool, underlineEnabled, setUnderlineEnabled, isUnderlineEnabled);   // Underline
+    PROPERTY(bool, strikethroughEnabled, setStrikethroughEnabled, isStrikethroughEnabled); // Strikethrough
+
+
     void setClipMarginEnabled(bool clipEnabled) { _clipEnabled = clipEnabled; }
 
     bool isClipMarginEnabled() const { return _clipEnabled; }
@@ -790,7 +832,7 @@ protected:
 
     bool _systemFontDirty;
     std::string _systemFont;
-    float _systemFontSize; // @EDITOR_PROPERTY
+    float _systemFontSize;
     Sprite* _textSprite;
     Sprite* _shadowNode;
 
@@ -804,12 +846,12 @@ protected:
     int _lengthOfString;
 
     //layout relevant properties.
-    float _lineHeight; // @EDITOR_PROPERTY
-    float _lineSpacing; // @EDITOR_PROPERTY
-    float _additionalKerning; // @EDITOR_PROPERTY
+    float _lineHeight;
+    float _lineSpacing;
+    float _additionalKerning;
     int* _horizontalKernings;
     bool _lineBreakWithoutSpaces;
-    float _maxLineWidth; // @EDITOR_PROPERTY
+    float _maxLineWidth;
     Size _labelDimensions;
     float _labelWidth;
     float _labelHeight;
@@ -840,7 +882,7 @@ protected:
     bool _useA8Shader;
 
     bool _shadowDirty;
-    bool _shadowEnabled; // @EDITOR_PROPERTY
+    bool _shadowEnabled;
     Size _shadowOffset;
     
     Color4F _shadowColor4F;
@@ -848,7 +890,7 @@ protected:
     uint8_t _shadowOpacity;
     float _shadowBlurRadius; // @EDITOR_PROPERTY
 
-    bool _clipEnabled; // @EDITOR_PROPERTY
+    bool _clipEnabled;
     bool _blendFuncDirty;
     BlendFunc _blendFunc;
 
@@ -866,15 +908,15 @@ protected:
     DrawNode* _debugDrawNode;
 #endif
 
-    bool _enableWrap; // @EDITOR_PROPERTY
+    bool _enableWrap;
     float _bmFontSize;
     float _bmfontScale;
-    Overflow _overflow; // @EDITOR_PROPERTY
+    Overflow _overflow;
     float _originalFontSize;
 
-    bool _boldEnabled; // @EDITOR_PROPERTY
+    bool _boldEnabled;
     DrawNode* _underlineNode;
-    bool _strikethroughEnabled; // @EDITOR_PROPERTY
+    bool _strikethroughEnabled;
     
     backend::UniformLocation _mvpMatrixLocation;
     backend::UniformLocation _textureLocation;
@@ -908,6 +950,23 @@ CLASS_BASES_META(cocos2d::Label)
 END_META;
 CLASS_FIELDS_META(cocos2d::Label)
 {
+    FIELD().PUBLIC().NAME(text);
+    FIELD().PUBLIC().NAME(systemFontSize);
+    FIELD().PUBLIC().NAME(width);
+    FIELD().PUBLIC().NAME(height);
+    FIELD().PUBLIC().NAME(lineHeight);
+    FIELD().PUBLIC().NAME(lineSpacing);
+    FIELD().PUBLIC().NAME(additionalKerning);
+    FIELD().PUBLIC().NAME(maxLineWidth);
+    FIELD().PUBLIC().NAME(overflow);
+    FIELD().PUBLIC().NAME(wrapEnabled);
+    FIELD().PUBLIC().NAME(lineBreakWithoutSpace);
+    FIELD().PUBLIC().NAME(clipMarginEnabled);
+    FIELD().PUBLIC().NAME(shadowEnabled);
+    FIELD().PUBLIC().NAME(boldEnabled);
+    FIELD().PUBLIC().NAME(italicsEnabled);
+    FIELD().PUBLIC().NAME(underlineEnabled);
+    FIELD().PUBLIC().NAME(strikethroughEnabled);
     FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_currentLabelType);
     FIELD().PROTECTED().NAME(_contentDirty);
     FIELD().PROTECTED().NAME(_utf32Text);
@@ -921,7 +980,7 @@ CLASS_FIELDS_META(cocos2d::Label)
     FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_outlineSize);
     FIELD().PROTECTED().NAME(_systemFontDirty);
     FIELD().PROTECTED().NAME(_systemFont);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_systemFontSize);
+    FIELD().PROTECTED().NAME(_systemFontSize);
     FIELD().PROTECTED().NAME(_textSprite);
     FIELD().PROTECTED().NAME(_shadowNode);
     FIELD().PROTECTED().NAME(_fontAtlas);
@@ -931,11 +990,11 @@ CLASS_FIELDS_META(cocos2d::Label)
     FIELD().PROTECTED().NAME(_reusedRect);
     FIELD().PROTECTED().NAME(_lengthOfString);
     FIELD().PROTECTED().NAME(_lineHeight);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_lineSpacing);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_additionalKerning);
+    FIELD().PROTECTED().NAME(_lineSpacing);
+    FIELD().PROTECTED().NAME(_additionalKerning);
     FIELD().PROTECTED().NAME(_horizontalKernings);
     FIELD().PROTECTED().NAME(_lineBreakWithoutSpaces);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_maxLineWidth);
+    FIELD().PROTECTED().NAME(_maxLineWidth);
     FIELD().PROTECTED().NAME(_labelDimensions);
     FIELD().PROTECTED().NAME(_labelWidth);
     FIELD().PROTECTED().NAME(_labelHeight);
@@ -960,13 +1019,13 @@ CLASS_FIELDS_META(cocos2d::Label)
     FIELD().PROTECTED().NAME(_useDistanceField);
     FIELD().PROTECTED().NAME(_useA8Shader);
     FIELD().PROTECTED().NAME(_shadowDirty);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_shadowEnabled);
+    FIELD().PROTECTED().NAME(_shadowEnabled);
     FIELD().PROTECTED().NAME(_shadowOffset);
     FIELD().PROTECTED().NAME(_shadowColor4F);
     FIELD().PROTECTED().NAME(_shadowColor3B);
     FIELD().PROTECTED().NAME(_shadowOpacity);
     FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_shadowBlurRadius);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_clipEnabled);
+    FIELD().PROTECTED().NAME(_clipEnabled);
     FIELD().PROTECTED().NAME(_blendFuncDirty);
     FIELD().PROTECTED().NAME(_blendFunc);
     FIELD().PROTECTED().NAME(_insideBounds);
@@ -977,14 +1036,14 @@ CLASS_FIELDS_META(cocos2d::Label)
 #if  CC_LABEL_DEBUG_DRAW
     FIELD().PROTECTED().NAME(_debugDrawNode);
 #endif
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_enableWrap);
+    FIELD().PROTECTED().NAME(_enableWrap);
     FIELD().PROTECTED().NAME(_bmFontSize);
     FIELD().PROTECTED().NAME(_bmfontScale);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_overflow);
+    FIELD().PROTECTED().NAME(_overflow);
     FIELD().PROTECTED().NAME(_originalFontSize);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_boldEnabled);
+    FIELD().PROTECTED().NAME(_boldEnabled);
     FIELD().PROTECTED().NAME(_underlineNode);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_strikethroughEnabled);
+    FIELD().PROTECTED().NAME(_strikethroughEnabled);
     FIELD().PROTECTED().NAME(_mvpMatrixLocation);
     FIELD().PROTECTED().NAME(_textureLocation);
     FIELD().PROTECTED().NAME(_alphaTextureLocation);
@@ -1071,6 +1130,18 @@ CLASS_METHODS_META(cocos2d::Label)
     FUNCTION().PUBLIC().SIGNATURE(void, updateContent);
     FUNCTION().PUBLIC().SIGNATURE(void, onEditorPropertyChanged);
     FUNCTION().PUBLIC().SIGNATURE(Sprite*, getLetter, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTextString, const o2::String&);
+    FUNCTION().PUBLIC().SIGNATURE(o2::String, getTextString);
+    FUNCTION().PUBLIC().SIGNATURE(void, setShadowEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setBoldEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isBoldEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setItalicsEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isItalicsEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setUnderlineEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isUnderlineEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setStrikethroughEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isStrikethroughEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isLineBreakWithoutSpace);
     FUNCTION().PUBLIC().SIGNATURE(void, setClipMarginEnabled, bool);
     FUNCTION().PUBLIC().SIGNATURE(bool, isClipMarginEnabled);
     FUNCTION().PUBLIC().SIGNATURE(void, setLineHeight, float);

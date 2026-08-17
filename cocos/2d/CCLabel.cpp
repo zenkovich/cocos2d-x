@@ -2122,7 +2122,11 @@ Sprite* Label::getLetter(int letterIndex)
 
 void Label::setLineHeight(float height)
 {
-    CCASSERT(_currentLabelType != LabelType::STRING_TEXTURE, "Not supported system font!");
+    if (_currentLabelType == LabelType::STRING_TEXTURE)
+    {
+        CCLOG("Label::setLineHeight not supported on LabelType::STRING_TEXTURE");
+        return;
+    }
 
     if (_lineHeight != height)
     {
@@ -2133,7 +2137,7 @@ void Label::setLineHeight(float height)
 
 float Label::getLineHeight() const
 {
-    CCASSERT(_currentLabelType != LabelType::STRING_TEXTURE, "Not supported system font!");
+    // System font labels keep no line height of their own, the value is meaningless but readable
     return _textSprite ? 0.0f : _lineHeight * _bmfontScale;
 }
 
@@ -2168,8 +2172,6 @@ void Label::setAdditionalKerning(float space)
 
 float Label::getAdditionalKerning() const
 {
-    CCASSERT(_currentLabelType != LabelType::STRING_TEXTURE, "Not supported system font!");
-
     return _additionalKerning;
 }
 
@@ -2535,6 +2537,63 @@ void Label::updateLetterSpriteScale(Sprite* sprite)
             sprite->setScale(1.0);
         }
     }
+}
+
+void Label::setTextString(const o2::String& text)
+{
+    setString((std::string)text);
+}
+
+o2::String Label::getTextString() const
+{
+    return o2::String(getString().c_str());
+}
+
+void Label::setBoldEnabled(bool enabled)
+{
+    if (enabled)
+        enableBold();
+    else
+        disableEffect(LabelEffect::BOLD);
+}
+
+void Label::setShadowEnabled(bool enabled)
+{
+    if (enabled)
+        enableShadow(Color4B(_shadowColor3B.r, _shadowColor3B.g, _shadowColor3B.b, _shadowOpacity),
+                     _shadowOffset, (int)_shadowBlurRadius);
+    else
+        disableEffect(LabelEffect::SHADOW);
+}
+
+bool Label::isItalicsEnabled() const
+{
+    // enableItalics is a skew by a fixed angle, there is no flag to read
+    return getRotationSkewX() != 0.0f;
+}
+
+void Label::setItalicsEnabled(bool enabled)
+{
+    if (enabled)
+        enableItalics();
+    else
+        disableEffect(LabelEffect::ITALICS);
+}
+
+void Label::setUnderlineEnabled(bool enabled)
+{
+    if (enabled)
+        enableUnderline();
+    else
+        disableEffect(LabelEffect::UNDERLINE);
+}
+
+void Label::setStrikethroughEnabled(bool enabled)
+{
+    if (enabled)
+        enableStrikethrough();
+    else
+        disableEffect(LabelEffect::STRIKETHROUGH);
 }
 
 void Label::onEditorPropertyChanged()
