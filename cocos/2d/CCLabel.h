@@ -1,3 +1,7 @@
+//@CODETOOL_NON_EXCLUDE
+// pragma once is required: the generated reflection META sits after the include
+// guard's #endif and would be compiled twice otherwise
+#pragma once
 /****************************************************************************
  Copyright (c) 2013      Zynga Inc.
  Copyright (c) 2013-2016 Chukong Technologies Inc.
@@ -108,6 +112,9 @@ class TextureAtlas;
 class CC_DLL Label : public Node, public LabelProtocol, public BlendProtocol
 {
 public:
+    IOBJECT(Label);
+
+
     enum class Overflow
     {
         //In NONE mode, the dimensions is (0,0) and the content size will change dynamically to fit the label.
@@ -764,11 +771,11 @@ protected:
 
     void updateBatchCommand(BatchCommand &batch);
 
-    LabelType _currentLabelType;
+    LabelType _currentLabelType; // @EDITOR_PROPERTY
     bool _contentDirty;
     std::u32string _utf32Text;
     std::string _utf8Text;
-    int _numberOfLines;
+    int _numberOfLines; // @EDITOR_PROPERTY
 
     std::string _bmFontPath;
     std::string _bmSubTextureKey;
@@ -776,11 +783,11 @@ protected:
     bool _bmRotated;
 
     TTFConfig _fontConfig;
-    float _outlineSize;
+    float _outlineSize; // @EDITOR_PROPERTY
 
     bool _systemFontDirty;
     std::string _systemFont;
-    float _systemFontSize;
+    float _systemFontSize; // @EDITOR_PROPERTY
     Sprite* _textSprite;
     Sprite* _shadowNode;
 
@@ -794,12 +801,12 @@ protected:
     int _lengthOfString;
 
     //layout relevant properties.
-    float _lineHeight;
-    float _lineSpacing;
-    float _additionalKerning;
+    float _lineHeight; // @EDITOR_PROPERTY
+    float _lineSpacing; // @EDITOR_PROPERTY
+    float _additionalKerning; // @EDITOR_PROPERTY
     int* _horizontalKernings;
     bool _lineBreakWithoutSpaces;
-    float _maxLineWidth;
+    float _maxLineWidth; // @EDITOR_PROPERTY
     Size _labelDimensions;
     float _labelWidth;
     float _labelHeight;
@@ -830,15 +837,15 @@ protected:
     bool _useA8Shader;
 
     bool _shadowDirty;
-    bool _shadowEnabled;
+    bool _shadowEnabled; // @EDITOR_PROPERTY
     Size _shadowOffset;
     
     Color4F _shadowColor4F;
     Color3B _shadowColor3B;
     uint8_t _shadowOpacity;
-    float _shadowBlurRadius;
+    float _shadowBlurRadius; // @EDITOR_PROPERTY
 
-    bool _clipEnabled;
+    bool _clipEnabled; // @EDITOR_PROPERTY
     bool _blendFuncDirty;
     BlendFunc _blendFunc;
 
@@ -856,15 +863,15 @@ protected:
     DrawNode* _debugDrawNode;
 #endif
 
-    bool _enableWrap;
+    bool _enableWrap; // @EDITOR_PROPERTY
     float _bmFontSize;
     float _bmfontScale;
-    Overflow _overflow;
+    Overflow _overflow; // @EDITOR_PROPERTY
     float _originalFontSize;
 
-    bool _boldEnabled;
+    bool _boldEnabled; // @EDITOR_PROPERTY
     DrawNode* _underlineNode;
-    bool _strikethroughEnabled;
+    bool _strikethroughEnabled; // @EDITOR_PROPERTY
     
     backend::UniformLocation _mvpMatrixLocation;
     backend::UniformLocation _textureLocation;
@@ -883,3 +890,252 @@ private:
 NS_CC_END
 
 #endif /*__COCOS2D_CCLABEL_H */
+// --- META ---
+
+PRE_ENUM_META(cocos2d::Label::Overflow);
+
+PRE_ENUM_META(cocos2d::Label::LabelType);
+
+CLASS_BASES_META(cocos2d::Label)
+{
+    BASE_CLASS(cocos2d::Node);
+    BASE_CLASS(LabelProtocol);
+    BASE_CLASS(BlendProtocol);
+}
+END_META;
+CLASS_FIELDS_META(cocos2d::Label)
+{
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_currentLabelType);
+    FIELD().PROTECTED().NAME(_contentDirty);
+    FIELD().PROTECTED().NAME(_utf32Text);
+    FIELD().PROTECTED().NAME(_utf8Text);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_numberOfLines);
+    FIELD().PROTECTED().NAME(_bmFontPath);
+    FIELD().PROTECTED().NAME(_bmSubTextureKey);
+    FIELD().PROTECTED().NAME(_bmRect);
+    FIELD().PROTECTED().NAME(_bmRotated);
+    FIELD().PROTECTED().NAME(_fontConfig);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_outlineSize);
+    FIELD().PROTECTED().NAME(_systemFontDirty);
+    FIELD().PROTECTED().NAME(_systemFont);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_systemFontSize);
+    FIELD().PROTECTED().NAME(_textSprite);
+    FIELD().PROTECTED().NAME(_shadowNode);
+    FIELD().PROTECTED().NAME(_fontAtlas);
+    FIELD().PROTECTED().NAME(_batchNodes);
+    FIELD().PROTECTED().NAME(_lettersInfo);
+    FIELD().PROTECTED().NAME(_reusedLetter);
+    FIELD().PROTECTED().NAME(_reusedRect);
+    FIELD().PROTECTED().NAME(_lengthOfString);
+    FIELD().PROTECTED().NAME(_lineHeight);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_lineSpacing);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_additionalKerning);
+    FIELD().PROTECTED().NAME(_horizontalKernings);
+    FIELD().PROTECTED().NAME(_lineBreakWithoutSpaces);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_maxLineWidth);
+    FIELD().PROTECTED().NAME(_labelDimensions);
+    FIELD().PROTECTED().NAME(_labelWidth);
+    FIELD().PROTECTED().NAME(_labelHeight);
+    FIELD().PROTECTED().NAME(_hAlignment);
+    FIELD().PROTECTED().NAME(_vAlignment);
+    FIELD().PROTECTED().NAME(_textDesiredHeight);
+    FIELD().PROTECTED().NAME(_linesWidth);
+    FIELD().PROTECTED().NAME(_linesOffsetX);
+    FIELD().PROTECTED().NAME(_letterOffsetY);
+    FIELD().PROTECTED().NAME(_tailoredTopY);
+    FIELD().PROTECTED().NAME(_tailoredBottomY);
+    FIELD().PROTECTED().NAME(_currLabelEffect);
+    FIELD().PROTECTED().NAME(_effectColorF);
+    FIELD().PROTECTED().NAME(_textColor);
+    FIELD().PROTECTED().NAME(_textColorF);
+    FIELD().PROTECTED().NAME(_quadCommand);
+    FIELD().PROTECTED().NAME(_batchCommands);
+    FIELD().PROTECTED().NAME(_shadowTransform);
+    FIELD().PROTECTED().NAME(_uniformEffectColor);
+    FIELD().PROTECTED().NAME(_uniformEffectType);
+    FIELD().PROTECTED().NAME(_uniformTextColor);
+    FIELD().PROTECTED().NAME(_useDistanceField);
+    FIELD().PROTECTED().NAME(_useA8Shader);
+    FIELD().PROTECTED().NAME(_shadowDirty);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_shadowEnabled);
+    FIELD().PROTECTED().NAME(_shadowOffset);
+    FIELD().PROTECTED().NAME(_shadowColor4F);
+    FIELD().PROTECTED().NAME(_shadowColor3B);
+    FIELD().PROTECTED().NAME(_shadowOpacity);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_shadowBlurRadius);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_clipEnabled);
+    FIELD().PROTECTED().NAME(_blendFuncDirty);
+    FIELD().PROTECTED().NAME(_blendFunc);
+    FIELD().PROTECTED().NAME(_insideBounds);
+    FIELD().PROTECTED().NAME(_isOpacityModifyRGB);
+    FIELD().PROTECTED().NAME(_letters);
+    FIELD().PROTECTED().NAME(_purgeTextureListener);
+    FIELD().PROTECTED().NAME(_resetTextureListener);
+#if  CC_LABEL_DEBUG_DRAW
+    FIELD().PROTECTED().NAME(_debugDrawNode);
+#endif
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_enableWrap);
+    FIELD().PROTECTED().NAME(_bmFontSize);
+    FIELD().PROTECTED().NAME(_bmfontScale);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_overflow);
+    FIELD().PROTECTED().NAME(_originalFontSize);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_boldEnabled);
+    FIELD().PROTECTED().NAME(_underlineNode);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_strikethroughEnabled);
+    FIELD().PROTECTED().NAME(_mvpMatrixLocation);
+    FIELD().PROTECTED().NAME(_textureLocation);
+    FIELD().PROTECTED().NAME(_alphaTextureLocation);
+    FIELD().PROTECTED().NAME(_textColorLocation);
+    FIELD().PROTECTED().NAME(_effectColorLocation);
+    FIELD().PROTECTED().NAME(_effectTypeLocation);
+}
+END_META;
+CLASS_METHODS_META(cocos2d::Label)
+{
+
+    typedef const std::function<int(const std::u32string&, int, int)>& _tmp1;
+
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, create);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithSystemFont, const std::string&, const std::string&, float, const Size&, TextHAlignment, TextVAlignment);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithTTF, const std::string&, const std::string&, float, const Size&, TextHAlignment, TextVAlignment);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithTTF, const TTFConfig&, const std::string&, TextHAlignment, int);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithBMFont, const std::string&, const std::string&, const TextHAlignment&, int);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithBMFont, const std::string&, const std::string&, const TextHAlignment&, int, const Rect&, bool);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithBMFont, const std::string&, const std::string&, const TextHAlignment&, int, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithBMFont, const std::string&, const std::string&, const TextHAlignment&, int, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithCharMap, const std::string&, int, int, int);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithCharMap, Texture2D*, int, int, int);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Label*, createWithCharMap, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setTTFConfig, const TTFConfig&);
+    FUNCTION().PUBLIC().SIGNATURE(const TTFConfig&, getTTFConfig);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setBMFontFilePath, const std::string&, float);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setBMFontFilePath, const std::string&, const Rect&, bool, float);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setBMFontFilePath, const std::string&, const std::string&, float);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setBMFontFilePath, const std::string&, const Vec2&, float);
+    FUNCTION().PUBLIC().SIGNATURE(const std::string&, getBMFontFilePath);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setCharMap, const std::string&, int, int, int);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setCharMap, Texture2D*, int, int, int);
+    FUNCTION().PUBLIC().SIGNATURE(bool, setCharMap, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSystemFontName, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::string&, getSystemFontName);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSystemFontSize, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getSystemFontSize);
+    FUNCTION().PUBLIC().SIGNATURE(void, requestSystemFontRefresh);
+    FUNCTION().PUBLIC().SIGNATURE(void, setString, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::string&, getString);
+    FUNCTION().PUBLIC().SIGNATURE(int, getStringNumLines);
+    FUNCTION().PUBLIC().SIGNATURE(int, getStringLength);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTextColor, const Color4B&);
+    FUNCTION().PUBLIC().SIGNATURE(const Color4B&, getTextColor);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableShadow, const Color4B&, const Size&, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableOutline, const Color4B&, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableGlow, const Color4B&);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableItalics);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableBold);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableUnderline);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableStrikethrough);
+    FUNCTION().PUBLIC().SIGNATURE(void, disableEffect);
+    FUNCTION().PUBLIC().SIGNATURE(void, disableEffect, LabelEffect);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isShadowEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(Size, getShadowOffset);
+    FUNCTION().PUBLIC().SIGNATURE(float, getShadowBlurRadius);
+    FUNCTION().PUBLIC().SIGNATURE(Color4F, getShadowColor);
+    FUNCTION().PUBLIC().SIGNATURE(float, getOutlineSize);
+    FUNCTION().PUBLIC().SIGNATURE(LabelEffect, getLabelEffectType);
+    FUNCTION().PUBLIC().SIGNATURE(Color4F, getEffectColor);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAlignment, TextHAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(TextHAlignment, getTextAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAlignment, TextHAlignment, TextVAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(void, setHorizontalAlignment, TextHAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(TextHAlignment, getHorizontalAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(void, setVerticalAlignment, TextVAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(TextVAlignment, getVerticalAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(void, setLineBreakWithoutSpace, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setMaxLineWidth, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getMaxLineWidth);
+    FUNCTION().PUBLIC().SIGNATURE(void, setBMFontSize, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getBMFontSize);
+    FUNCTION().PUBLIC().SIGNATURE(void, enableWrap, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isWrapEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOverflow, Overflow);
+    FUNCTION().PUBLIC().SIGNATURE(Overflow, getOverflow);
+    FUNCTION().PUBLIC().SIGNATURE(void, setWidth, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getWidth);
+    FUNCTION().PUBLIC().SIGNATURE(void, setHeight, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getHeight);
+    FUNCTION().PUBLIC().SIGNATURE(void, setDimensions, float, float);
+    FUNCTION().PUBLIC().SIGNATURE(const Size&, getDimensions);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateContent);
+    FUNCTION().PUBLIC().SIGNATURE(Sprite*, getLetter, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, setClipMarginEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isClipMarginEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setLineHeight, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getLineHeight);
+    FUNCTION().PUBLIC().SIGNATURE(void, setLineSpacing, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getLineSpacing);
+    FUNCTION().PUBLIC().SIGNATURE(LabelType, getLabelType);
+    FUNCTION().PUBLIC().SIGNATURE(float, getRenderingFontSize);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAdditionalKerning, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getAdditionalKerning);
+    FUNCTION().PUBLIC().SIGNATURE(void, setProgramState, backend::ProgramState*);
+    FUNCTION().PUBLIC().SIGNATURE(FontAtlas*, getFontAtlas);
+    FUNCTION().PUBLIC().SIGNATURE(const BlendFunc&, getBlendFunc);
+    FUNCTION().PUBLIC().SIGNATURE(void, setBlendFunc, const BlendFunc&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isOpacityModifyRGB);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOpacityModifyRGB, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateDisplayedColor, const Color3B&);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateDisplayedOpacity, uint8_t);
+    FUNCTION().PUBLIC().SIGNATURE(std::string, getDescription);
+    FUNCTION().PUBLIC().SIGNATURE(const Size&, getContentSize);
+    FUNCTION().PUBLIC().SIGNATURE(Rect, getBoundingBox);
+    FUNCTION().PUBLIC().SIGNATURE(void, visit, Renderer*, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, draw, Renderer*, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCameraMask, unsigned short, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeAllChildrenWithCleanup, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeChild, Node*, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setGlobalZOrder, float);
+    FUNCTION().PUBLIC().CONSTRUCTOR(TextHAlignment, TextVAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithTTF, const std::string&, const std::string&, float, const Size&, TextHAlignment, TextVAlignment);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithTTF, const TTFConfig&, const std::string&, TextHAlignment, int);
+    FUNCTION().PROTECTED().SIGNATURE(void, setFontAtlas, FontAtlas*, bool, bool);
+    FUNCTION().PROTECTED().SIGNATURE(bool, getFontLetterDef, char32_t, FontLetterDefinition&);
+    FUNCTION().PROTECTED().SIGNATURE(void, computeStringNumLines);
+    FUNCTION().PROTECTED().SIGNATURE(void, drawSelf, bool, Renderer*, uint32_t);
+    FUNCTION().PROTECTED().SIGNATURE(bool, multilineTextWrapByChar);
+    FUNCTION().PROTECTED().SIGNATURE(bool, multilineTextWrapByWord);
+    FUNCTION().PROTECTED().SIGNATURE(bool, multilineTextWrap, _tmp1);
+    FUNCTION().PROTECTED().SIGNATURE(void, shrinkLabelToContentSize, const std::function<bool(void)>&);
+    FUNCTION().PROTECTED().SIGNATURE(bool, isHorizontalClamp);
+    FUNCTION().PROTECTED().SIGNATURE(bool, isVerticalClamp);
+    FUNCTION().PROTECTED().SIGNATURE(void, rescaleWithOriginalFontSize);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateLabelLetters);
+    FUNCTION().PROTECTED().SIGNATURE(bool, alignText);
+    FUNCTION().PROTECTED().SIGNATURE(void, computeAlignmentOffset);
+    FUNCTION().PROTECTED().SIGNATURE(bool, computeHorizontalKernings, const std::u32string&);
+    FUNCTION().PROTECTED().SIGNATURE(void, recordLetterInfo, const cocos2d::Vec2&, char32_t, int, int);
+    FUNCTION().PROTECTED().SIGNATURE(void, recordPlaceholderInfo, int, char32_t);
+    FUNCTION().PROTECTED().SIGNATURE(bool, updateQuads);
+    FUNCTION().PROTECTED().SIGNATURE(void, createSpriteForSystemFont, const FontDefinition&);
+    FUNCTION().PROTECTED().SIGNATURE(void, createShadowSpriteForSystemFont, const FontDefinition&);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateShaderProgram);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateBMFontScale);
+    FUNCTION().PROTECTED().SIGNATURE(void, scaleFontSizeDown, float);
+    FUNCTION().PROTECTED().SIGNATURE(bool, setTTFConfigInternal, const TTFConfig&);
+    FUNCTION().PROTECTED().SIGNATURE(void, setBMFontSizeInternal, float);
+    FUNCTION().PROTECTED().SIGNATURE(bool, isHorizontalClamped, float, int);
+    FUNCTION().PROTECTED().SIGNATURE(void, restoreFontSize);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateLetterSpriteScale, Sprite*);
+    FUNCTION().PROTECTED().SIGNATURE(int, getFirstCharLen, const std::u32string&, int, int);
+    FUNCTION().PROTECTED().SIGNATURE(int, getFirstWordLen, const std::u32string&, int, int);
+    FUNCTION().PROTECTED().SIGNATURE(void, reset);
+    FUNCTION().PROTECTED().SIGNATURE(FontDefinition, _getFontDefinition);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateColor);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateUniformLocations);
+    FUNCTION().PROTECTED().SIGNATURE(void, setVertexLayout, PipelineDescriptor&);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateBlendState);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateEffectUniforms, BatchCommand&, TextureAtlas*, Renderer*, const Mat4&);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateBuffer, TextureAtlas*, CustomCommand&);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateBatchCommand, BatchCommand&);
+}
+END_META;
+// --- END META ---

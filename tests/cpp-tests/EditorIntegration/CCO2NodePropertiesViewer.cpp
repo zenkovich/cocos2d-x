@@ -209,8 +209,8 @@ void CocosNodeViewer::BindNodeProxies()
 	mNameProperty->SetValueProxy(proxiesFor([](cocos2d::Node* node) -> Ref<IAbstractValueProxy>
 	{
 		return mmake<FunctionalValueProxy<String>>(
-			[node](String value) { node->setName((std::string)value); },
-			[node]() { return String(node->getName().c_str()); });
+			[node](String value) { node->SetName(value); },
+			[node]() { return node->GetName(); });
 	}));
 
 	mPositionProperty->SetValueProxy(proxiesFor([](cocos2d::Node* node) -> Ref<IAbstractValueProxy>

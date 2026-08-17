@@ -1,3 +1,7 @@
+//@CODETOOL_NON_EXCLUDE
+// pragma once is required: the generated reflection META sits after the include
+// guard's #endif and would be compiled twice otherwise
+#pragma once
 /****************************************************************************
 Copyright (c) 2008-2010 Ricardo Quesada
 Copyright (c) 2010-2012 cocos2d-x.org
@@ -94,6 +98,9 @@ struct transformValues_;
 class CC_DLL Sprite : public Node, public TextureProtocol
 {
 public:
+    IOBJECT(Sprite);
+
+
     enum class RenderMode {
         QUAD,
         POLYGON,
@@ -678,7 +685,7 @@ protected:
     bool _rectRotated = false;              /// Whether the texture is rotated
 
     Rect _centerRectNormalized = {0,0,1,1}; /// Rectangle to implement "slice 9"
-    RenderMode _renderMode = Sprite::RenderMode::QUAD;   /// render mode used by the Sprite: Quad, Slice9, Polygon or Quad_Batchnode
+    RenderMode _renderMode = Sprite::RenderMode::QUAD;   // @EDITOR_PROPERTY render mode used by the Sprite: Quad, Slice9, Polygon or Quad_Batchnode
     Vec2 _stretchFactor = Vec2::ONE;                     /// stretch factor to match the contentSize. for 1- and 9- slice sprites
     Size _originalContentSize = Size::ZERO;              /// original content size
 
@@ -694,18 +701,18 @@ protected:
     PolygonInfo  _polyInfo;
 
     // opacity and RGB protocol
-    bool _opacityModifyRGB = false;
+    bool _opacityModifyRGB = false; // @EDITOR_PROPERTY
 
     // image is flipped
-    bool _flippedX = false;                 /// Whether the sprite is flipped horizontally or not
-    bool _flippedY = false;                 /// Whether the sprite is flipped vertically or not
+    bool _flippedX = false; // @EDITOR_PROPERTY  Whether the sprite is flipped horizontally or not
+    bool _flippedY = false; // @EDITOR_PROPERTY  Whether the sprite is flipped vertically or not
 
     bool _insideBounds = true;              /// whether or not the sprite was inside bounds the previous frame
 
     std::string _fileName;
     int _fileType = 0;
 
-    bool _stretchEnabled = true;
+    bool _stretchEnabled = true; // @EDITOR_PROPERTY
     
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Sprite);
@@ -716,3 +723,161 @@ private:
 /// @}
 
 NS_CC_END
+// --- META ---
+
+PRE_ENUM_META(cocos2d::Sprite::RenderMode);
+
+CLASS_BASES_META(cocos2d::Sprite)
+{
+    BASE_CLASS(cocos2d::Node);
+    BASE_CLASS(TextureProtocol);
+}
+END_META;
+CLASS_FIELDS_META(cocos2d::Sprite)
+{
+    FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_textureAtlas);
+    FIELD().PROTECTED().DEFAULT_VALUE(0).NAME(_atlasIndex);
+    FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_batchNode);
+    FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_dirty);
+    FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_recursiveDirty);
+    FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_shouldBeHidden);
+    FIELD().PROTECTED().NAME(_transformToBatch);
+    FIELD().PROTECTED().NAME(_blendFunc);
+    FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_texture);
+    FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_spriteFrame);
+    FIELD().PROTECTED().NAME(_trianglesCommand);
+    FIELD().PROTECTED().NAME(_mvpMatrixLocation);
+    FIELD().PROTECTED().NAME(_textureLocation);
+    FIELD().PROTECTED().NAME(_alphaTextureLocation);
+#if  CC_SPRITE_DEBUG_DRAW
+    FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_debugDrawNode);
+#endif
+    FIELD().PROTECTED().NAME(_rect);
+    FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_rectRotated);
+    FIELD().PROTECTED().NAME(_centerRectNormalized);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().DEFAULT_VALUE(Sprite::RenderMode::QUAD).NAME(_renderMode);
+    FIELD().PROTECTED().DEFAULT_VALUE(Vec2::ONE).NAME(_stretchFactor);
+    FIELD().PROTECTED().DEFAULT_VALUE(Size::ZERO).NAME(_originalContentSize);
+    FIELD().PROTECTED().NAME(_offsetPosition);
+    FIELD().PROTECTED().NAME(_unflippedOffsetPositionFromCenter);
+    FIELD().PROTECTED().NAME(_quad);
+    FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_trianglesVertex);
+    FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(_trianglesIndex);
+    FIELD().PROTECTED().NAME(_polyInfo);
+    FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_opacityModifyRGB);
+    FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_flippedX);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().DEFAULT_VALUE(false).NAME(_flippedY);
+    FIELD().PROTECTED().DEFAULT_VALUE(true).NAME(_insideBounds);
+    FIELD().PROTECTED().NAME(_fileName);
+    FIELD().PROTECTED().DEFAULT_VALUE(0).NAME(_fileType);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().DEFAULT_VALUE(true).NAME(_stretchEnabled);
+}
+END_META;
+CLASS_METHODS_META(cocos2d::Sprite)
+{
+
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, create);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, create, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, create, const PolygonInfo&);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, create, const std::string&, const Rect&);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, createWithTexture, Texture2D*);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, createWithTexture, Texture2D*, const Rect&, bool);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, createWithSpriteFrame, SpriteFrame*);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Sprite*, createWithSpriteFrameName, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateTransform);
+    FUNCTION().PUBLIC().SIGNATURE(SpriteBatchNode*, getBatchNode);
+    FUNCTION().PUBLIC().SIGNATURE(void, setBatchNode, SpriteBatchNode*);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTexture, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTexture, Texture2D*);
+    FUNCTION().PUBLIC().SIGNATURE(Texture2D*, getTexture);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTextureRect, const Rect&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTextureRect, const Rect&, bool, const Size&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setVertexRect, const Rect&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCenterRectNormalized, const Rect&);
+    FUNCTION().PUBLIC().SIGNATURE(Rect, getCenterRectNormalized);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCenterRect, const Rect&);
+    FUNCTION().PUBLIC().SIGNATURE(Rect, getCenterRect);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSpriteFrame, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSpriteFrame, SpriteFrame*);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isFrameDisplayed, SpriteFrame*);
+    FUNCTION().PUBLIC().SIGNATURE(SpriteFrame*, getSpriteFrame);
+    FUNCTION().PUBLIC().SIGNATURE(void, setDisplayFrameWithAnimationName, const std::string&, unsigned int);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isDirty);
+    FUNCTION().PUBLIC().SIGNATURE(void, setDirty, bool);
+    FUNCTION().PUBLIC().SIGNATURE(std::string, getDescription);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScaleX, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScaleY, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScale, float, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPosition, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPosition, float, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotation, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotationSkewX, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setRotationSkewY, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSkewX, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSkewY, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeChild, Node*, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeAllChildrenWithCleanup, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, reorderChild, Node*, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, sortAllChildren);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScale, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionZ, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAnchorPoint, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setContentSize, const Size&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setIgnoreAnchorPointForPosition, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setVisible, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, draw, Renderer*, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, setOpacityModifyRGB, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isOpacityModifyRGB);
+    FUNCTION().PUBLIC().SIGNATURE(V3F_C4B_T2F_Quad, getQuad);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isTextureRectRotated);
+    FUNCTION().PUBLIC().SIGNATURE(unsigned int, getAtlasIndex);
+    FUNCTION().PUBLIC().SIGNATURE(void, setAtlasIndex, unsigned int);
+    FUNCTION().PUBLIC().SIGNATURE(const Rect&, getTextureRect);
+    FUNCTION().PUBLIC().SIGNATURE(TextureAtlas*, getTextureAtlas);
+    FUNCTION().PUBLIC().SIGNATURE(void, setProgramState, backend::ProgramState*);
+    FUNCTION().PUBLIC().SIGNATURE(backend::ProgramState*, getProgramState);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTextureAtlas, TextureAtlas*);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getOffsetPosition);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isFlippedX);
+    FUNCTION().PUBLIC().SIGNATURE(void, setFlippedX, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isFlippedY);
+    FUNCTION().PUBLIC().SIGNATURE(void, setFlippedY, bool);
+    FUNCTION().PUBLIC().SIGNATURE(const PolygonInfo&, getPolygonInfo);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPolygonInfo, const PolygonInfo&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setStretchEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isStretchEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setBlendFunc, const BlendFunc&);
+    FUNCTION().PUBLIC().SIGNATURE(const BlendFunc&, getBlendFunc);
+    FUNCTION().PUBLIC().SIGNATURE(int, getResourceType);
+    FUNCTION().PUBLIC().SIGNATURE(const std::string&, getResourceName);
+    FUNCTION().PUBLIC().SIGNATURE(bool, init);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithTexture, Texture2D*);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithPolygon, const PolygonInfo&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithTexture, Texture2D*, const Rect&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithTexture, Texture2D*, const Rect&, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithSpriteFrame, SpriteFrame*);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithSpriteFrameName, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithFile, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, initWithFile, const std::string&, const Rect&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setVertexLayout);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateShaders, const char*, const char*);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateColor);
+    FUNCTION().PROTECTED().SIGNATURE(void, setTextureCoords, const Rect&);
+    FUNCTION().PROTECTED().SIGNATURE(void, setTextureCoords, const Rect&, V3F_C4B_T2F_Quad*);
+    FUNCTION().PROTECTED().SIGNATURE(void, setVertexCoords, const Rect&, V3F_C4B_T2F_Quad*);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateBlendFunc);
+    FUNCTION().PROTECTED().SIGNATURE(void, setReorderChildDirtyRecursively);
+    FUNCTION().PROTECTED().SIGNATURE(void, setDirtyRecursively, bool);
+    FUNCTION().PROTECTED().SIGNATURE(void, flipX);
+    FUNCTION().PROTECTED().SIGNATURE(void, flipY);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateProgramStateTexture);
+    FUNCTION().PROTECTED().SIGNATURE(void, updatePoly);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateStretchFactor);
+    FUNCTION().PROTECTED().SIGNATURE(void, populateTriangle, int, const V3F_C4B_T2F_Quad&);
+    FUNCTION().PROTECTED().SIGNATURE(void, setMVPMatrixUniform);
+    FUNCTION().PROTECTED().SIGNATURE(void, setProgramState, backend::ProgramType);
+}
+END_META;
+// --- END META ---

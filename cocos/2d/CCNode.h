@@ -2092,6 +2092,7 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PROTECTED().SIGNATURE(void, OnCursorStillDown, const o2::Input::Cursor&);
     FUNCTION().PROTECTED().SIGNATURE(void, OnCursorReleased, const o2::Input::Cursor&);
     FUNCTION().PROTECTED().SIGNATURE(void, OnCursorPressBreak, const o2::Input::Cursor&);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Node*, create);
     FUNCTION().PUBLIC().SIGNATURE_STATIC(int, getAttachedNodeCount);
     FUNCTION().PUBLIC().SIGNATURE(std::string, getDescription);
     FUNCTION().PUBLIC().SIGNATURE(void, setLocalZOrder, std::int32_t);
@@ -2152,6 +2153,7 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int);
     FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, int);
     FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(Node*, getChildByTag, int);
     FUNCTION().PUBLIC().SIGNATURE(Node*, getChildByName, const std::string&);
     FUNCTION().PUBLIC().SIGNATURE(void, enumerateChildren, const std::string&, std::function<bool(Node* node)>);
     FUNCTION().PUBLIC().SIGNATURE(Vector<Node*>&, getChildren);

@@ -2538,3 +2538,25 @@ void Label::updateLetterSpriteScale(Sprite* sprite)
 }
 
 NS_CC_END
+// --- META ---
+
+ENUM_META(cocos2d::Label::Overflow, cocos2d__Label__Overflow)
+{
+    ENUM_ENTRY(CLAMP);
+    ENUM_ENTRY(NONE);
+    ENUM_ENTRY(RESIZE_HEIGHT);
+    ENUM_ENTRY(SHRINK);
+}
+END_ENUM_META;
+
+ENUM_META(cocos2d::Label::LabelType, cocos2d__Label__LabelType)
+{
+    ENUM_ENTRY(BMFONT);
+    ENUM_ENTRY(CHARMAP);
+    ENUM_ENTRY(STRING_TEXTURE);
+    ENUM_ENTRY(TTF);
+}
+END_ENUM_META;
+
+DECLARE_CLASS(cocos2d::Label, cocos2d__Label);
+// --- END META ---

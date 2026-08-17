@@ -1,3 +1,7 @@
+//@CODETOOL_NON_EXCLUDE
+// pragma once is required: the generated reflection META sits after the include
+// guard's #endif and would be compiled twice otherwise
+#pragma once
 /****************************************************************************
 Copyright (c) 2013-2016 Chukong Technologies Inc.
 Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
@@ -53,6 +57,9 @@ namespace ui {
 class CC_GUI_DLL Widget : public ProtectedNode, public LayoutParameterProtocol
 {
 public:
+    IOBJECT(Widget);
+
+
     /**
      * Widget focus direction.
      */
@@ -796,21 +803,21 @@ protected:
 
 protected:
     bool _usingLayoutComponent;
-    bool _unifySize;
-    bool _enabled;
-    bool _bright;
-    bool _touchEnabled;
-    bool _highlight;
+    bool _unifySize; // @EDITOR_PROPERTY
+    bool _enabled; // @EDITOR_PROPERTY
+    bool _bright; // @EDITOR_PROPERTY
+    bool _touchEnabled; // @EDITOR_PROPERTY
+    bool _highlight; // @EDITOR_PROPERTY
     bool _affectByClipping;
-    bool _ignoreSize;
-    bool _propagateTouchEvents;
+    bool _ignoreSize; // @EDITOR_PROPERTY
+    bool _propagateTouchEvents; // @EDITOR_PROPERTY
 
     BrightStyle _brightStyle;
     SizeType _sizeType;
     PositionType _positionType;
 
     //used for search widget by action tag in UIHelper class
-    int _actionTag;
+    int _actionTag; // @EDITOR_PROPERTY
 
     Size _customSize;
 
@@ -826,15 +833,15 @@ protected:
     Vec2 _touchMovePosition;
     Vec2 _touchEndPosition;
 
-    bool _flippedX;
-    bool _flippedY;
+    bool _flippedX; // @EDITOR_PROPERTY
+    bool _flippedY; // @EDITOR_PROPERTY
 
     //use map to enable switch back and forth for user layout parameters
     Map<int,LayoutParameter*> _layoutParameterDictionary;
     LayoutParameter::Type _layoutParameterType;
 
     bool _focused;
-    bool _focusEnabled;
+    bool _focusEnabled; // @EDITOR_PROPERTY
     /**
      * store the only one focused widget
      */
@@ -858,3 +865,183 @@ NS_CC_END
 /// @}
 
 #endif /* defined(__Widget__) */
+// --- META ---
+
+PRE_ENUM_META(cocos2d::ui::Widget::FocusDirection);
+
+PRE_ENUM_META(cocos2d::ui::Widget::PositionType);
+
+PRE_ENUM_META(cocos2d::ui::Widget::SizeType);
+
+PRE_ENUM_META(cocos2d::ui::Widget::TouchEventType);
+
+PRE_ENUM_META(cocos2d::ui::Widget::TextureResType);
+
+PRE_ENUM_META(cocos2d::ui::Widget::BrightStyle);
+
+CLASS_BASES_META(cocos2d::ui::Widget)
+{
+    BASE_CLASS(ProtectedNode);
+    BASE_CLASS(LayoutParameterProtocol);
+}
+END_META;
+CLASS_FIELDS_META(cocos2d::ui::Widget)
+{
+    FIELD().PUBLIC().NAME(onFocusChanged);
+    FIELD().PUBLIC().NAME(onNextFocusedWidget);
+    FIELD().PROTECTED().NAME(_usingLayoutComponent);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_unifySize);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_enabled);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_bright);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_touchEnabled);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_highlight);
+    FIELD().PROTECTED().NAME(_affectByClipping);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_ignoreSize);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_propagateTouchEvents);
+    FIELD().PROTECTED().NAME(_brightStyle);
+    FIELD().PROTECTED().NAME(_sizeType);
+    FIELD().PROTECTED().NAME(_positionType);
+    FIELD().PROTECTED().NAME(_actionTag);
+    FIELD().PROTECTED().NAME(_customSize);
+    FIELD().PROTECTED().NAME(_sizePercent);
+    FIELD().PROTECTED().NAME(_positionPercent);
+    FIELD().PROTECTED().NAME(_hitted);
+    FIELD().PROTECTED().NAME(_hittedByCamera);
+    FIELD().PROTECTED().NAME(_touchListener);
+    FIELD().PROTECTED().NAME(_touchBeganPosition);
+    FIELD().PROTECTED().NAME(_touchMovePosition);
+    FIELD().PROTECTED().NAME(_touchEndPosition);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_flippedX);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_flippedY);
+    FIELD().PROTECTED().NAME(_layoutParameterDictionary);
+    FIELD().PROTECTED().NAME(_layoutParameterType);
+    FIELD().PROTECTED().NAME(_focused);
+    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_focusEnabled);
+    FIELD().PROTECTED().NAME(_touchEventListener);
+    FIELD().PROTECTED().NAME(_touchEventCallback);
+    FIELD().PROTECTED().NAME(_clickEventListener);
+    FIELD().PROTECTED().NAME(_ccEventCallback);
+    FIELD().PROTECTED().NAME(_callbackType);
+    FIELD().PROTECTED().NAME(_callbackName);
+}
+END_META;
+CLASS_METHODS_META(cocos2d::ui::Widget)
+{
+
+    FUNCTION().PUBLIC().CONSTRUCTOR();
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Widget*, create);
+    FUNCTION().PUBLIC().SIGNATURE(void, setEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setBright, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isBright);
+    FUNCTION().PUBLIC().SIGNATURE(void, setTouchEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setBrightStyle, BrightStyle);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isTouchEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isO2InteractiveNode);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isHighlighted);
+    FUNCTION().PUBLIC().SIGNATURE(void, setHighlighted, bool);
+    FUNCTION().PUBLIC().SIGNATURE(float, getLeftBoundary);
+    FUNCTION().PUBLIC().SIGNATURE(float, getBottomBoundary);
+    FUNCTION().PUBLIC().SIGNATURE(float, getRightBoundary);
+    FUNCTION().PUBLIC().SIGNATURE(float, getTopBoundary);
+    FUNCTION().PUBLIC().SIGNATURE(void, visit, cocos2d::Renderer*, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, addTouchEventListener, const ccWidgetTouchCallback&);
+    FUNCTION().PUBLIC().SIGNATURE(void, addClickEventListener, const ccWidgetClickCallback&);
+    FUNCTION().PUBLIC().SIGNATURE(void, addCCSEventListener, const ccWidgetEventCallback&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPosition, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionPercent, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getPositionPercent);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionType, PositionType);
+    FUNCTION().PUBLIC().SIGNATURE(PositionType, getPositionType);
+    FUNCTION().PUBLIC().SIGNATURE(void, setFlippedX, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isFlippedX);
+    FUNCTION().PUBLIC().SIGNATURE(void, setFlippedY, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isFlippedY);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScaleX, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScaleY, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScale, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, setScale, float, float);
+    FUNCTION().PUBLIC().SIGNATURE(float, getScaleX);
+    FUNCTION().PUBLIC().SIGNATURE(float, getScaleY);
+    FUNCTION().PUBLIC().SIGNATURE(float, getScale);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isClippingParentContainsPoint, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getTouchBeganPosition);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getTouchMovePosition);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getTouchEndPosition);
+    FUNCTION().PUBLIC().SIGNATURE(void, setContentSize, const Size&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSizePercent, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSizeType, SizeType);
+    FUNCTION().PUBLIC().SIGNATURE(SizeType, getSizeType);
+    FUNCTION().PUBLIC().SIGNATURE(const Size&, getCustomSize);
+    FUNCTION().PUBLIC().SIGNATURE(const Size&, getLayoutSize);
+    FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getSizePercent);
+    FUNCTION().PUBLIC().SIGNATURE(bool, hitTest, const Vec2&, const Camera*, Vec3*);
+    FUNCTION().PUBLIC().SIGNATURE(bool, onTouchBegan, Touch*, Event*);
+    FUNCTION().PUBLIC().SIGNATURE(void, onTouchMoved, Touch*, Event*);
+    FUNCTION().PUBLIC().SIGNATURE(void, onTouchEnded, Touch*, Event*);
+    FUNCTION().PUBLIC().SIGNATURE(void, onTouchCancelled, Touch*, Event*);
+    FUNCTION().PUBLIC().SIGNATURE(void, setLayoutParameter, LayoutParameter*);
+    FUNCTION().PUBLIC().SIGNATURE(LayoutParameter*, getLayoutParameter);
+    FUNCTION().PUBLIC().SIGNATURE(void, ignoreContentAdaptWithSize, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isIgnoreContentAdaptWithSize);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, getWorldPosition);
+    FUNCTION().PUBLIC().SIGNATURE(Node*, getVirtualRenderer);
+    FUNCTION().PUBLIC().SIGNATURE(Size, getVirtualRendererSize);
+    FUNCTION().PUBLIC().SIGNATURE(std::string, getDescription);
+    FUNCTION().PUBLIC().SIGNATURE(Widget*, clone);
+    FUNCTION().PUBLIC().SIGNATURE(void, onEnter);
+    FUNCTION().PUBLIC().SIGNATURE(void, onExit);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateSizeAndPosition);
+    FUNCTION().PUBLIC().SIGNATURE(void, updateSizeAndPosition, const Size&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setActionTag, int);
+    FUNCTION().PUBLIC().SIGNATURE(int, getActionTag);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPropagateTouchEvents, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isPropagateTouchEvents);
+    FUNCTION().PUBLIC().SIGNATURE(void, setSwallowTouches, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isSwallowTouches);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isFocused);
+    FUNCTION().PUBLIC().SIGNATURE(void, setFocused, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isFocusEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setFocusEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(Widget*, findNextFocusedWidget, FocusDirection, Widget*);
+    FUNCTION().PUBLIC().SIGNATURE(void, requestFocus);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(Widget*, getCurrentFocusedWidget);
+    FUNCTION().PUBLIC().SIGNATURE_STATIC(void, enableDpadNavigation, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, setUnifySizeEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isUnifySizeEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCallbackName, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::string&, getCallbackName);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCallbackType, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(const std::string&, getCallbackType);
+    FUNCTION().PUBLIC().SIGNATURE(void, setLayoutComponentEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isLayoutComponentEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(bool, init);
+    FUNCTION().PUBLIC().SIGNATURE(void, interceptTouchEvent, TouchEventType, Widget*, Touch*);
+    FUNCTION().PUBLIC().SIGNATURE(void, propagateTouchEvent, TouchEventType, Widget*, Touch*);
+    FUNCTION().PUBLIC().SIGNATURE(void, onFocusChange, Widget*, Widget*);
+    FUNCTION().PUBLIC().SIGNATURE(void, dispatchFocusEvent, Widget*, Widget*);
+    FUNCTION().PROTECTED().SIGNATURE(void, onSizeChanged);
+    FUNCTION().PROTECTED().SIGNATURE(void, initRenderer);
+    FUNCTION().PROTECTED().SIGNATURE(void, onPressStateChangedToNormal);
+    FUNCTION().PROTECTED().SIGNATURE(void, onPressStateChangedToPressed);
+    FUNCTION().PROTECTED().SIGNATURE(void, onPressStateChangedToDisabled);
+    FUNCTION().PROTECTED().SIGNATURE(void, pushDownEvent);
+    FUNCTION().PROTECTED().SIGNATURE(void, moveEvent);
+    FUNCTION().PROTECTED().SIGNATURE(void, releaseUpEvent);
+    FUNCTION().PROTECTED().SIGNATURE(void, cancelUpEvent);
+    FUNCTION().PROTECTED().SIGNATURE(void, adaptRenderers);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateChildrenDisplayedRGBA);
+    FUNCTION().PROTECTED().SIGNATURE(void, copyProperties, Widget*);
+    FUNCTION().PROTECTED().SIGNATURE(Widget*, createCloneInstance);
+    FUNCTION().PROTECTED().SIGNATURE(void, copySpecialProperties, Widget*);
+    FUNCTION().PROTECTED().SIGNATURE(void, copyClonedWidgetChildren, Widget*);
+    FUNCTION().PROTECTED().SIGNATURE(Widget*, getWidgetParent);
+    FUNCTION().PROTECTED().SIGNATURE(void, updateContentSizeWithTextureSize, const Size&);
+    FUNCTION().PROTECTED().SIGNATURE(bool, isAncestorsEnabled);
+    FUNCTION().PROTECTED().SIGNATURE(Widget*, getAncestorWidget, Node*);
+    FUNCTION().PROTECTED().SIGNATURE(bool, isAncestorsVisible, Node*);
+    FUNCTION().PROTECTED().SIGNATURE(void, cleanupWidget);
+    FUNCTION().PROTECTED().SIGNATURE(LayoutComponent*, getOrCreateLayoutComponent);
+}
+END_META;
+// --- END META ---
