@@ -1762,3 +1762,16 @@ backend::ProgramState* Sprite::getProgramState() const
 }
 
 NS_CC_END
+// --- META ---
+
+ENUM_META(cocos2d::Sprite::RenderMode, cocos2d__Sprite__RenderMode)
+{
+    ENUM_ENTRY(POLYGON);
+    ENUM_ENTRY(QUAD);
+    ENUM_ENTRY(QUAD_BATCHNODE);
+    ENUM_ENTRY(SLICE9);
+}
+END_ENUM_META;
+
+DECLARE_CLASS(cocos2d::Sprite, cocos2d__Sprite);
+// --- END META ---

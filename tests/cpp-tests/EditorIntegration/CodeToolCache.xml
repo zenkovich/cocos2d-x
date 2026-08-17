@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<files>
+	<file path="/Users/andreizenkovich/work/cocos2d-x/tests/cpp-tests/EditorIntegration/CCO2NodePropertiesViewer.h">
+		<date year="126" month="7" day="17" hour="17" minute="50" second="33" />
+		<globalNamespace name="" fullname="">
+			<sections>
+				<section name="cocos2d" fullname="cocos2d">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="o2" fullname="o2">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="Editor" fullname="Editor">
+					<sections />
+					<typedefs />
+					<usings />
+				</section>
+				<section name="CocosNodeViewer" fullname="CocosNodeViewer" isClass="true" isMeta="false" templates="" protection="0" attributeCommentDef="" attributeShortDef="">
+					<sections />
+					<typedefs />
+					<usings />
+					<baseClasses>
+						<class name="Editor::IPropertiesViewer" protection="0" />
+					</baseClasses>
+				</section>
+			</sections>
+			<typedefs />
+			<usings />
+		</globalNamespace>
+	</file>
+</files>
+<parentProjects>
+	<project path="/Users/andreizenkovich/work/cocos2d-x/o2/Framework/Sources/o2/CodeToolCache.xml" />
+	<project path="/Users/andreizenkovich/work/cocos2d-x/o2/Editor/Sources/o2Editor/CodeToolCache.xml" />
+	<project path="/Users/andreizenkovich/work/cocos2d-x/cocos/CodeToolCache.xml" />
+	<project path="/Users/andreizenkovich/work/cocos2d-x/o2/Framework/Sources/o2/CodeToolCache.xml" />
+	<project path="/Users/andreizenkovich/work/cocos2d-x/o2/Framework/Sources/o2/CodeToolCache.xml" />
+</parentProjects>

@@ -34,6 +34,7 @@ DECLARE_SINGLETON(Editor::ToolsPanel);
 
 extern void InitializeTypeso2Editor();
 extern void InitializeTypeso2Integration();
+extern void InitializeTypescocosEditorIntegration();
 
 namespace
 {
@@ -44,6 +45,7 @@ namespace
 		INITIALIZE_O2;
 		InitializeTypeso2Editor();
 		InitializeTypeso2Integration();
+		InitializeTypescocosEditorIntegration();
 		o2::MemoryAnalyzer::enabledObjectsTracking = true;
 
 		auto app = mmake<TestsO2EditorApplication>();

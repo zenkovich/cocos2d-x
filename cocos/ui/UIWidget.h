@@ -1,3 +1,7 @@
+//@CODETOOL_NON_EXCLUDE
+// pragma once is required: the generated reflection META sits after the include
+// guard's #endif and would be compiled twice otherwise
+#pragma once
 /****************************************************************************
 Copyright (c) 2013-2016 Chukong Technologies Inc.
 Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
@@ -53,6 +57,9 @@ namespace ui {
 class CC_GUI_DLL Widget : public ProtectedNode, public LayoutParameterProtocol
 {
 public:
+    IOBJECT(Widget);
+
+
     /**
      * Widget focus direction.
      */
@@ -858,3 +865,17 @@ NS_CC_END
 /// @}
 
 #endif /* defined(__Widget__) */
+// --- META ---
+
+PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::FocusDirection);
+
+PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::PositionType);
+
+PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::SizeType);
+
+PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::TouchEventType);
+
+PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::TextureResType);
+
+PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::BrightStyle);
+// --- END META ---

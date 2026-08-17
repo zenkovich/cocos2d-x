@@ -474,10 +474,23 @@ if(O2_EDITOR)
             "EditorMain.cpp"
             "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.h"
             "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.cpp"
+            "EditorIntegration/CCO2NodePropertiesViewer.h"
+            "EditorIntegration/CCO2NodePropertiesViewer.cpp"
+            "EditorIntegration/cocosEditorIntegrationReflectionRegister.cpp"
             "Classes/TestsO2EditorApplication.h"
             "Classes/TestsO2EditorApplication.cpp"
         )
     endif()
+
+    # Codegen for the editor-side integration types (properties viewers etc.):
+    # a separate reflection project, since these classes derive from o2Editor
+    # types and live in the Editor target, not in the cocos2d library
+    add_custom_target(o2CocosEditorIntegrationCodegen
+                      COMMAND ${COCOS2DX_ROOT_PATH}/o2/CodeTool/Bin/o2CodeTool -project cocosEditorIntegration -sources "${CMAKE_CURRENT_SOURCE_DIR}/EditorIntegration" -parent_projects "${COCOS2DX_ROOT_PATH}/o2/Framework/Sources/o2/CodeToolCache.xml ${COCOS2DX_ROOT_PATH}/o2/Editor/Sources/o2Editor/CodeToolCache.xml ${COCOS2DX_ROOT_PATH}/cocos/CodeToolCache.xml"
+                      COMMENT "Run CodeTool: cocosEditorIntegration project\n"
+    )
+    add_dependencies(o2CocosEditorIntegrationCodegen o2CodeTool)
+    add_dependencies(Editor o2CocosEditorIntegrationCodegen)
 
 
     target_link_libraries(Editor PUBLIC cpp_tests_lib o2Editor cocos2d)  

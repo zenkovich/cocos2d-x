@@ -1472,3 +1472,52 @@ bool Widget::isLayoutComponentEnabled()const
 
 }
 NS_CC_END
+// --- META ---
+
+ENUM_META(cocos2d::ui::CC_GUI_DLL::FocusDirection, cocos2d__ui__CC_GUI_DLL__FocusDirection)
+{
+    ENUM_ENTRY(DOWN);
+    ENUM_ENTRY(LEFT);
+    ENUM_ENTRY(RIGHT);
+    ENUM_ENTRY(UP);
+}
+END_ENUM_META;
+
+ENUM_META(cocos2d::ui::CC_GUI_DLL::PositionType, cocos2d__ui__CC_GUI_DLL__PositionType)
+{
+    ENUM_ENTRY(ABSOLUTE);
+    ENUM_ENTRY(PERCENT);
+}
+END_ENUM_META;
+
+ENUM_META(cocos2d::ui::CC_GUI_DLL::SizeType, cocos2d__ui__CC_GUI_DLL__SizeType)
+{
+    ENUM_ENTRY(ABSOLUTE);
+    ENUM_ENTRY(PERCENT);
+}
+END_ENUM_META;
+
+ENUM_META(cocos2d::ui::CC_GUI_DLL::TouchEventType, cocos2d__ui__CC_GUI_DLL__TouchEventType)
+{
+    ENUM_ENTRY(BEGAN);
+    ENUM_ENTRY(CANCELED);
+    ENUM_ENTRY(ENDED);
+    ENUM_ENTRY(MOVED);
+}
+END_ENUM_META;
+
+ENUM_META(cocos2d::ui::CC_GUI_DLL::TextureResType, cocos2d__ui__CC_GUI_DLL__TextureResType)
+{
+    ENUM_ENTRY(LOCAL);
+    ENUM_ENTRY(PLIST);
+}
+END_ENUM_META;
+
+ENUM_META(cocos2d::ui::CC_GUI_DLL::BrightStyle, cocos2d__ui__CC_GUI_DLL__BrightStyle)
+{
+    ENUM_ENTRY(HIGHLIGHT);
+    ENUM_ENTRY(NONE);
+    ENUM_ENTRY(NORMAL);
+}
+END_ENUM_META;
+// --- END META ---

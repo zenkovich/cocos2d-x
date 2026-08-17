@@ -839,3 +839,9 @@ MenuItem* MenuItemToggle::getSelectedItem()
 }
 
 NS_CC_END
+// --- META ---
+
+#if ndef __CCMENU_ITEM_H__
+DECLARE_CLASS(cocos2d::MenuItem, cocos2d__MenuItem);
+#endif
+// --- END META ---
