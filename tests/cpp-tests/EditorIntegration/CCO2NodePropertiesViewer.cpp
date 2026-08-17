@@ -44,13 +44,8 @@ CocosNodeViewer::CocosNodeViewer(o2::RefCounter* refCounter) :
 
 	BuildTransform(rootLayout);
 
-	// Reflection-driven section for the concrete node type
-	mTypeSpoiler = o2UI.CreateWidget<SpoilerWithHead>();
-	mTypeSpoiler->borderBottom = 5;
-	mTypeSpoiler->SetCaption("Node");
-	mTypeSpoiler->GetIcon()->SetImageName("ui/UI4_component_icon.png");
-	mTypeSpoiler->SetExpanded(true);
-	rootLayout->AddChild(mTypeSpoiler);
+	// Type sections are created lazily, when a node of that type is selected
+	mRootLayout = rootLayout;
 }
 
 void CocosNodeViewer::BuildHeader()
@@ -139,34 +134,46 @@ void CocosNodeViewer::RefreshTypeViewer()
 	if (commonType == &TypeOf(cocos2d::Node))
 		commonType = nullptr;
 
-	mTypeSpoiler->SetEnabledForcible(commonType != nullptr);
+	if (mViewedNodeType != commonType)
+	{
+		if (mViewedNodeType)
+			mTypeSections[mViewedNodeType].spoiler->SetEnabledForcible(false);
+
+		mViewedNodeType = commonType;
+	}
 
 	if (!commonType)
 		return;
 
-	// Rebuild the reflection-driven viewer when the type changes: it creates the
-	// fields from the type's reflected properties, so new node types work without
-	// any viewer code here
-	if (mViewedNodeType != commonType)
+	// The section is built from the type reflection, so a new node type needs no viewer code here
+	if (!mTypeSections.ContainsKey(commonType))
 	{
-		if (mTypeViewer)
-			o2EditorProperties.FreeObjectViewer(mTypeViewer);
+		PushEditorScopeOnStack scope;
 
-		mViewedNodeType = commonType;
-		mTypeSpoiler->SetCaption(commonType->GetName());
+		TypeSection section;
 
-		mTypeViewer = o2EditorProperties.CreateObjectViewer(commonType, "");
-		mTypeViewer->CheckCreateSpoiler(mTypeSpoiler);
-		mTypeViewer->SetHeaderEnabled(false);
+		section.spoiler = o2UI.CreateWidget<SpoilerWithHead>();
+		section.spoiler->borderBottom = 5;
+		section.spoiler->SetCaption(commonType->GetName());
+		section.spoiler->GetIcon()->SetImageName("ui/UI4_component_icon.png");
+		section.spoiler->SetExpanded(true);
+		mRootLayout->AddChild(section.spoiler);
+
+		section.viewer = o2EditorProperties.CreateObjectViewer(commonType, "", THIS_FUNC(OnTypePropertyChangeCompleted),
+															  THIS_FUNC(OnTypePropertyChanged));
+		section.viewer->CheckCreateSpoiler(section.spoiler);
+		section.viewer->SetHeaderEnabled(false);
+
+		mTypeSections.Add(commonType, section);
 	}
 
-	if (mTypeViewer)
+	auto& section = mTypeSections[commonType];
+	section.spoiler->SetEnabledForcible(true);
+
+	section.viewer->Refresh(mNodes.Convert<Pair<IObject*, IObject*>>([](cocos2d::Node* node)
 	{
-		mTypeViewer->Refresh(mNodes.Convert<Pair<IObject*, IObject*>>([](cocos2d::Node* node)
-		{
-			return Pair<IObject*, IObject*>(dynamic_cast<IObject*>(node), nullptr);
-		}));
-	}
+		return Pair<IObject*, IObject*>(dynamic_cast<IObject*>(node), nullptr);
+	}));
 }
 
 const o2::Type* CocosNodeViewer::GetViewingObjectType() const
@@ -275,6 +282,26 @@ void CocosNodeViewer::Refresh()
 {
 	for (auto& field : mAllFields)
 		field->Refresh();
+
+	// The reflection-built fields read from the nodes through their own proxies
+	RefreshTypeViewer();
+}
+
+void CocosNodeViewer::OnTypePropertyChanged(const Ref<IPropertyField>& field, bool byUser)
+{
+	for (auto node : mNodes)
+		node->onEditorPropertyChanged();
+
+	onPropertyChanged(mTargets, field, byUser);
+}
+
+void CocosNodeViewer::OnTypePropertyChangeCompleted(const String& path, const Vector<DataDocument>& before,
+													const Vector<DataDocument>& after)
+{
+	for (auto node : mNodes)
+		node->onEditorPropertyChanged();
+
+	onPropertyChangeCompleted(mTargets, path, before, after);
 }
 // --- META ---
 

@@ -505,9 +505,36 @@ if(O2_EDITOR)
     endif()
     
     cocos_copy_target_dll(Editor)
-    
+
     if(LINUX OR WINDOWS)
         cocos_get_resource_path(EDITOR_RES_DIR Editor)
         cocos_copy_target_res(Editor LINK_TO ${EDITOR_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
+    endif()
+
+    # Self test: runs the same editor application, but drives it frame by frame through
+    # AppTestDriver instead of the platform event loop, and checks the cocos node properties
+    add_executable(CocosEditorSelfTest WIN32)
+
+    target_sources(CocosEditorSelfTest PRIVATE
+        "EditorIntegration/UITests/CocosNodePropertiesSelfTest.cpp"
+        "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.h"
+        "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.cpp"
+        "EditorIntegration/CCO2NodePropertiesViewer.h"
+        "EditorIntegration/CCO2NodePropertiesViewer.cpp"
+        "EditorIntegration/cocosEditorIntegrationReflectionRegister.cpp"
+        "Classes/TestsO2EditorApplication.h"
+        "Classes/TestsO2EditorApplication.cpp"
+    )
+
+    target_link_libraries(CocosEditorSelfTest PUBLIC cpp_tests_lib o2Editor cocos2d)
+    add_dependencies(CocosEditorSelfTest cpp_tests_lib o2Editor cocos2d BuildEditorAssets
+                     o2CocosEditorIntegrationCodegen)
+
+    setup_cocos_app_config(CocosEditorSelfTest)
+    cocos_copy_target_dll(CocosEditorSelfTest)
+
+    if(LINUX OR WINDOWS)
+        cocos_get_resource_path(SELFTEST_RES_DIR CocosEditorSelfTest)
+        cocos_copy_target_res(CocosEditorSelfTest LINK_TO ${SELFTEST_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
     endif()
 endif() 

@@ -2537,6 +2537,14 @@ void Label::updateLetterSpriteScale(Sprite* sprite)
     }
 }
 
+void Label::onEditorPropertyChanged()
+{
+    Node::onEditorPropertyChanged();
+
+    _contentDirty = true;
+    _systemFontDirty = true;
+}
+
 NS_CC_END
 // --- META ---
 

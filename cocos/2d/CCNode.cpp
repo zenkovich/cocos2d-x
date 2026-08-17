@@ -2432,6 +2432,13 @@ bool Node::IsSupportsLocking() const
     return false;
 }
 
+void Node::onEditorPropertyChanged()
+{
+    // Everything the transform and content size setters normally mark
+    _transformUpdated = _transformDirty = _inverseDirty = true;
+    _contentSizeDirty = true;
+}
+
 NS_CC_END
 // --- META ---
 

@@ -1470,8 +1470,15 @@ bool Widget::isLayoutComponentEnabled()const
 }
 
 
+void Widget::onEditorPropertyChanged()
+{
+    Node::onEditorPropertyChanged();
+
+    updateSizeAndPosition();
+}
 
 }
+
 NS_CC_END
 // --- META ---
 

@@ -32,7 +32,7 @@
 
 USING_NS_CC;
 
-extern void InitializeTypeso2Integration();
+extern void InitializeTypescocos2d();
 
 int WINAPI _tWinMain(HINSTANCE hInstance,
 					   HINSTANCE hPrevInstance,
@@ -44,7 +44,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
 
 
 	INITIALIZE_O2;
-    InitializeTypeso2Integration();
+    InitializeTypescocos2d();
 
 	auto app = mmake<TestsO2Application>();
 	app->Initialize();

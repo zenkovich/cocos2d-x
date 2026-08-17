@@ -588,6 +588,9 @@ public:
     /** Update content immediately.*/
     virtual void updateContent();
 
+    /** Reflected fields are written directly by the editor: rebuild the text layout after that */
+    void onEditorPropertyChanged() override;
+
     /**
      * Provides a way to treat each character like a Sprite.
      * @warning No support system font.
@@ -1066,6 +1069,7 @@ CLASS_METHODS_META(cocos2d::Label)
     FUNCTION().PUBLIC().SIGNATURE(void, setDimensions, float, float);
     FUNCTION().PUBLIC().SIGNATURE(const Size&, getDimensions);
     FUNCTION().PUBLIC().SIGNATURE(void, updateContent);
+    FUNCTION().PUBLIC().SIGNATURE(void, onEditorPropertyChanged);
     FUNCTION().PUBLIC().SIGNATURE(Sprite*, getLetter, int);
     FUNCTION().PUBLIC().SIGNATURE(void, setClipMarginEnabled, bool);
     FUNCTION().PUBLIC().SIGNATURE(bool, isClipMarginEnabled);

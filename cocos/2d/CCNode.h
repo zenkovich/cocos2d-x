@@ -168,6 +168,11 @@ public:
     bool IsSupportsDeleting() const override;
     bool IsSupportsLocking() const override;
 
+    /** The editor writes reflected fields directly, bypassing the setters, so afterwards the node
+        has to refresh whatever the setter would have refreshed. Types with derived state
+        (text layout, sprite quads) override this */
+    virtual void onEditorPropertyChanged();
+
     /// @}
 
     /// @{ o2 input integration: interactive nodes become cursor areas in the Game view
@@ -2086,6 +2091,7 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(void, SetTransform, const o2::Basis&);
     FUNCTION().PUBLIC().SIGNATURE(bool, IsSupportsDeleting);
     FUNCTION().PUBLIC().SIGNATURE(bool, IsSupportsLocking);
+    FUNCTION().PUBLIC().SIGNATURE(void, onEditorPropertyChanged);
     FUNCTION().PUBLIC().SIGNATURE(bool, isO2InteractiveNode);
     FUNCTION().PUBLIC().SIGNATURE(bool, IsUnderPoint, const o2::Vec2F&);
     FUNCTION().PROTECTED().SIGNATURE(void, OnCursorPressed, const o2::Input::Cursor&);

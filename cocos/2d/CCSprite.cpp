@@ -1460,6 +1460,13 @@ void Sprite::updateStretchFactor()
     // Do nothing if renderMode is Polygon
 }
 
+void Sprite::onEditorPropertyChanged()
+{
+    Node::onEditorPropertyChanged();
+
+    setTextureRect(_rect, _rectRotated, _contentSize);
+}
+
 void Sprite::setFlippedX(bool flippedX)
 {
     if (_flippedX != flippedX)

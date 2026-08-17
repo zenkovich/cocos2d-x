@@ -33,7 +33,7 @@ DECLARE_SINGLETON(Editor::EditorConfig);
 DECLARE_SINGLETON(Editor::ToolsPanel);
 
 extern void InitializeTypeso2Editor();
-extern void InitializeTypeso2Integration();
+extern void InitializeTypescocos2d();
 extern void InitializeTypescocosEditorIntegration();
 
 namespace
@@ -44,7 +44,7 @@ namespace
 		// INITIALIZE_O2 must run before project type registration (o2 master contract)
 		INITIALIZE_O2;
 		InitializeTypeso2Editor();
-		InitializeTypeso2Integration();
+		InitializeTypescocos2d();
 		InitializeTypescocosEditorIntegration();
 		o2::MemoryAnalyzer::enabledObjectsTracking = true;
 

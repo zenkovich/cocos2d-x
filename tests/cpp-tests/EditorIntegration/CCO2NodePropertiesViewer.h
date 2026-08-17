@@ -62,12 +62,21 @@ protected:
 	o2::Ref<Editor::IPropertyField>  mZOrderProperty;
 	o2::Ref<Editor::IPropertyField>  mColorProperty;
 
-	// Reflection-driven section for the concrete node type: builds fields from the
-	// o2 reflection of the type (properties declared with PROPERTY in cocos classes),
-	// so new node types need no viewer code at all
-	o2::Ref<Editor::SpoilerWithHead>        mTypeSpoiler;      // Concrete type section root
-	o2::Ref<Editor::IObjectPropertiesViewer> mTypeViewer;      // Reflection-built viewer
-	const o2::Type*                         mViewedNodeType = nullptr; // Type the viewer was built for
+	// Reflection-driven section for the concrete node type: builds fields from the o2
+	// reflection of the type, so new node types need no viewer code at all. One section per
+	// type, kept alive and just hidden when another type is selected: the viewer owns the
+	// spoiler widget, releasing it back to the pool would detach it from this viewer's layout
+	struct TypeSection
+	{
+		o2::Ref<Editor::SpoilerWithHead>         spoiler;
+		o2::Ref<Editor::IObjectPropertiesViewer> viewer;
+
+		bool operator==(const TypeSection& other) const { return spoiler == other.spoiler && viewer == other.viewer; }
+	};
+
+	o2::Ref<o2::VerticalLayout>    mRootLayout;               // Holds the header, transform and type sections
+	o2::Map<const o2::Type*, TypeSection> mTypeSections;      // Built sections by node type
+	const o2::Type*                mViewedNodeType = nullptr; // Type of the shown section
 
 	o2::Vector<o2::Ref<Editor::IPropertyField>> mAllFields; // Every field for batch refresh
 
@@ -86,6 +95,14 @@ protected:
 
 	// Rebinds base node field proxies to the current nodes
 	void BindNodeProxies();
+
+	// Reflection writes the node fields directly, bypassing the cocos setters: the nodes are
+	// asked to refresh their derived state after every edit in the type section
+	void OnTypePropertyChanged(const o2::Ref<Editor::IPropertyField>& field, bool byUser);
+
+	// Same for a completed change, an undo step is recorded from it
+	void OnTypePropertyChangeCompleted(const o2::String& path, const o2::Vector<o2::DataDocument>& before,
+									   const o2::Vector<o2::DataDocument>& after);
 };
 // --- META ---
 
@@ -108,8 +125,8 @@ CLASS_FIELDS_META(CocosNodeViewer)
     FIELD().PROTECTED().NAME(mAnchorProperty);
     FIELD().PROTECTED().NAME(mZOrderProperty);
     FIELD().PROTECTED().NAME(mColorProperty);
-    FIELD().PROTECTED().NAME(mTypeSpoiler);
-    FIELD().PROTECTED().NAME(mTypeViewer);
+    FIELD().PROTECTED().NAME(mRootLayout);
+    FIELD().PROTECTED().NAME(mTypeSections);
     FIELD().PROTECTED().DEFAULT_VALUE(nullptr).NAME(mViewedNodeType);
     FIELD().PROTECTED().NAME(mAllFields);
 }
@@ -124,6 +141,8 @@ CLASS_METHODS_META(CocosNodeViewer)
     FUNCTION().PROTECTED().SIGNATURE(void, BuildTransform, const o2::Ref<o2::VerticalLayout>&);
     FUNCTION().PROTECTED().SIGNATURE(void, RefreshTypeViewer);
     FUNCTION().PROTECTED().SIGNATURE(void, BindNodeProxies);
+    FUNCTION().PROTECTED().SIGNATURE(void, OnTypePropertyChanged, const o2::Ref<Editor::IPropertyField>&, bool);
+    FUNCTION().PROTECTED().SIGNATURE(void, OnTypePropertyChangeCompleted, const o2::String&, const o2::Vector<o2::DataDocument>&, const o2::Vector<o2::DataDocument>&);
 }
 END_META;
 // --- END META ---

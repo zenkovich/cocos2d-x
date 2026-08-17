@@ -461,6 +461,9 @@ public:
      *
      * @param flippedX true if the sprite should be flipped horizontally, false otherwise.
      */
+    /** Reflected fields are written directly by the editor: rebuild the quads after that */
+    void onEditorPropertyChanged() override;
+
     void setFlippedX(bool flippedX);
 
     /**
@@ -841,6 +844,7 @@ CLASS_METHODS_META(cocos2d::Sprite)
     FUNCTION().PUBLIC().SIGNATURE(void, setTextureAtlas, TextureAtlas*);
     FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getOffsetPosition);
     FUNCTION().PUBLIC().SIGNATURE(bool, isFlippedX);
+    FUNCTION().PUBLIC().SIGNATURE(void, onEditorPropertyChanged);
     FUNCTION().PUBLIC().SIGNATURE(void, setFlippedX, bool);
     FUNCTION().PUBLIC().SIGNATURE(bool, isFlippedY);
     FUNCTION().PUBLIC().SIGNATURE(void, setFlippedY, bool);

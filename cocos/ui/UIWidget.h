@@ -570,6 +570,9 @@ public:
      */
     void updateSizeAndPosition();
 
+    /** Reflected fields are written directly by the editor: re-apply the layout after that */
+    void onEditorPropertyChanged() override;
+
     /**
      * Update all children's contents size and position recursively.
      */
@@ -992,6 +995,7 @@ CLASS_METHODS_META(cocos2d::ui::Widget)
     FUNCTION().PUBLIC().SIGNATURE(void, onEnter);
     FUNCTION().PUBLIC().SIGNATURE(void, onExit);
     FUNCTION().PUBLIC().SIGNATURE(void, updateSizeAndPosition);
+    FUNCTION().PUBLIC().SIGNATURE(void, onEditorPropertyChanged);
     FUNCTION().PUBLIC().SIGNATURE(void, updateSizeAndPosition, const Size&);
     FUNCTION().PUBLIC().SIGNATURE(void, setActionTag, int);
     FUNCTION().PUBLIC().SIGNATURE(int, getActionTag);
