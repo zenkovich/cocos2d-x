@@ -1,7 +1,3 @@
-//@CODETOOL_NON_EXCLUDE
-// pragma once is required: the generated reflection META sits after the include
-// guard's #endif and would be compiled twice otherwise
-#pragma once
 /****************************************************************************
 Copyright (c) 2008-2010 Ricardo Quesada
 Copyright (c) 2010-2012 cocos2d-x.org
@@ -62,9 +58,6 @@ class SpriteFrame;
 class CC_DLL MenuItem : public Node
 {
 public:
-    IOBJECT(MenuItem);
-
-
     /** Creates a MenuItem with no target/selector. */
     static MenuItem* create();
     /** Creates a MenuItem with a target/selector. */
@@ -122,8 +115,8 @@ CC_CONSTRUCTOR_ACCESS:
     bool initWithCallback(const ccMenuCallback& callback);
 
 protected:
-    bool            _selected; // @EDITOR_PROPERTY
-    bool            _enabled; // @EDITOR_PROPERTY
+    bool            _selected;
+    bool            _enabled;
     // callback
     ccMenuCallback _callback;
 
@@ -517,43 +510,3 @@ private:
 NS_CC_END
 
 #endif //__CCMENU_ITEM_H__
-// --- META ---
-
-#if ndef __CCMENU_ITEM_H__
-CLASS_BASES_META(cocos2d::MenuItem)
-{
-    BASE_CLASS(cocos2d::Node);
-}
-END_META;
-CLASS_FIELDS_META(cocos2d::MenuItem)
-{
-#if ndef __CCMENU_ITEM_H__
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_selected);
-    FIELD().PROTECTED().NAME(_enabled);
-    FIELD().PROTECTED().EDITOR_PROPERTY_ATTRIBUTE().NAME(_callback);
-#endif
-}
-END_META;
-CLASS_METHODS_META(cocos2d::MenuItem)
-{
-
-#if ndef __CCMENU_ITEM_H__
-    FUNCTION().PUBLIC().SIGNATURE_STATIC(MenuItem*, create);
-    FUNCTION().PUBLIC().SIGNATURE_STATIC(MenuItem*, create, const ccMenuCallback&);
-    FUNCTION().PUBLIC().SIGNATURE(Rect, rect);
-    FUNCTION().PUBLIC().SIGNATURE(void, activate);
-    FUNCTION().PUBLIC().SIGNATURE(void, selected);
-    FUNCTION().PUBLIC().SIGNATURE(void, unselected);
-    FUNCTION().PUBLIC().SIGNATURE(bool, isEnabled);
-    FUNCTION().PUBLIC().SIGNATURE(void, setEnabled, bool);
-    FUNCTION().PUBLIC().SIGNATURE(bool, isO2InteractiveNode);
-    FUNCTION().PUBLIC().SIGNATURE(bool, isSelected);
-    FUNCTION().PUBLIC().SIGNATURE(void, setCallback, const ccMenuCallback&);
-    FUNCTION().PUBLIC().SIGNATURE(std::string, getDescription);
-    FUNCTION().PUBLIC().CONSTRUCTOR();
-    FUNCTION().PUBLIC().SIGNATURE(bool, initWithCallback, const ccMenuCallback&);
-#endif
-}
-END_META;
-#endif
-// --- END META ---
