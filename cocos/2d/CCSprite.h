@@ -754,7 +754,7 @@ CLASS_FIELDS_META(cocos2d::Sprite)
 #endif
     FIELD().PROTECTED().NAME(_rect);
     FIELD().PROTECTED().DEFAULT_VALUE(false).NAME(_rectRotated);
-    FIELD().PROTECTED().DEFAULT_VALUE({0,0,1,1}).NAME(_centerRectNormalized);
+    FIELD().PROTECTED().NAME(_centerRectNormalized);
     FIELD().PROTECTED().DEFAULT_VALUE(Sprite::RenderMode::QUAD).NAME(_renderMode);
     FIELD().PROTECTED().DEFAULT_VALUE(Vec2::ONE).NAME(_stretchFactor);
     FIELD().PROTECTED().DEFAULT_VALUE(Size::ZERO).NAME(_originalContentSize);
@@ -837,7 +837,7 @@ CLASS_METHODS_META(cocos2d::Sprite)
     FUNCTION().PUBLIC().SIGNATURE(const Rect&, getTextureRect);
     FUNCTION().PUBLIC().SIGNATURE(TextureAtlas*, getTextureAtlas);
     FUNCTION().PUBLIC().SIGNATURE(void, setProgramState, backend::ProgramState*);
-    FUNCTION().PUBLIC().SIGNATURE(backend::ProgramState, *getProgramState);
+    FUNCTION().PUBLIC().SIGNATURE(backend::ProgramState*, getProgramState);
     FUNCTION().PUBLIC().SIGNATURE(void, setTextureAtlas, TextureAtlas*);
     FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getOffsetPosition);
     FUNCTION().PUBLIC().SIGNATURE(bool, isFlippedX);

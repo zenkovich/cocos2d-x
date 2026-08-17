@@ -9,7 +9,7 @@
 #include "o2/Scene/UI/Widgets/ScrollArea.h"
 #include "o2/Utils/Editor/EditorScope.h"
 
-#include "o2Editor/Core/UI/SpoilerWithHead.h"
+#include "o2Editor/UI/SpoilerWithHead.h"
 #include "o2Editor/Properties/IObjectPropertiesViewer.h"
 #include "o2Editor/Properties/Properties.h"
 #include "o2Editor/Properties/Basic/BooleanProperty.h"

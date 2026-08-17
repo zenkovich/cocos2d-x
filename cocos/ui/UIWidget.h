@@ -867,15 +867,15 @@ NS_CC_END
 #endif /* defined(__Widget__) */
 // --- META ---
 
-PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::FocusDirection);
+PRE_ENUM_META(cocos2d::ui::Widget::FocusDirection);
 
-PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::PositionType);
+PRE_ENUM_META(cocos2d::ui::Widget::PositionType);
 
-PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::SizeType);
+PRE_ENUM_META(cocos2d::ui::Widget::SizeType);
 
-PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::TouchEventType);
+PRE_ENUM_META(cocos2d::ui::Widget::TouchEventType);
 
-PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::TextureResType);
+PRE_ENUM_META(cocos2d::ui::Widget::TextureResType);
 
-PRE_ENUM_META(cocos2d::ui::CC_GUI_DLL::BrightStyle);
+PRE_ENUM_META(cocos2d::ui::Widget::BrightStyle);
 // --- END META ---
