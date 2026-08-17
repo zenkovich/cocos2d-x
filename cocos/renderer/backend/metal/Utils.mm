@@ -86,6 +86,11 @@ MTLPixelFormat Utils::getDefaultDepthStencilAttachmentPixelFormat()
 
 MTLPixelFormat Utils::getDefaultColorAttachmentPixelFormat()
 {
+    // The external (o2-provided) target dictates the format of the "screen" attachment,
+    // so pipeline states are built against what is actually bound
+    if (DeviceMTL::isExternalTargetActive())
+        return DeviceMTL::getExternalColorTexture().pixelFormat;
+
     return COLOR_ATTAHCMENT_PIXEL_FORMAT;
 }
 
@@ -145,7 +150,7 @@ MTLPixelFormat Utils::toMTLPixelFormat(PixelFormat textureFormat)
         case PixelFormat::D24S8:
             return getSupportedDepthStencilFormat();
         case PixelFormat::DEFAULT:
-            return COLOR_ATTAHCMENT_PIXEL_FORMAT;
+            return Utils::getDefaultColorAttachmentPixelFormat();
         case PixelFormat::NONE:
         default:
             return MTLPixelFormatInvalid;

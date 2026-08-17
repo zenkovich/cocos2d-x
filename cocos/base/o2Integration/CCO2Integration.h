@@ -2,11 +2,17 @@
 #pragma once
 
 #include "platform/CCPlatformMacros.h"
+#include "base/CCEventKeyboard.h"
 #include "o2/Integration.h"
+#include "o2/Application/VKCodes.h"
 
 NS_CC_BEGIN
 class Director;
 NS_CC_END
+
+// Maps an o2 virtual key code to the cocos key code (shared by the demo
+// application loop and the editor input forwarding)
+cocos2d::EventKeyboard::KeyCode MapO2KeyToCocosKeyCode(o2::KeyboardKey key);
 
 class O2Integration : public o2::Integration
 {

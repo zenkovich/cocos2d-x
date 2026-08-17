@@ -40,6 +40,10 @@ CC_BACKEND_BEGIN
 CAMetalLayer* DeviceMTL::_metalLayer = nil;
 id<CAMetalDrawable> DeviceMTL::_currentDrawable = nil;
 
+id<MTLCommandQueue> DeviceMTL::_externalCommandQueue = nil;
+id<MTLTexture> DeviceMTL::_externalColorTexture = nil;
+id<MTLTexture> DeviceMTL::_externalDepthStencilTexture = nil;
+
 Device* Device::getInstance()
 {
     if (! Device::_instance)
@@ -66,10 +70,38 @@ void DeviceMTL::resetCurrentDrawable()
     DeviceMTL::_currentDrawable = nil;
 }
 
+void DeviceMTL::setExternalCommandQueue(id<MTLCommandQueue> queue)
+{
+    [queue retain];
+    [DeviceMTL::_externalCommandQueue release];
+    DeviceMTL::_externalCommandQueue = queue;
+}
+
+void DeviceMTL::setExternalRenderTarget(id<MTLTexture> colorTexture, id<MTLTexture> depthStencilTexture)
+{
+    [colorTexture retain];
+    [DeviceMTL::_externalColorTexture release];
+    DeviceMTL::_externalColorTexture = colorTexture;
+
+    [depthStencilTexture retain];
+    [DeviceMTL::_externalDepthStencilTexture release];
+    DeviceMTL::_externalDepthStencilTexture = depthStencilTexture;
+}
+
+id<MTLTexture> DeviceMTL::getDefaultColorTexture()
+{
+    if (DeviceMTL::_externalColorTexture)
+        return DeviceMTL::_externalColorTexture;
+
+    return DeviceMTL::getCurrentDrawable().texture;
+}
+
 DeviceMTL::DeviceMTL()
 {
     _mtlDevice = DeviceMTL::_metalLayer.device;
-    _mtlCommandQueue = [_mtlDevice newCommandQueue];
+    // Share the host's queue in external-target mode so command buffers of both
+    // engines execute strictly in the order they are committed
+    _mtlCommandQueue = _externalCommandQueue ? [_externalCommandQueue retain] : [_mtlDevice newCommandQueue];
     _deviceInfo = new (std::nothrow) DeviceInfoMTL(_mtlDevice);
     if(!_deviceInfo || _deviceInfo->init() == false)
     {

@@ -166,7 +166,13 @@ public:
 	bool isOpenGLReady() override { return true; }
 	void swapBuffers() override {}
 	void setIMEKeyboardState(bool open) override {}
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 	HWND getWin32Window() override { return mApplication.GetWindowHandle(); }
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+	// o2 owns the native window on Mac; cocos never touches it directly here
+	id getCocoaWindow() override { return nullptr; }
+	id getNSGLContext() override { return nullptr; }
+#endif
 
 protected:
 	CocosO2Application& mApplication;
@@ -407,3 +413,8 @@ o2::Vec2F CocosO2Application::O2ToCocosCoords(const o2::Vec2F& o2Pos) const
 }
 
 
+
+cocos2d::EventKeyboard::KeyCode MapO2KeyToCocosKeyCode(o2::KeyboardKey key)
+{
+	return MapO2KeyToCocos(key);
+}

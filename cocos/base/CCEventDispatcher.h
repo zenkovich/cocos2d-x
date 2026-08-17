@@ -111,6 +111,11 @@ public:
      * @param recursive True if remove recursively, the default value is false.
      */
     void removeEventListenersForTarget(Node* target, bool recursive = false);
+
+    /** o2 integration: returns true when the node has enabled touch or mouse
+     listeners attached — such nodes accept clicks and become o2 cursor areas
+     in the editor Game view. */
+    bool hasTouchOrMouseEventListenersForTarget(Node* target);
     
     /** Removes all custom listeners with the same event name.
      *

@@ -120,7 +120,7 @@ namespace
             
             if (!hasCustomColorAttachment)
             {
-                mtlDescritpor.colorAttachments[0].texture = DeviceMTL::getCurrentDrawable().texture;
+                mtlDescritpor.colorAttachments[0].texture = DeviceMTL::getDefaultColorTexture();
                 if (descriptor.needClearColor)
                 {
                     mtlDescritpor.colorAttachments[0].loadAction = MTLLoadActionClear;
@@ -142,6 +142,8 @@ namespace
             {
                 if (descriptor.depthAttachmentTexture)
                     mtlDescritpor.depthAttachment.texture = static_cast<TextureMTL*>(descriptor.depthAttachmentTexture)->getMTLTexture();
+                else if (DeviceMTL::isExternalTargetActive())
+                    mtlDescritpor.depthAttachment.texture = DeviceMTL::getExternalDepthStencilTexture();
                 else
                     mtlDescritpor.depthAttachment.texture = Utils::getDefaultDepthStencilTexture();
                 
@@ -160,6 +162,8 @@ namespace
             {
                 if (descriptor.stencilAttachmentTexture)
                     mtlDescritpor.stencilAttachment.texture = static_cast<TextureMTL*>(descriptor.stencilAttachmentTexture)->getMTLTexture();
+                else if (DeviceMTL::isExternalTargetActive())
+                    mtlDescritpor.stencilAttachment.texture = DeviceMTL::getExternalDepthStencilTexture();
                 else
                     mtlDescritpor.stencilAttachment.texture = Utils::getDefaultDepthStencilTexture();
                 
@@ -289,6 +293,11 @@ void CommandBufferMTL::setViewport(int x, int y, unsigned int w, unsigned int h)
 
 void CommandBufferMTL::setCullMode(CullMode mode)
 {
+    // The external host flips the content vertically via the projection transform,
+    // which reverses triangle winding — face culling would drop everything
+    if (DeviceMTL::isExternalTargetActive())
+        mode = CullMode::NONE;
+
     [_mtlRenderEncoder setCullMode:toMTLCullMode(mode)];
 }
 
@@ -359,9 +368,14 @@ void CommandBufferMTL::endFrame()
     [_mtlRenderEncoder endEncoding];
     [_mtlRenderEncoder release];
     _mtlRenderEncoder = nil;
-    
-    [_mtlCommandBuffer presentDrawable:DeviceMTL::getCurrentDrawable()];
-    _drawableTexture = DeviceMTL::getCurrentDrawable().texture;
+
+    // In external-target mode the host owns the drawable and presents the frame itself;
+    // acquiring one here would fight the host's MTKView over the layer's drawables
+    if (!DeviceMTL::isExternalTargetActive())
+    {
+        [_mtlCommandBuffer presentDrawable:DeviceMTL::getCurrentDrawable()];
+        _drawableTexture = DeviceMTL::getCurrentDrawable().texture;
+    }
     [_mtlCommandBuffer addCompletedHandler:^(id<MTLCommandBuffer> commandBuffer) {
         // GPU work is complete
         // Signal the semaphore to start the CPU work

@@ -353,6 +353,29 @@ void EventDispatcher::resumeEventListenersForTarget(Node* target, bool recursive
     }
 }
 
+bool EventDispatcher::hasTouchOrMouseEventListenersForTarget(Node* target)
+{
+    auto found = _nodeListenersMap.find(target);
+    if (found == _nodeListenersMap.end() || !found->second)
+        return false;
+
+    for (auto listener : *found->second)
+    {
+        if (!listener || !listener->isEnabled())
+            continue;
+
+        const auto& listenerID = listener->getListenerID();
+        if (listenerID == EventListenerTouchOneByOne::LISTENER_ID ||
+            listenerID == EventListenerTouchAllAtOnce::LISTENER_ID ||
+            listenerID == EventListenerMouse::LISTENER_ID)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 void EventDispatcher::removeEventListenersForTarget(Node* target, bool recursive/* = false */)
 {
     // Ensure the node is removed from these immediately also.

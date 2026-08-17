@@ -20,9 +20,6 @@ public:
 	// Destructor
 	~CocosEditorApplication();
 
-	// Draws external renderers
-	void DrawExternal();
-
 protected:
 	// Initialize Cocos2d-x systems alongside o2 systems
 	void BasicInitialize() override;
@@ -39,6 +36,10 @@ protected:
 	// Override process frame to integrate Cocos main loop
 	void ProcessFrame() override;
 
+	// Forwards editor input into cocos while playing: keyboard entirely, cursor
+	// through the scene view mapped into cocos design coordinates
+	void ProcessCocosInput();
+
 	// Calling when application is starting
 	void OnStarted() override;
 
@@ -47,4 +48,6 @@ protected:
 
 protected:
 	cocos2d::Director* mCocosDirector = nullptr;
+
+	bool mCocosTouchActive = false; // @IGNORE — an editor-forwarded touch is in progress
 };

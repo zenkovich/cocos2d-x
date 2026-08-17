@@ -207,6 +207,9 @@ public:
      */
     bool isTouchEnabled() const;
 
+    /** o2 integration: touch-enabled widgets receive cursor events in the editor Game view */
+    bool isO2InteractiveNode() const override { return isTouchEnabled(); }
+
     /**
      * Determines if the widget is highlighted
      *

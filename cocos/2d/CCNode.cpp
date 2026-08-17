@@ -32,6 +32,9 @@ THE SOFTWARE.
 #include <algorithm>
 #include <string>
 #include <regex>
+#include <typeinfo>
+#include <cxxabi.h>
+#include <cstring>
 
 #include "base/CCDirector.h"
 #include "base/CCScheduler.h"
@@ -42,6 +45,13 @@ THE SOFTWARE.
 #include "2d/CCScene.h"
 #include "2d/CCComponent.h"
 #include "renderer/CCMaterial.h"
+// Full Renderer type is required by the generated reflection META at the end of this
+// file: method signatures mentioning Renderer* are instantiated via type traits there
+#include "renderer/CCRenderer.h"
+#include "base/o2Integration/CCO2SceneActor.h"
+// Complete o2::Material is needed before Ref<Material> (member of IDrawable pulled
+// in via the o2 scene headers) gets instantiated in this translation unit
+#include "o2/Render/Material.h"
 #include "math/TransformUtils.h"
 
 
@@ -61,7 +71,11 @@ int Node::__attachedNodeCount = 0;
 // MARK: Constructor, Destructor, Init
 
 Node::Node()
-: _rotationX(0.0f)
+// The o2 side references nodes through SceneEditableObject; the counter is created
+// here and pinned with one artificial strong reference in the body below, because
+// the node lifetime is owned by cocos (retain/release), never by o2 refs
+: o2::SceneEditableObject(new o2::RefCounter())
+, _rotationX(0.0f)
 , _rotationY(0.0f)
 , _rotationZ_X(0.0f)
 , _rotationZ_Y(0.0f)
@@ -117,6 +131,10 @@ Node::Node()
 , _physicsBody(nullptr)
 #endif
 {
+    // Pin the o2 reference counter: cocos owns the node lifetime, so outstanding
+    // o2 refs must never drive the count to zero and destruct the node
+    mRefCounter->strongReferences++;
+
     // set default scheduler and actionManager
     _director = Director::getInstance();
     _actionManager = _director->getActionManager();
@@ -150,7 +168,19 @@ Node * Node::create()
 Node::~Node()
 {
     CCLOGINFO( "deallocing Node: %p - tag: %i", this, _tag );
-    
+
+    // Free the o2 reference counter only when nothing outside references the node;
+    // otherwise leak it with the pin intact — stale o2 refs must not destruct the
+    // dead node (WIP: the editor tree is expected to refresh before access)
+    if (mRefCounter)
+    {
+        if (mRefCounter->strongReferences <= 1 && mRefCounter->weakReferences == 0)
+            delete mRefCounter;
+
+        mRefCounter = nullptr;
+    }
+
+
 #if CC_ENABLE_SCRIPT_BINDING
     if (_updateScriptHandler)
     {
@@ -2194,6 +2224,212 @@ void Node::setProgramState(backend::ProgramState* programState)
 backend::ProgramState* Node::getProgramState() const
 {
     return _programState;
+}
+
+// ---------------------------------------------------------
+// o2 editor integration (SceneEditableObject overrides)
+// ---------------------------------------------------------
+
+o2::SceneUID Node::GetID() const
+{
+    return (o2::SceneUID)(uintptr_t)this;
+}
+
+const o2::String& Node::GetName() const
+{
+    if (!_name.empty())
+    {
+        _o2Name = _name.c_str();
+        return _o2Name;
+    }
+
+    // Unnamed node: show the concrete class name (Sprite, Label, Scene, ...)
+    const char* mangled = typeid(*this).name();
+    int status = 0;
+    if (char* demangled = abi::__cxa_demangle(mangled, nullptr, nullptr, &status))
+    {
+        const char* shortName = std::strrchr(demangled, ':');
+        _o2Name = shortName ? shortName + 1 : demangled;
+        std::free(demangled);
+    }
+    else
+        _o2Name = mangled;
+
+    return _o2Name;
+}
+
+void Node::SetName(const o2::String& name)
+{
+    setName(name); // o2::String derives from std::string
+}
+
+o2::Vector<o2::Ref<o2::SceneEditableObject>> Node::GetEditableChildren() const
+{
+    o2::Vector<o2::Ref<o2::SceneEditableObject>> result;
+
+    for (const auto& child : _children)
+        result.Add(o2::Ref<o2::SceneEditableObject>(child));
+
+    return result;
+}
+
+o2::Ref<o2::SceneEditableObject> Node::GetEditableParent() const
+{
+    if (_parent)
+        return o2::Ref<o2::SceneEditableObject>(_parent);
+
+    if (auto sceneActor = O2CocosSceneActor::Instance())
+        return o2::Ref<o2::SceneEditableObject>(sceneActor);
+
+    return nullptr;
+}
+
+bool Node::IsOnScene() const
+{
+    return true;
+}
+
+bool Node::IsSupportsDisabling() const
+{
+    return true;
+}
+
+bool Node::IsEnabled() const
+{
+    return isVisible();
+}
+
+void Node::SetEnabled(bool enabled)
+{
+    setVisible(enabled);
+}
+
+bool Node::IsEnabledInHierarchy() const
+{
+    for (const Node* node = this; node; node = node->getParent())
+    {
+        if (!node->isVisible())
+            return false;
+    }
+
+    return true;
+}
+
+bool Node::IsSupportsTransforming() const
+{
+    return true;
+}
+
+namespace
+{
+    // Node-local point → cocos world, through the node's 4x4 world matrix
+    o2::Vec2F TransformNodePoint(const cocos2d::Mat4& toWorld, float x, float y)
+    {
+        cocos2d::Vec3 point(x, y, 0.0f);
+        toWorld.transformPoint(&point);
+        return o2::Vec2F(point.x, point.y);
+    }
+
+    // Pointwise affine basis of a node's local→world mapping
+    o2::Basis NodeToWorldBasis(const cocos2d::Mat4& toWorld)
+    {
+        o2::Vec2F origin = TransformNodePoint(toWorld, 0.0f, 0.0f);
+        return o2::Basis(origin,
+                         TransformNodePoint(toWorld, 1.0f, 0.0f) - origin,
+                         TransformNodePoint(toWorld, 0.0f, 1.0f) - origin);
+    }
+}
+
+o2::Basis Node::GetTransform() const
+{
+    float width = std::max(_contentSize.width, 1.0f);
+    float height = std::max(_contentSize.height, 1.0f);
+
+    cocos2d::Mat4 toWorld = const_cast<Node*>(this)->getNodeToWorldTransform();
+
+    // Content box in cocos world, then into o2 world
+    o2::Vec2F origin = TransformNodePoint(toWorld, 0.0f, 0.0f);
+    o2::Basis contentBox(origin,
+                         TransformNodePoint(toWorld, width, 0.0f) - origin,
+                         TransformNodePoint(toWorld, 0.0f, height) - origin);
+
+    return contentBox * O2CocosSceneActor::GetCocosToWorldBasis();
+}
+
+void Node::SetTransform(const o2::Basis& transform)
+{
+    using namespace o2;
+
+    float width = std::max(_contentSize.width, 1.0f);
+    float height = std::max(_contentSize.height, 1.0f);
+
+    // Target content box in cocos world coordinates
+    Basis cocosBox = transform * O2CocosSceneActor::GetCocosToWorldBasis().Inverted();
+
+    // Pointwise node→world, then node→parent
+    Basis nodeToWorld(cocosBox.origin, cocosBox.xv / width, cocosBox.yv / height);
+
+    Basis parentToWorld;
+    if (_parent)
+        parentToWorld = NodeToWorldBasis(_parent->getNodeToWorldTransform());
+
+    Basis nodeToParent = nodeToWorld * parentToWorld.Inverted();
+
+    // Convert the affine back into cocos node properties. Skew is dropped (WIP)
+    Vec2F origin, scale;
+    float angle, shift;
+    nodeToParent.Decompose(&origin, &angle, &scale, &shift);
+
+    // Node position is the anchor point position in the parent
+    Vec2F anchorInPoints(_anchorPoint.x * _contentSize.width, _anchorPoint.y * _contentSize.height);
+    Vec2F position = nodeToParent * anchorInPoints;
+
+    setPosition(position.x, position.y);
+    setRotation(-o2::Math::Rad2deg(angle)); // cocos rotation is clockwise degrees
+    setScale(scale.x, scale.y);
+}
+
+bool Node::IsSupportsDeleting() const
+{
+    return false;
+}
+
+bool Node::IsUnderPoint(const o2::Vec2F& point)
+{
+    // Point comes in o2 game-world coordinates; test it against the content box
+    o2::Vec2F designPoint = point * O2CocosSceneActor::GetCocosToWorldBasis().Inverted();
+
+    Vec3 local(designPoint.x, designPoint.y, 0.0f);
+    const_cast<Node*>(this)->getWorldToNodeTransform().transformPoint(&local);
+
+    return local.x >= 0.0f && local.y >= 0.0f &&
+           local.x <= _contentSize.width && local.y <= _contentSize.height;
+}
+
+void Node::OnCursorPressed(const o2::Input::Cursor& cursor)
+{
+    O2CocosSceneActor::ForwardTouchToCocos(cursor.position, O2CocosSceneActor::TouchPhase::Began);
+}
+
+void Node::OnCursorStillDown(const o2::Input::Cursor& cursor)
+{
+    if (cursor.delta != o2::Vec2F())
+        O2CocosSceneActor::ForwardTouchToCocos(cursor.position, O2CocosSceneActor::TouchPhase::Moved);
+}
+
+void Node::OnCursorReleased(const o2::Input::Cursor& cursor)
+{
+    O2CocosSceneActor::ForwardTouchToCocos(cursor.position, O2CocosSceneActor::TouchPhase::Ended);
+}
+
+void Node::OnCursorPressBreak(const o2::Input::Cursor& cursor)
+{
+    O2CocosSceneActor::ForwardTouchToCocos(cursor.position, O2CocosSceneActor::TouchPhase::Ended);
+}
+
+bool Node::IsSupportsLocking() const
+{
+    return false;
 }
 
 NS_CC_END

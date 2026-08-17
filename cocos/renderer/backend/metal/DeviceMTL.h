@@ -68,7 +68,24 @@ public:
      * Reset current drawable to nil.
      */
     static void resetCurrentDrawable();
-    
+
+    /**
+     * External render target mode (o2 editor integration): cocos renders into a
+     * host-provided texture instead of acquiring drawables from the layer, on a
+     * host-provided command queue so passes execute in submission order with the host's.
+     */
+    static void setExternalCommandQueue(id<MTLCommandQueue> queue);
+    static void setExternalRenderTarget(id<MTLTexture> colorTexture, id<MTLTexture> depthStencilTexture);
+    static bool isExternalTargetActive() { return DeviceMTL::_externalColorTexture != nil; }
+    static id<MTLTexture> getExternalColorTexture() { return DeviceMTL::_externalColorTexture; }
+    static id<MTLTexture> getExternalDepthStencilTexture() { return DeviceMTL::_externalDepthStencilTexture; }
+
+    /**
+     * The color texture cocos should treat as the default (screen) attachment:
+     * the external target when active, otherwise the current drawable's texture.
+     */
+    static id<MTLTexture> getDefaultColorTexture();
+
     /// @name Constructor, Destructor and Initializers
     DeviceMTL();
     ~DeviceMTL();
@@ -151,7 +168,11 @@ protected:
 private:
     static CAMetalLayer* _metalLayer;
     static id<CAMetalDrawable> _currentDrawable;
-    
+
+    static id<MTLCommandQueue> _externalCommandQueue;
+    static id<MTLTexture> _externalColorTexture;
+    static id<MTLTexture> _externalDepthStencilTexture;
+
     id<MTLDevice> _mtlDevice = nil;
     id<MTLCommandQueue> _mtlCommandQueue = nil;
 };

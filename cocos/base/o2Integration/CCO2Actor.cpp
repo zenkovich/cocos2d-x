@@ -1,5 +1,9 @@
 #include "base/o2Integration/CCO2Actor.h"
 
+// Complete o2::Material is needed before Ref<Material> (a member of IDrawable pulled
+// in via Actor) gets instantiated in this translation unit
+#include "o2/Render/Material.h"
+
 #include "2d/CCNode.h"
 #include "2d/CCSprite.h"
 

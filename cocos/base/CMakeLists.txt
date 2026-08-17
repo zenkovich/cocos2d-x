@@ -3,6 +3,7 @@ if(APPLE)
     set(COCOS_BASE_SPECIFIC_SRC
         base/CCUserDefault-apple.mm
         base/CCController-apple.mm
+        base/o2Integration/CCO2MetalBridge.mm
         )
 
 elseif(ANDROID)
@@ -58,6 +59,8 @@ set(COCOS_BASE_HEADER
     base/o2Integration/CCO2Integration.h
     base/o2Integration/CCO2Actor.h
     base/o2Integration/CCO2Application.h
+    base/o2Integration/CCO2SceneActor.h
+    base/o2Integration/CCO2MetalBridge.h
     base/CCEventListenerFocus.h
     base/CCUserDefault.h
     base/ccConfig.h
@@ -98,6 +101,7 @@ set(COCOS_BASE_SRC
     base/o2Integration/o2Integration.cpp
     base/o2Integration/CCO2Actor.cpp
     base/o2Integration/CCO2Application.cpp
+    base/o2Integration/CCO2SceneActor.cpp
     base/CCEvent.cpp
     base/CCEventAcceleration.cpp
     base/CCEventController.cpp

@@ -75,6 +75,9 @@ public:
     virtual bool isEnabled() const;
     /** Enables or disables the item. */
     virtual void setEnabled(bool value);
+
+    /** o2 integration: enabled menu items receive cursor events in the editor Game view */
+    bool isO2InteractiveNode() const override { return _enabled; }
     /** Returns whether or not the item is selected. */
     virtual bool isSelected() const;
 

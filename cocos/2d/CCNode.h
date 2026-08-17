@@ -28,6 +28,10 @@
  ****************************************************************************/
 
  //@CODETOOL_NON_EXCLUDE
+// pragma once is required in addition to the include guard: the generated
+// reflection META section below sits after the guard's #endif, so without it
+// a repeated include would redefine the Process* template methods
+#pragma once
 #ifndef __CCNODE_H__
 #define __CCNODE_H__
 
@@ -41,6 +45,8 @@
 #include "2d/CCComponentContainer.h"
 #include "2d/CCComponent.h"
 #include "o2/Utils/Basic/IObject.h"
+#include "o2/Utils/Editor/SceneEditableObject.h"
+#include "o2/Events/CursorAreaEventsListener.h"
 
 #if CC_USE_PHYSICS
 #include "physics/CCPhysicsBody.h"
@@ -111,13 +117,76 @@ class EventListener;
 
  */
 
-class CC_DLL Node : public Ref, public o2::IObject
+class CC_DLL Node : public Ref, public o2::SceneEditableObject, public o2::CursorAreaEventsListener
 {
 public:
-    IOBJECT(Node);
+    SERIALIZABLE(Node);
+
+    /** Manual REF_COUNTERABLE_IMPL(o2::SceneEditableObject): the macro assumes it
+        expands inside namespace o2, which cocos2d::Node is not */
+    o2::RefCounter* GetRefCounter() const { return o2::SceneEditableObject::GetRefCounter(); }
+    void SetRefCounter(o2::RefCounter* refCounter) { o2::RefCountersSetter<Node*>::template Set<o2::SceneEditableObject>(this, refCounter); }
+    template<typename __type> friend o2::RefCounter* o2::GetRefCounterImpl(__type* ptr);
+    template<typename _object_type> friend struct o2::RefCountersSetter;
+    friend struct o2::RefMaker;
 
     /** Default tag used for all the nodes */
     static const int INVALID_TAG = -1;
+
+    /// @{ o2 editor integration (SceneEditableObject overrides)
+
+    /** Returns unique id, pointer-derived and stable for the node lifetime */
+    o2::SceneUID GetID() const override;
+
+    /** Returns node name for the editor tree */
+    const o2::String& GetName() const override;
+
+    /** Sets node name from the editor */
+    void SetName(const o2::String& name) override;
+
+    /** Returns node children as editable objects */
+    o2::Vector<o2::Ref<o2::SceneEditableObject>> GetEditableChildren() const override;
+
+    /** Returns parent node, or the integration service actor for root nodes */
+    o2::Ref<o2::SceneEditableObject> GetEditableParent() const override;
+
+    /** Cocos nodes count as on-scene while the integration hosts them */
+    bool IsOnScene() const override;
+
+    /** Node visibility maps to the editor enabled flag */
+    bool IsSupportsDisabling() const override;
+    bool IsEnabled() const override;
+    void SetEnabled(bool enabled) override;
+    bool IsEnabledInHierarchy() const override;
+
+    /** Transform editing: the node content box converted between cocos and o2 spaces */
+    bool IsSupportsTransforming() const override;
+    o2::Basis GetTransform() const override;
+    void SetTransform(const o2::Basis& transform) override;
+
+    /** Editing features not supported yet in the WIP integration */
+    bool IsSupportsDeleting() const override;
+    bool IsSupportsLocking() const override;
+
+    /// @}
+
+    /// @{ o2 input integration: interactive nodes become cursor areas in the Game view
+
+    /** Interactive classes (MenuItem, ui::Widget) override this to opt into o2 cursor events */
+    virtual bool isO2InteractiveNode() const { return false; }
+
+    /** Hit test in o2 game-world coordinates against the node content box */
+    bool IsUnderPoint(const o2::Vec2F& point) override;
+
+protected:
+    /** Cursor events are converted into cocos touches and go through the cocos EventDispatcher */
+    void OnCursorPressed(const o2::Input::Cursor& cursor) override;
+    void OnCursorStillDown(const o2::Input::Cursor& cursor) override;
+    void OnCursorReleased(const o2::Input::Cursor& cursor) override;
+    void OnCursorPressBreak(const o2::Input::Cursor& cursor) override;
+
+public:
+    /// @}
 
     enum {
         FLAGS_TRANSFORM_DIRTY = (1 << 0),
@@ -1926,6 +1995,8 @@ protected:
 
     // camera mask, it is visible only when _cameraMask & current camera' camera flag is true
     unsigned short _cameraMask;
+
+    mutable o2::String _o2Name; ///< cached o2 mirror of _name for SceneEditableObject::GetName
     
     std::function<void()> _onEnterCallback;
     std::function<void()> _onExitCallback;
@@ -1986,19 +2057,41 @@ NS_CC_END
 CLASS_BASES_META(cocos2d::Node)
 {
     BASE_CLASS(Ref);
-    BASE_CLASS(o2::IObject);
+    BASE_CLASS(o2::SceneEditableObject);
+    BASE_CLASS(o2::CursorAreaEventsListener);
 }
 END_META;
 CLASS_FIELDS_META(cocos2d::Node)
 {
-    FIELD().PUBLIC().NAME(Node);
-    FIELD().PUBLIC().NAME(short);
     FIELD().PROTECTED().NAME(_rotationX);
 }
 END_META;
 CLASS_METHODS_META(cocos2d::Node)
 {
 
+    FUNCTION().PUBLIC().SIGNATURE(o2::RefCounter*, GetRefCounter);
+    FUNCTION().PUBLIC().SIGNATURE(void, SetRefCounter, o2::RefCounter*);
+    FUNCTION().PUBLIC().SIGNATURE(o2::SceneUID, GetID);
+    FUNCTION().PUBLIC().SIGNATURE(const o2::String&, GetName);
+    FUNCTION().PUBLIC().SIGNATURE(void, SetName, const o2::String&);
+    FUNCTION().PUBLIC().SIGNATURE(o2::Vector<o2::Ref<o2::SceneEditableObject>>, GetEditableChildren);
+    FUNCTION().PUBLIC().SIGNATURE(o2::Ref<o2::SceneEditableObject>, GetEditableParent);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsOnScene);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsSupportsDisabling);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsEnabled);
+    FUNCTION().PUBLIC().SIGNATURE(void, SetEnabled, bool);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsEnabledInHierarchy);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsSupportsTransforming);
+    FUNCTION().PUBLIC().SIGNATURE(o2::Basis, GetTransform);
+    FUNCTION().PUBLIC().SIGNATURE(void, SetTransform, const o2::Basis&);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsSupportsDeleting);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsSupportsLocking);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isO2InteractiveNode);
+    FUNCTION().PUBLIC().SIGNATURE(bool, IsUnderPoint, const o2::Vec2F&);
+    FUNCTION().PROTECTED().SIGNATURE(void, OnCursorPressed, const o2::Input::Cursor&);
+    FUNCTION().PROTECTED().SIGNATURE(void, OnCursorStillDown, const o2::Input::Cursor&);
+    FUNCTION().PROTECTED().SIGNATURE(void, OnCursorReleased, const o2::Input::Cursor&);
+    FUNCTION().PROTECTED().SIGNATURE(void, OnCursorPressBreak, const o2::Input::Cursor&);
     FUNCTION().PUBLIC().SIGNATURE_STATIC(int, getAttachedNodeCount);
     FUNCTION().PUBLIC().SIGNATURE(std::string, getDescription);
     FUNCTION().PUBLIC().SIGNATURE(void, setLocalZOrder, std::int32_t);
@@ -2016,9 +2109,9 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(void, setScale, float);
     FUNCTION().PUBLIC().SIGNATURE(float, getScale);
     FUNCTION().PUBLIC().SIGNATURE(void, setScale, float, float);
-    FUNCTION().PUBLIC().SIGNATURE(void, setPosition, const Vec2);
-    FUNCTION().PUBLIC().SIGNATURE(void, setPositionNormalized, const Vec2);
-    FUNCTION().PUBLIC().SIGNATURE(void, setNormalizedPosition, const Vec2);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPosition, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setPositionNormalized, const Vec2&);
+    FUNCTION().PUBLIC().SIGNATURE(void, setNormalizedPosition, const Vec2&);
     FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getPosition);
     FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getPositionNormalized);
     FUNCTION().PUBLIC().SIGNATURE(const Vec2&, getNormalizedPosition);
@@ -2055,12 +2148,12 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(float, getRotationSkewY);
     FUNCTION().PUBLIC().SIGNATURE(void, setIgnoreAnchorPointForPosition, bool);
     FUNCTION().PUBLIC().SIGNATURE(bool, isIgnoreAnchorPointForPosition);
-    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node);
-    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int);
     FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, int);
-    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, addChild, Node*, int, const std::string&);
     FUNCTION().PUBLIC().SIGNATURE(Node*, getChildByName, const std::string&);
-    FUNCTION().PUBLIC().SIGNATURE(void, enumerateChildren, const std::string, std::function<bool(Node* node)>);
+    FUNCTION().PUBLIC().SIGNATURE(void, enumerateChildren, const std::string&, std::function<bool(Node* node)>);
     FUNCTION().PUBLIC().SIGNATURE(Vector<Node*>&, getChildren);
     FUNCTION().PUBLIC().SIGNATURE(const Vector<Node*>&, getChildren);
     FUNCTION().PUBLIC().SIGNATURE(ssize_t, getChildrenCount);
@@ -2071,10 +2164,10 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(void, removeFromParentAndCleanup, bool);
     FUNCTION().PUBLIC().SIGNATURE(void, removeChild, Node*, bool);
     FUNCTION().PUBLIC().SIGNATURE(void, removeChildByTag, int, bool);
-    FUNCTION().PUBLIC().SIGNATURE(void, removeChildByName, const std::string, bool);
+    FUNCTION().PUBLIC().SIGNATURE(void, removeChildByName, const std::string&, bool);
     FUNCTION().PUBLIC().SIGNATURE(void, removeAllChildren);
     FUNCTION().PUBLIC().SIGNATURE(void, removeAllChildrenWithCleanup, bool);
-    FUNCTION().PUBLIC().SIGNATURE(void, reorderChild, Node, int);
+    FUNCTION().PUBLIC().SIGNATURE(void, reorderChild, Node*, int);
     FUNCTION().PUBLIC().SIGNATURE(void, sortAllChildren);
     FUNCTION().PUBLIC().SIGNATURE(int, getTag);
     FUNCTION().PUBLIC().SIGNATURE(void, setTag, int);
@@ -2082,10 +2175,10 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(void, setName, const std::string&);
     FUNCTION().PUBLIC().SIGNATURE(void*, getUserData);
     FUNCTION().PUBLIC().SIGNATURE(const void*, getUserData);
-    FUNCTION().PUBLIC().SIGNATURE(void, setUserData, void);
+    FUNCTION().PUBLIC().SIGNATURE(void, setUserData, void*);
     FUNCTION().PUBLIC().SIGNATURE(Ref*, getUserObject);
     FUNCTION().PUBLIC().SIGNATURE(const Ref*, getUserObject);
-    FUNCTION().PUBLIC().SIGNATURE(void, setUserObject, Ref);
+    FUNCTION().PUBLIC().SIGNATURE(void, setUserObject, Ref*);
     FUNCTION().PUBLIC().SIGNATURE(bool, isRunning);
     FUNCTION().PUBLIC().SIGNATURE(void, scheduleUpdateWithPriorityLua, int, int);
     FUNCTION().PUBLIC().SIGNATURE(void, onEnter);
@@ -2093,9 +2186,9 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(void, onExit);
     FUNCTION().PUBLIC().SIGNATURE(void, onExitTransitionDidStart);
     FUNCTION().PUBLIC().SIGNATURE(void, cleanup);
-    FUNCTION().PUBLIC().SIGNATURE(void, draw, Renderer, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, draw, Renderer*, const Mat4&, uint32_t);
     FUNCTION().PUBLIC().SIGNATURE(void, draw);
-    FUNCTION().PUBLIC().SIGNATURE(void, visit, Renderer, const Mat4&, uint32_t);
+    FUNCTION().PUBLIC().SIGNATURE(void, visit, Renderer*, const Mat4&, uint32_t);
     FUNCTION().PUBLIC().SIGNATURE(void, visit);
     FUNCTION().PUBLIC().SIGNATURE(Scene*, getScene);
     FUNCTION().PUBLIC().SIGNATURE(Rect, getBoundingBox);
@@ -2109,7 +2202,7 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(void, stopAction, Action*);
     FUNCTION().PUBLIC().SIGNATURE(void, stopActionByTag, int);
     FUNCTION().PUBLIC().SIGNATURE(void, stopAllActionsByTag, int);
-    FUNCTION().PUBLIC().SIGNATURE(void, stopActionsByFlags, unsigned);
+    FUNCTION().PUBLIC().SIGNATURE(void, stopActionsByFlags, unsigned int);
     FUNCTION().PUBLIC().SIGNATURE(Action*, getActionByTag, int);
     FUNCTION().PUBLIC().SIGNATURE(ssize_t, getNumberOfRunningActions);
     FUNCTION().PUBLIC().SIGNATURE(ssize_t, getNumberOfRunningActionsByTag, int);
@@ -2117,20 +2210,20 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(Scheduler*, getScheduler);
     FUNCTION().PUBLIC().SIGNATURE(const Scheduler*, getScheduler);
     FUNCTION().PUBLIC().SIGNATURE(bool, isScheduled, SEL_SCHEDULE);
-    FUNCTION().PUBLIC().SIGNATURE(bool, isScheduled, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(bool, isScheduled, const std::string&);
     FUNCTION().PUBLIC().SIGNATURE(void, scheduleUpdate);
     FUNCTION().PUBLIC().SIGNATURE(void, scheduleUpdateWithPriority, int);
     FUNCTION().PUBLIC().SIGNATURE(void, unscheduleUpdate);
-    FUNCTION().PUBLIC().SIGNATURE(void, schedule, SEL_SCHEDULE, float, unsigned, float);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, SEL_SCHEDULE, float, unsigned int, float);
     FUNCTION().PUBLIC().SIGNATURE(void, schedule, SEL_SCHEDULE, float);
     FUNCTION().PUBLIC().SIGNATURE(void, scheduleOnce, SEL_SCHEDULE, float);
-    FUNCTION().PUBLIC().SIGNATURE(void, scheduleOnce, const std::function<void(float)>&, float, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, scheduleOnce, const std::function<void(float)>&, float, const std::string&);
     FUNCTION().PUBLIC().SIGNATURE(void, schedule, SEL_SCHEDULE);
-    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, const std::string);
-    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, float, const std::string);
-    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, float, unsigned, float, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, float, const std::string&);
+    FUNCTION().PUBLIC().SIGNATURE(void, schedule, const std::function<void(float)>&, float, unsigned int, float, const std::string&);
     FUNCTION().PUBLIC().SIGNATURE(void, unschedule, SEL_SCHEDULE);
-    FUNCTION().PUBLIC().SIGNATURE(void, unschedule, const std::string);
+    FUNCTION().PUBLIC().SIGNATURE(void, unschedule, const std::string&);
     FUNCTION().PUBLIC().SIGNATURE(void, unscheduleAllCallbacks);
     FUNCTION().PUBLIC().SIGNATURE(void, resume);
     FUNCTION().PUBLIC().SIGNATURE(void, pause);
@@ -2151,15 +2244,15 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(Vec2, convertToWorldSpace, const Vec2&);
     FUNCTION().PUBLIC().SIGNATURE(Vec2, convertToNodeSpaceAR, const Vec2&);
     FUNCTION().PUBLIC().SIGNATURE(Vec2, convertToWorldSpaceAR, const Vec2&);
-    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertTouchToNodeSpace, Touch);
-    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertTouchToNodeSpaceAR, Touch);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertTouchToNodeSpace, Touch*);
+    FUNCTION().PUBLIC().SIGNATURE(Vec2, convertTouchToNodeSpaceAR, Touch*);
     FUNCTION().PUBLIC().SIGNATURE(void, setAdditionalTransform, const Mat4*);
     FUNCTION().PUBLIC().SIGNATURE(void, setAdditionalTransform, const Mat4&);
     FUNCTION().PUBLIC().SIGNATURE(void, setAdditionalTransform, const AffineTransform&);
     FUNCTION().PUBLIC().SIGNATURE(Component*, getComponent, const std::string&);
-    FUNCTION().PUBLIC().SIGNATURE(bool, addComponent, Component);
+    FUNCTION().PUBLIC().SIGNATURE(bool, addComponent, Component*);
     FUNCTION().PUBLIC().SIGNATURE(bool, removeComponent, const std::string&);
-    FUNCTION().PUBLIC().SIGNATURE(bool, removeComponent, Component);
+    FUNCTION().PUBLIC().SIGNATURE(bool, removeComponent, Component*);
     FUNCTION().PUBLIC().SIGNATURE(void, removeAllComponents);
     FUNCTION().PUBLIC().SIGNATURE(uint8_t, getOpacity);
     FUNCTION().PUBLIC().SIGNATURE(uint8_t, getDisplayedOpacity);
@@ -2183,16 +2276,17 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PUBLIC().SIGNATURE(const std::function<void()>&, getOnEnterTransitionDidFinishCallback);
     FUNCTION().PUBLIC().SIGNATURE(void, setOnExitTransitionDidStartCallback, const std::function<void()>&);
     FUNCTION().PUBLIC().SIGNATURE(const std::function<void()>&, getOnExitTransitionDidStartCallback);
-    FUNCTION().PUBLIC().SIGNATURE(void, setCameraMask, unsigned, bool);
+    FUNCTION().PUBLIC().SIGNATURE(unsigned short, getCameraMask);
+    FUNCTION().PUBLIC().SIGNATURE(void, setCameraMask, unsigned short, bool);
     FUNCTION().PUBLIC().SIGNATURE(void, setProgramState, backend::ProgramState*);
     FUNCTION().PUBLIC().SIGNATURE(backend::ProgramState*, getProgramState);
     FUNCTION().PUBLIC().CONSTRUCTOR();
     FUNCTION().PUBLIC().SIGNATURE(bool, init);
     FUNCTION().PROTECTED().SIGNATURE(void, childrenAlloc);
     FUNCTION().PROTECTED().SIGNATURE(void, insertChild, Node*, int);
-    FUNCTION().PROTECTED().SIGNATURE(void, detachChild, Node, ssize_t, bool);
+    FUNCTION().PROTECTED().SIGNATURE(void, detachChild, Node*, ssize_t, bool);
     FUNCTION().PROTECTED().SIGNATURE(Vec2, convertToWindowSpace, const Vec2&);
-    FUNCTION().PROTECTED().SIGNATURE(Mat4, transform, const Mat4);
+    FUNCTION().PROTECTED().SIGNATURE(Mat4, transform, const Mat4&);
     FUNCTION().PROTECTED().SIGNATURE(uint32_t, processParentFlags, const Mat4&, uint32_t);
     FUNCTION().PROTECTED().SIGNATURE(void, updateCascadeOpacity);
     FUNCTION().PROTECTED().SIGNATURE(void, disableCascadeOpacity);
@@ -2200,11 +2294,11 @@ CLASS_METHODS_META(cocos2d::Node)
     FUNCTION().PROTECTED().SIGNATURE(void, disableCascadeColor);
     FUNCTION().PROTECTED().SIGNATURE(void, updateColor);
     FUNCTION().PROTECTED().SIGNATURE(bool, doEnumerate, std::string, std::function<bool (Node *)>);
-    FUNCTION().PROTECTED().SIGNATURE(bool, doEnumerateRecursive, const Node*, const std::string, std::function<bool (Node *)>);
+    FUNCTION().PROTECTED().SIGNATURE(bool, doEnumerateRecursive, const Node*, const std::string&, std::function<bool (Node *)>);
     FUNCTION().PROTECTED().SIGNATURE(bool, isVisitableByVisitingCamera);
     FUNCTION().PROTECTED().SIGNATURE(void, updateRotationQuat);
     FUNCTION().PROTECTED().SIGNATURE(void, updateRotation3D);
-    FUNCTION().PRIVATE().SIGNATURE(void, addChildHelper, Node*, int, int, const std::string, bool);
+    FUNCTION().PRIVATE().SIGNATURE(void, addChildHelper, Node*, int, int, const std::string&, bool);
 }
 END_META;
 // --- END META ---

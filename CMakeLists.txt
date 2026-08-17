@@ -32,6 +32,14 @@ set(CMAKE_CXX_STANDARD 20)
 
 project(Cocos2d-x)
 
+# Enable Objective-C/C++ globally on Apple platforms: o2 and cocos both compile
+# .m/.mm sources in sibling directories, so the languages must be enabled at the
+# top level (enabling them only inside o2/'s project() leaves CMAKE_OBJCXX_*
+# variables unset in other directories with non-Xcode generators).
+if(APPLE)
+    enable_language(OBJC OBJCXX)
+endif()
+
 # set default minimum deployment target
 if(XCODE)
     if(NOT DEFINED CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET)
