@@ -36,7 +36,8 @@ CocosNodeViewer::CocosNodeViewer(o2::RefCounter* refCounter) :
 
 	auto rootLayout = o2UI.CreateVerLayout();
 	*rootLayout->layout = WidgetLayout::BothStretch(0, 0, 0, 0);
-	rootLayout->spacing = 0.0f;
+	rootLayout->spacing = 5.0f;
+	rootLayout->border = BorderF(0, 5, 0, 5);
 	rootLayout->expandHeight = false;
 	rootLayout->expandWidth = true;
 	rootLayout->fitByChildren = true;
@@ -56,14 +57,14 @@ void CocosNodeViewer::BuildHeader()
 {
 	mHeader = mmake<Widget>();
 	mHeader->name = "cocos node head";
-	mHeader->layout->minHeight = 42;
+	mHeader->layout->minHeight = 22;
 
 	mEnableProperty = o2UI.CreateWidget<BooleanProperty>("actor head enable");
 	*mEnableProperty->layout = WidgetLayout::Based(BaseCorner::LeftTop, Vec2F(20, 20), Vec2F(1, 0));
 	mHeader->AddChild(DynamicCast<Widget>(mEnableProperty));
 
 	mNameProperty = o2UI.CreateWidget<StringProperty>("actor head name");
-	*mNameProperty->layout = WidgetLayout::HorStretch(VerAlign::Top, 21, 15, 17, 2);
+	*mNameProperty->layout = WidgetLayout::HorStretch(VerAlign::Top, 21, 0, 18, 2);
 	mHeader->AddChild(DynamicCast<Widget>(mNameProperty));
 
 	mAllFields.Add(mEnableProperty);
