@@ -28,9 +28,11 @@
 // http://www.cocos2d-x.org
 //
 
-#include "chipmunk/chipmunk.h"
-
 #include "ChipmunkTest.h"
+
+#if CC_ENABLE_CHIPMUNK_INTEGRATION
+#include "chipmunk/chipmunk.h"
+#endif
 
 USING_NS_CC;
 USING_NS_CC_EXT;

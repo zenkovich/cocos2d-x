@@ -64,6 +64,15 @@ FileUtilsLinux::FileUtilsLinux()
 bool FileUtilsLinux::init()
 {
     DECLARE_GUARD;
+
+#if defined(__EMSCRIPTEN__)
+    // There is no executable to locate in the browser: the packed files are mounted at the root of
+    // the virtual file system, and /config is the only place that survives a reload
+    _defaultResRootPath = "/Resources/";
+    _writablePath = "/config/";
+
+    return FileUtils::init();
+#else
     // get application path
     char fullpath[256] = {0};
     ssize_t length = readlink("/proc/self/exe", fullpath, sizeof(fullpath)-1);
@@ -91,6 +100,7 @@ bool FileUtilsLinux::init()
     _writablePath += "/";
 
     return FileUtils::init();
+#endif
 }
 
 string FileUtilsLinux::getWritablePath() const

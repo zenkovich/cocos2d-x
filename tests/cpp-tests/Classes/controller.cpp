@@ -56,12 +56,15 @@ public:
         addTest("Click and Move", [](){return new ClickAndMoveTest(); });
         addTest("Configuration", []() { return new ConfigurationTests(); });
         addTest("Console", []() { return new ConsoleTests(); });
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC) && (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
-        // android and ios don't use CURL
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC) && (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID) && !defined(__EMSCRIPTEN__)
+        // android and ios don't use CURL, and the browser build has no curl at all
         addTest("Curl", []() { return new CurlTests(); });
 #endif
         addTest("Current Language", []() { return new CurrentLanguageTests(); });
+#if !defined(__EMSCRIPTEN__)
+        // The downloader is built on curl, the page has no such thing
         addTest("Downloader Test", []() { return new DownloaderTests(); });
+#endif
         addTest("EventDispatcher", []() { return new EventDispatcherTests(); });
         addTest("Effects - Advanced", []() { return new EffectAdvanceTests(); });
         addTest("Effects - Basic", [](){return new EffectTests(); });
@@ -73,7 +76,9 @@ public:
         addTest("JNIHelper", []() { return new JNITests(); });
 #endif
         addTest("Material System", [](){return new MaterialSystemTest(); });
+#if CC_USE_NAVMESH
         addTest("Navigation Mesh", [](){return new NavMeshTests(); });
+#endif
         addTest("Node: BillBoard Test", [](){  return new BillBoardTests(); });
         addTest("Node: Camera 3D Test", [](){  return new Camera3DTests(); });
         addTest("Node: Clipping", []() { return new ClippingNodeTests(); });
@@ -90,7 +95,9 @@ public:
 #if CC_USE_PHYSICS
        addTest("Node: Physics", []() { return new PhysicsTests(); });
 #endif
+#if CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION
         addTest("Node: Physics3D", []() { return new Physics3DTests(); } );
+#endif
         addTest("Node: RenderTexture", [](){return new RenderTextureTests(); });
         addTest("Node: Scene", [](){return new SceneTests(); });
         addTest("Node: Sprite", [](){return new SpriteTests(); });

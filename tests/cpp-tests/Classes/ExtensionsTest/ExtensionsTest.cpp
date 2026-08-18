@@ -24,18 +24,29 @@
 
 #include "ExtensionsTest.h"
 #include "../testResource.h"
+#if !defined(__EMSCRIPTEN__)
 #include "AssetsManagerExTest/AssetsManagerExTest.h"
+#endif
+#if !defined(__EMSCRIPTEN__)
 #include "NetworkTest/HttpClientTest.h"
+#endif
 #include "TableViewTest/TableViewTestScene.h"
 
+#if !defined(__EMSCRIPTEN__)
 #include "NetworkTest/WebSocketTest.h"
+#endif
+#if !defined(__EMSCRIPTEN__)
 #include "NetworkTest/SocketIOTest.h"
+#endif
 
 ExtensionsTests::ExtensionsTests()
 {
+#if !defined(__EMSCRIPTEN__)
+    // These stand on curl, websockets and the downloader, none of which the web build carries
     addTest("AssetsManagerExTest", [](){ return new (std::nothrow) AssetsManagerExTests; });
     addTest("HttpClientTest", [](){ return new (std::nothrow) HttpClientTests; });
     addTest("WebSocketTest", [](){ return new (std::nothrow) WebSocketTests; });
     addTest("SocketIOTest", [](){ return new (std::nothrow) SocketIOTests; });
+#endif
     addTest("TableViewTest", [](){ return new (std::nothrow) TableViewTests; });
 }

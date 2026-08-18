@@ -35,7 +35,10 @@ void TestsO2EditorApplication::OnStarted()
 
 	using namespace cocos2d;
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+#if defined(__EMSCRIPTEN__)
+	// Everything the tests read is packed into the page and mounted at /Resources
+	FileUtils::getInstance()->setDefaultResourceRootPath("/Resources/");
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 	// On Windows the build copies cpp-tests Resources next to the executable; on Mac
 	// nothing is copied, so point cocos at the sources. Uses the same working-directory
 	// convention as the o2 editor asset paths (cwd is five levels below the repo root).
@@ -84,9 +87,11 @@ void TestsO2EditorApplication::OnStarted()
 
 	fileUtils->setSearchPaths(searchPaths);
 
-	// Enable Remote Console
+	// Enable Remote Console. The browser has no listening sockets to offer
+#if !defined(__EMSCRIPTEN__)
 	auto console = director->getConsole();
 	console->listenOnTCP(5678);
+#endif
 
 	_testController = TestController::getInstance();
 

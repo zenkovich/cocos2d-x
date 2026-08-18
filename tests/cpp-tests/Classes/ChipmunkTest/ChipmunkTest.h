@@ -29,7 +29,9 @@
 #define __CHIPMUNKTEST_H__
 
 #include "cocos2d.h"
+#if CC_ENABLE_CHIPMUNK_INTEGRATION
 #include "chipmunk/chipmunk.h"
+#endif
 #include "../BaseTest.h"
 #include "extensions/cocos-ext.h"
 

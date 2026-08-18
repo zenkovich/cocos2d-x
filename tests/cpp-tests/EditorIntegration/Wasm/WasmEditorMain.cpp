@@ -20,13 +20,11 @@
 #include "o2Editor/Windows/WindowsManager.h"
 
 #include "base/CCDirector.h"
-#include "base/o2Integration/CCEditorApplication.h"
 #include "base/o2Integration/CCO2SceneActor.h"
+#include "base/o2Integration/CCEditorApplication.h"
+
+#include "../../Classes/TestsO2EditorApplication.h"
 #include "platform/CCFileUtils.h"
-#include "2d/CCScene.h"
-#include "2d/CCLabel.h"
-#include "2d/CCLayer.h"
-#include "2d/CCSprite.h"
 
 using namespace o2;
 
@@ -37,74 +35,6 @@ DECLARE_SINGLETON(Editor::ToolsPanel);
 extern void InitializeTypeso2Editor();
 extern void InitializeTypescocos2d();
 extern void InitializeTypescocosEditorIntegration();
-
-namespace
-{
-    // The desktop editor hosts the cpp-tests scene, which needs the whole test resource set. The page
-    // carries a small scene of its own instead: enough to show the hierarchy, the properties and the
-    // cocos rendering inside the editor
-    class WebEditorApplication : public CocosEditorApplication
-    {
-    public:
-        WebEditorApplication(RefCounter* refCounter) : CocosEditorApplication(refCounter) {}
-
-    protected:
-        void OnStarted() override
-        {
-            CocosEditorApplication::OnStarted();
-
-            // The scene is built on the first frame: creating sprites needs the WebGL context to be
-            // current, and it only becomes current once the render loop starts
-        }
-
-        void ProcessFrame() override
-        {
-            CocosEditorApplication::ProcessFrame();
-
-            if (!mSceneBuilt)
-            {
-                mSceneBuilt = true;
-
-                BuildScene();
-            }
-        }
-
-        void BuildScene()
-        {
-
-            auto director = cocos2d::Director::getInstance();
-            director->setDisplayStats(false);
-
-            auto scene = cocos2d::Scene::create();
-            scene->setName("Cocos scene");
-
-            // A colored layer instead of a sprite: the page ships no textures, and a sprite without
-            // one falls back to a generated texture the web build has no path for yet
-            auto box = cocos2d::LayerColor::create(cocos2d::Color4B(80, 160, 220, 255), 200, 200);
-            box->setName("Box");
-            box->setPosition(cocos2d::Vec2(140, 100));
-            scene->addChild(box);
-
-            auto label = cocos2d::Label::createWithSystemFont("cocos2d in the o2 editor", "Arial", 24);
-            label->setName("Label");
-            label->setPosition(cocos2d::Vec2(240, 380));
-            scene->addChild(label);
-
-            director->runWithScene(scene);
-
-            mCocosSceneActor = mmake<O2CocosSceneActor>();
-
-            mGameCamera = mmake<CameraActor>();
-            mGameCamera->SetName("GameCamera");
-            mGameCamera->fillColor = Color4(45, 45, 48, 255);
-        }
-
-    private:
-        bool                   mSceneBuilt = false;
-        Ref<O2CocosSceneActor> mCocosSceneActor;
-        Ref<CameraActor>       mGameCamera;
-    };
-}
 
 namespace
 {
@@ -161,7 +91,7 @@ int main()
     InitializeTypescocos2d();
     InitializeTypescocosEditorIntegration();
 
-    auto app = mmake<WebEditorApplication>();
+    auto app = mmake<TestsO2EditorApplication>();
     app->Initialize();
     app->Launch();
 

@@ -263,7 +263,11 @@ THE SOFTWARE.
 #if (CC_USE_PHYSICS)
 /** Use chipmunk physics 2d engine. */
 #ifndef CC_ENABLE_CHIPMUNK_INTEGRATION
+#if defined(__EMSCRIPTEN__)
+#define CC_ENABLE_CHIPMUNK_INTEGRATION 0
+#else
 #define CC_ENABLE_CHIPMUNK_INTEGRATION 1
+#endif
 #endif
 
 /** or use box2d physics 2d engine. */
@@ -286,7 +290,11 @@ THE SOFTWARE.
 #if (CC_USE_3D_PHYSICS)
 /** Use bullet physics engine. */
 #ifndef CC_ENABLE_BULLET_INTEGRATION
+#if defined(__EMSCRIPTEN__)
+#define CC_ENABLE_BULLET_INTEGRATION 0
+#else
 #define CC_ENABLE_BULLET_INTEGRATION 1
+#endif
 #endif
 #endif
 

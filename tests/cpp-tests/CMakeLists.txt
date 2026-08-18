@@ -393,6 +393,13 @@ set(cpp_tests_lib_files
     ${GAME_SOURCE}
     )
 
+if(EMSCRIPTEN)
+    # Tests of the features the web build leaves out: physics, navigation meshes, native video and
+    # the http stack. Their entries in the test list are compiled out by the same switches
+    list(FILTER cpp_tests_lib_files EXCLUDE REGEX
+         "(ChipmunkTest|Physics3DTest|PhysicsTest|NavMeshTest|VideoPlayerTest|WebViewTest|CurlTest|DownloaderTest|AssetsManagerExTest|NetworkTest)")
+endif()
+
 add_library(cpp_tests_lib STATIC ${cpp_tests_lib_files})
 target_link_libraries(cpp_tests_lib PUBLIC cocos2d)
 target_include_directories(cpp_tests_lib
@@ -481,10 +488,12 @@ if(O2_EDITOR)
             "EditorIntegration/CCO2NodePropertiesViewer.h"
             "EditorIntegration/CCO2NodePropertiesViewer.cpp"
             "EditorIntegration/cocosEditorIntegrationReflectionRegister.cpp"
+            "Classes/TestsO2EditorApplication.h"
+            "Classes/TestsO2EditorApplication.cpp"
         )
         set_target_properties(Editor PROPERTIES SUFFIX ".html")
-        target_link_libraries(Editor PUBLIC o2Editor cocos2d)
-        add_dependencies(Editor o2Editor cocos2d)
+        target_link_libraries(Editor PUBLIC cpp_tests_lib o2Editor cocos2d)
+        add_dependencies(Editor cpp_tests_lib o2Editor cocos2d)
         target_link_options(Editor PRIVATE
             "-sUSE_WEBGL2=1" "-sMIN_WEBGL_VERSION=2" "-sMAX_WEBGL_VERSION=2" "-sFULL_ES3=1"
             "-sALLOW_MEMORY_GROWTH=1" "-sINITIAL_MEMORY=1024MB" "-sMAXIMUM_MEMORY=4GB" "-sSTACK_SIZE=16MB"
@@ -496,6 +505,7 @@ if(O2_EDITOR)
             "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/Data@/Data"
             "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/Data.json@/Data.json"
             "--preload-file=${COCOS2DX_ROOT_PATH}/Platforms/WebAssembly/EditorConfigDefault.json@/EditorConfigDefault.json"
+            "--preload-file=${CMAKE_CURRENT_SOURCE_DIR}/Resources@/Resources"
             "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/FrameworkData@/FrameworkData"
             "--shell-file=${COCOS2DX_ROOT_PATH}/Platforms/WebAssembly/editor.html")
         set_property(TARGET Editor APPEND PROPERTY LINK_DEPENDS

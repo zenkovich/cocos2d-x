@@ -23,7 +23,8 @@
  ****************************************************************************/
 
 #include "platform/CCPlatformConfig.h"
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC) && (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
+// The browser build has no curl: requests go through the page instead
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC) && (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID) && !defined(__EMSCRIPTEN__)
 #include "CurlTest.h"
 #include "stdio.h"
 #include "stdlib.h"

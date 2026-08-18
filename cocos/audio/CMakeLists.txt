@@ -4,8 +4,10 @@ set(COCOS_AUDIO_SRC
     )
 
 if(WASM)
-    # No fmod build for wasm: the page runs without the audio engine
-    set(COCOS_AUDIO_SRC)
+    # fmod has no wasm build: the API answers as an engine with no output
+    set(COCOS_AUDIO_SRC
+        audio/wasm/AudioEngine-wasm.cpp
+        )
     set(COCOS_AUDIO_PLATFORM_HEADER)
     set(COCOS_AUDIO_PLATFORM_SRC)
 
