@@ -288,8 +288,8 @@ void CocosNodeViewer::Refresh()
 	for (auto& field : mAllFields)
 		field->Refresh();
 
-	// The reflection-built fields read from the nodes through their own proxies
-	RefreshTypeViewer();
+	// The reflection-built fields read the nodes through their own proxies. Refreshing the
+	// section here would fight the user: it runs every frame and would drop the text being typed
 }
 
 void CocosNodeViewer::OnTypePropertyChanged(const Ref<IPropertyField>& field, bool byUser)
