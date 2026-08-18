@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>o2 editor with cocos2d</title>
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; background: #2b3a42; color: #cfd8dc;
+                     font: 14px/1.4 -apple-system, Segoe UI, Roboto, sans-serif; overflow: hidden; }
+        #canvas { display: block; width: 100vw; height: 100vh; border: 0; outline: none; }
+        #status { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+                  text-align: center; pointer-events: none; }
+        #status.hidden { display: none; }
+        #bar { width: 260px; height: 4px; margin: 12px auto 0; background: #1e2a30; }
+        #barFill { height: 100%; width: 0; background: #2aa198; transition: width .2s; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+
+    <div id="status">
+        <div id="statusText">Loading the editor…</div>
+        <div id="bar"><div id="barFill"></div></div>
+    </div>
+
+    <script type='text/javascript'>
+        var statusBox = document.getElementById('status');
+        var statusText = document.getElementById('statusText');
+        var barFill = document.getElementById('barFill');
+        var canvas = document.getElementById('canvas');
+
+        // The canvas is sized in device pixels: the editor lays its windows out in the same units
+        function resizeCanvas() {
+            var ratio = window.devicePixelRatio || 1;
+            canvas.width = Math.floor(window.innerWidth * ratio);
+            canvas.height = Math.floor(window.innerHeight * ratio);
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        var Module = {
+            canvas: canvas,
+            arguments: [],
+            preRun: [function () {
+                // The editor config (window layout among the rest) lives in IndexedDB: the packed
+                // file system is read only and gone on reload
+                FS.mkdir('/config');
+                FS.mount(IDBFS, {}, '/config');
+
+                addRunDependency('config-load');
+                FS.syncfs(true, function () { removeRunDependency('config-load'); });
+            }],
+            postRun: [],
+            print: function (text) { console.log(text); },
+            printErr: function (text) { console.warn(text); },
+            setStatus: function (text) {
+                if (!text) {
+                    statusBox.classList.add('hidden');
+                    return;
+                }
+
+                statusBox.classList.remove('hidden');
+
+                var match = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+                if (match) {
+                    statusText.textContent = match[1];
+                    barFill.style.width = (parseFloat(match[2]) / parseFloat(match[4]) * 100) + '%';
+                } else {
+                    statusText.textContent = text;
+                    barFill.style.width = text ? '100%' : '0';
+                }
+            },
+            onRuntimeInitialized: function () {
+                Module.setStatus('');
+
+                // Written back regularly: the editor saves its config on changes, and a browser tab
+                // can go away without any chance to flush
+                setInterval(function () { FS.syncfs(false, function () {}); }, 4000);
+                window.addEventListener('beforeunload', function () { FS.syncfs(false, function () {}); });
+            }
+        };
+
+        Module.setStatus('Loading the editor…');
+        window.onerror = function (message) { Module.setStatus('Failed: ' + message); };
+    </script>
+    {{{ SCRIPT }}}
+</body>
+</html>

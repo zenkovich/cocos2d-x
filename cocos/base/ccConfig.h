@@ -252,7 +252,12 @@ THE SOFTWARE.
 
 /** Use physics integration API. */
 #ifndef CC_USE_PHYSICS
+#if defined(__EMSCRIPTEN__)
+// The web build has no prebuilt chipmunk/bullet/webp for wasm: those features are off
+#define CC_USE_PHYSICS 0
+#else
 #define CC_USE_PHYSICS 1
+#endif
 #endif
 
 #if (CC_USE_PHYSICS)
@@ -270,7 +275,11 @@ THE SOFTWARE.
 /** Use 3d physics integration API. */
 #ifndef CC_USE_3D_PHYSICS
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+#if defined(__EMSCRIPTEN__)
+#define CC_USE_3D_PHYSICS 0
+#else
 #define CC_USE_3D_PHYSICS 1
+#endif
 #endif
 #endif
 
@@ -283,7 +292,11 @@ THE SOFTWARE.
 
 /** Use 3D navigation API */
 #ifndef CC_USE_NAVMESH
+#if defined(__EMSCRIPTEN__)
+#define CC_USE_NAVMESH 0
+#else
 #define CC_USE_NAVMESH 1
+#endif
 #endif
 
 /** Use culling or not. */
@@ -306,7 +319,11 @@ THE SOFTWARE.
 /** Support webp or not. If your application don't use webp format picture, you can undefine this macro to save package size.
  */
 #ifndef CC_USE_WEBP
+#if defined(__EMSCRIPTEN__)
+#define CC_USE_WEBP  0
+#else
 #define CC_USE_WEBP  1
+#endif
 #endif // CC_USE_WEBP
 
 /** Enable Script binding. */

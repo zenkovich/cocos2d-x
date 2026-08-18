@@ -40,8 +40,9 @@ namespace {
 ProgramGL::ProgramGL(const std::string& vertexShader, const std::string& fragmentShader)
 : Program(vertexShader, fragmentShader)
 {
-#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    //some device required manually specify the precision qualifiers for vertex shader.
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || defined(__EMSCRIPTEN__)
+    // Some devices require the precision qualifiers to be spelled out for the vertex shader; WebGL
+    // rejects the shaders outright without them
     _vertexShaderModule = static_cast<ShaderModuleGL*>(ShaderCache::newVertexShaderModule(std::move(vsPreDefine + _vertexShader)));
     _fragmentShaderModule = static_cast<ShaderModuleGL*>(ShaderCache::newFragmentShaderModule(std::move(fsPreDefine +  _fragmentShader)));
 #else
@@ -112,7 +113,10 @@ void ProgramGL::compileProgram()
     
     assert (vertShader != 0 && fragShader != 0);
     if (vertShader == 0 || fragShader == 0)
+    {
+        printf("cocos2d: ERROR: program without shaders (%u/%u)\n", vertShader, fragShader);
         return;
+    }
     
     _program = glCreateProgram();
     if (!_program)
@@ -135,6 +139,12 @@ void ProgramGL::compileProgram()
 
 void ProgramGL::computeLocations()
 {
+    if (_program == 0)
+    {
+        printf("cocos2d: ERROR: computeLocations on a program that failed to build\n");
+        return;
+    }
+
     std::fill(_builtinAttributeLocation, _builtinAttributeLocation + ATTRIBUTE_MAX, -1);
 //    std::fill(_builtinUniformLocation, _builtinUniformLocation + UNIFORM_MAX, -1);
 

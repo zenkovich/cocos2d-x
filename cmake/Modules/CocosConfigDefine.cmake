@@ -10,7 +10,13 @@ endif()
  #IOS    =  iOS
  #MACOSX    =  MacOS X
  #LINUX      =   Linux
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+if(EMSCRIPTEN)
+    # WebAssembly builds on the linux platform layer: GLFW and the GL backend, both provided
+    # by emscripten ports as WebGL2
+    set(WASM TRUE)
+    set(LINUX TRUE)
+    set(PLATFORM_FOLDER linux)
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     set(WINDOWS TRUE)
     set(PLATFORM_FOLDER win32)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Android")

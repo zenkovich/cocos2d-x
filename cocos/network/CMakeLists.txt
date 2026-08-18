@@ -1,4 +1,9 @@
-if(ANDROID)
+if(WASM)
+    # No curl and no raw sockets in the browser: only the parts that need neither are built
+    set(COCOS_NETWORK_SRC
+        network/Uri.cpp
+        )
+elseif(ANDROID)
     set(COCOS_NETWORK_HEADER
         network/CCDownloader-android.h
         )

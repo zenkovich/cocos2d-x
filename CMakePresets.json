@@ -1,0 +1,39 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "mac",
+            "displayName": "Mac (Debug)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_OSX_ARCHITECTURES": "x86_64",
+                "CMAKE_POLICY_VERSION_MINIMUM": "3.5",
+                "CMAKE_C_COMPILER_LAUNCHER": "ccache",
+                "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
+                "O2_EDITOR": "ON"
+            }
+        },
+        {
+            "name": "wasm-editor",
+            "displayName": "WebAssembly Editor (Release)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-wasm-editor",
+            "environment": {
+                "EMSDK": "$penv{HOME}/emsdk"
+            },
+            "toolchainFile": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_POLICY_VERSION_MINIMUM": "3.5",
+                "O2_EDITOR": "ON",
+                "O2_WASM_EDITOR": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        { "name": "mac", "configurePreset": "mac" },
+        { "name": "wasm-editor", "configurePreset": "wasm-editor" }
+    ]
+}

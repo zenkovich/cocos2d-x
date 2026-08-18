@@ -3,6 +3,7 @@
 
 #include "base/CCDirector.h"
 #include "base/CCEventDispatcher.h"
+#include "platform/CCGL.h"
 #include "platform/CCGLView.h"
 #include "2d/CCNode.h"
 #include "2d/CCScene.h"
@@ -14,6 +15,10 @@
 #include "o2/Utils/System/Time/Time.h"
 
 #include <functional>
+
+#if defined(__EMSCRIPTEN__)
+#include <emscripten/emscripten.h>
+#endif
 
 O2CocosSceneActor* O2CocosSceneActor::sInstance = nullptr;
 o2::Basis O2CocosSceneActor::sCocosToWorld;
@@ -103,6 +108,7 @@ o2::Vector<o2::Ref<o2::SceneEditableObject>> O2CocosSceneActor::GetEditableChild
 void O2CocosSceneActor::OnDraw()
 {
 	using namespace o2;
+
 
 	if (!mDirector || !mDirector->getOpenGLView())
 		return;
@@ -200,13 +206,66 @@ void O2CocosSceneActor::OnDraw()
 	);
 
 	cocos2d::Viewport viewport{ 0, 0, (unsigned int)currentResolutionI.x, (unsigned int)currentResolutionI.y };
+
+#if defined(__EMSCRIPTEN__)
+	// WebGL has no state stack: what cocos changes has to be written back by hand, and o2 keeps
+	// drawing into the same target right after
+	GLint savedFramebuffer = 0, savedViewport[4] = { 0, 0, 0, 0 };
+	GLboolean savedColorMask[4] = { GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE };
+	GLboolean savedDepthMask = GL_TRUE;
+	glGetIntegerv(GL_FRAMEBUFFER_BINDING, &savedFramebuffer);
+	glGetIntegerv(GL_VIEWPORT, savedViewport);
+	glGetBooleanv(GL_COLOR_WRITEMASK, savedColorMask);
+	glGetBooleanv(GL_DEPTH_WRITEMASK, &savedDepthMask);
+
 	mDirector->customLoopRender(viewport, transform);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, savedFramebuffer);
+	glViewport(savedViewport[0], savedViewport[1], savedViewport[2], savedViewport[3]);
+	glColorMask(savedColorMask[0], savedColorMask[1], savedColorMask[2], savedColorMask[3]);
+	glDepthMask(savedDepthMask);
+
+	// Everything else cocos may have touched goes back to the defaults o2 draws with
+	glBindVertexArray(0);
+	glBlendEquation(GL_FUNC_ADD);
+	glDisable(GL_STENCIL_TEST);
+	glStencilMask(0xFF);
+	glFrontFace(GL_CCW);
+	glDepthFunc(GL_LESS);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+
+	for (int unit = 7; unit >= 0; unit--)
+	{
+		glActiveTexture(GL_TEXTURE0 + unit);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+#else
+	mDirector->customLoopRender(viewport, transform);
+#endif
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 	O2CocosEndExternalRender();
 #endif
 
 	o2Render.EndCustomRender();
+
+#if defined(__EMSCRIPTEN__)
+	// The cocos backend leaves its vertex attribute arrays enabled and pointing at its own buffers.
+	// WebGL validates every enabled attribute against the bound buffer and drops the whole draw when
+	// one of them is stale, so the arrays are turned off before o2 rebinds its state
+	{
+		GLint maxVertexAttributes = 0;
+		glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &maxVertexAttributes);
+		for (GLint i = 0; i < maxVertexAttributes; i++)
+			glDisableVertexAttribArray(i);
+
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	}
+
+	// o2 caches the material, buffers and texture it bound: it has to reestablish them
+	o2Render.ResetState();
+#endif
 
 	RegisterInteractiveNodes();
 }

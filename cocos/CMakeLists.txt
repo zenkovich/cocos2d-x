@@ -110,7 +110,9 @@ set(COCOS_SRC cocos2d.cpp
 list(APPEND COCOS_SRC ${COCOS_HEADER})
 
 add_library(cocos2d ${COCOS_SRC})
-add_dependencies(cocos2d o2IntegrationCodegen)
+if(NOT EMSCRIPTEN)
+    add_dependencies(cocos2d o2IntegrationCodegen)
+endif()
 
 # use external libs
 if(NOT TARGET external)
@@ -153,13 +155,15 @@ if(XCODE OR VS)
     cocos_mark_code_files("cocos2d")
 endif()
 
-# Codegen for o2Integration
+# Codegen for o2Integration. Host only: the wasm build compiles the metas the host already wrote
+if(NOT EMSCRIPTEN)
 add_custom_target(o2IntegrationCodegen
                   COMMAND ${COCOS2DX_ROOT_PATH}/o2/CodeTool/Bin/o2CodeTool -project cocos2d -sources "${COCOS2DX_ROOT_PATH}/cocos" -parent_projects "${COCOS2DX_ROOT_PATH}/o2/Framework/Sources/o2/CodeToolCache.xml" -exclude_mode
                   COMMENT "Run CodeTool: ${COCOS2DX_ROOT_PATH}/o2/CodeTool/Bin/o2CodeTool -project cocos2d -sources \"${COCOS2DX_ROOT_PATH}/cocos\" -parent_projects \"${COCOS2DX_ROOT_PATH}/o2/Framework/Sources/o2/CodeToolCache.xml\" -exclude_mode\n"
 )
 add_dependencies(o2IntegrationCodegen o2CodeTool)
 set_target_properties(o2IntegrationCodegen PROPERTIES FOLDER cocos/Codegen)
+endif()
 
 # Precompiled headers disabled due to compatibility issues with mixed C/C++ projects
 # PCH generation was causing "STL1003: Unexpected compiler" errors on cmake_pch.c

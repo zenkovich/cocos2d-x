@@ -49,6 +49,12 @@ elseif(APPLE)
             ui/UIEditBox/iOS/UITextView+CCUITextInput.mm
             )
     endif()
+elseif(WASM)
+    # The linux edit box is a GTK dialog, there is no such thing in the browser
+    set(COCOS_UI_SPECIFIC_HEADER)
+    set(COCOS_UI_SPECIFIC_SRC
+        ui/UIEditBox/UIEditBoxImpl-wasm.cpp
+        )
 elseif(LINUX)
     set(COCOS_UI_SPECIFIC_HEADER
         ui/UIEditBox/UIEditBoxImpl-linux.h

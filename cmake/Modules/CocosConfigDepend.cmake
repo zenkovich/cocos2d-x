@@ -4,6 +4,9 @@ macro(cocos2dx_depend)
 
     if(WINDOWS)
         list(APPEND PLATFORM_SPECIFIC_LIBS ws2_32 userenv psapi winmm Version Iphlpapi opengl32)
+    elseif(WASM)
+        # Emscripten ports stand in for the system libraries: GLFW, WebGL2, zlib, png, freetype
+        list(APPEND PLATFORM_SPECIFIC_LIBS)
     elseif(LINUX)
         # need review those libs: X11 Xi Xrandr Xxf86vm Xinerama Xcursor rt m
         list(APPEND PLATFORM_SPECIFIC_LIBS dl X11 Xi Xrandr Xxf86vm Xinerama Xcursor rt m)
@@ -96,7 +99,9 @@ macro(use_cocos2dx_libs_depend target)
         target_link_libraries(${target} ${platform_lib})
     endforeach()
 
-    if(LINUX)
+    if(WASM)
+        # Ports are requested through the link options, there is nothing to find on the host
+    elseif(LINUX)
         cocos_use_pkg(${target} FONTCONFIG)
         cocos_use_pkg(${target} GTK3)
         cocos_use_pkg(${target} ZLIB)

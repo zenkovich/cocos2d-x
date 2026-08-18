@@ -3,7 +3,13 @@ set(COCOS_AUDIO_SRC
     audio/AudioEngine.cpp
     )
 
-if(WINDOWS)
+if(WASM)
+    # No fmod build for wasm: the page runs without the audio engine
+    set(COCOS_AUDIO_SRC)
+    set(COCOS_AUDIO_PLATFORM_HEADER)
+    set(COCOS_AUDIO_PLATFORM_SRC)
+
+elseif(WINDOWS)
 
     set(COCOS_AUDIO_PLATFORM_HEADER
         audio/win32/AudioDecoderManager.h

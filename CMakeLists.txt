@@ -40,6 +40,24 @@ if(APPLE)
     enable_language(OBJC OBJCXX)
 endif()
 
+if(EMSCRIPTEN)
+    # Emscripten ports replace the prebuilt third party libraries cocos ships for the desktops.
+    # The flags are needed at compile time too: the ports provide their headers that way
+    # The header providing ports are needed at compile time as well, GLFW only at link
+    set(O2_COCOS_WASM_PORTS -sUSE_ZLIB=1 -sUSE_LIBPNG=1 -sUSE_LIBJPEG=1 -sUSE_FREETYPE=1)
+    add_compile_options(${O2_COCOS_WASM_PORTS})
+    add_link_options(${O2_COCOS_WASM_PORTS} -sUSE_GLFW=3)
+
+    # cocos includes the glfw header unqualified, the port keeps it under GLFW/
+    include_directories(SYSTEM "$ENV{EMSDK}/upstream/emscripten/cache/sysroot/include/GLFW")
+
+    # The cocos third party libraries ship as prebuilt desktop binaries; for wasm the ports above
+    # replace what is still needed and the rest of the features are off
+    foreach(ext BOX2D CHIPMUNK FREETYPE2 BULLET JPEG OPENSSL UV WEBP WEBSOCKETS CURL ZLIB)
+        set(BUILD_EXT_${ext} OFF CACHE BOOL "" FORCE)
+    endforeach()
+endif()
+
 # set default minimum deployment target
 if(XCODE)
     if(NOT DEFINED CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET)

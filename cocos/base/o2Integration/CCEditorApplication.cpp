@@ -112,9 +112,10 @@ void CocosEditorApplication::PreCocosUpdate(float dt)
 	// The cocos scheduler is pumped by O2CocosSceneActor::Update — the scene root
 	// of the integration — so cocos only advances while the editor is in play mode
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
-	// On Mac the cocos scene is drawn by O2CocosSceneActor inside the o2 scene
-	// drawing pass; rendering here would fight the shared Metal frame layout
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC) && !defined(__EMSCRIPTEN__)
+	// On Mac and in the browser the cocos scene is drawn by O2CocosSceneActor inside the o2 scene
+	// drawing pass; a full screen render here would fight the shared frame - on the canvas it
+	// simply paints over the editor
 	mCocosDirector->mainLoopRender();
 
 	o2Render.ResetState();

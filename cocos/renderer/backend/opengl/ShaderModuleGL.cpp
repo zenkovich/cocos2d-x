@@ -57,6 +57,9 @@ void ShaderModuleGL::compileShader(ShaderStage stage, const std::string &source)
     {
         CCLOG("cocos2d: ERROR: Failed to compile shader:\n%s", source.c_str());
         CCLOG("cocos2d: %s", getErrorLog(_shader));
+        // CCLOG is compiled out of release builds, and a shader that does not compile is worth
+        // reporting there as well: the failure is silent otherwise
+        printf("cocos2d: ERROR: Failed to compile shader: %s\n", getErrorLog(_shader));
         deleteShader();
         CCASSERT(false, "Shader compile failed!");
     }

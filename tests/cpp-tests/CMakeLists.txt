@@ -464,12 +464,43 @@ if(O2_EDITOR)
         COMMENT "Build o2 editor assets: -platform ${O2_PLATFORM} -source \"${COCOS2DX_ROOT_PATH}/o2/Editor/Assets/\" -target \"${COCOS2DX_ROOT_PATH}/BuiltAssets/${O2_PLATFORM}/EditorData/\" -target-tree \"${COCOS2DX_ROOT_PATH}/BuiltAssets/${O2_PLATFORM}/EditorData.json\" -compressor-config \"${COCOS2DX_ROOT_PATH}/o2/CompressToolsConfig.json\"\n"
     )
 
-    add_dependencies(BuildEditorAssets o2AssetsBuilder AssetsBuilder)
+    if(NOT EMSCRIPTEN)
+        add_dependencies(BuildEditorAssets o2AssetsBuilder AssetsBuilder)
+    endif()
 
     # Editor executable
     add_executable(Editor WIN32)
 
-    if (WIN32 OR UNIX)
+    if (EMSCRIPTEN)
+        # The page builds a lean editor: cocos integration and a small scene of its own, without
+        # the cpp-tests suite and its resource set
+        target_sources(Editor PRIVATE
+            "EditorIntegration/Wasm/WasmEditorMain.cpp"
+            "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.h"
+            "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.cpp"
+            "EditorIntegration/CCO2NodePropertiesViewer.h"
+            "EditorIntegration/CCO2NodePropertiesViewer.cpp"
+            "EditorIntegration/cocosEditorIntegrationReflectionRegister.cpp"
+        )
+        set_target_properties(Editor PROPERTIES SUFFIX ".html")
+        target_link_libraries(Editor PUBLIC o2Editor cocos2d)
+        add_dependencies(Editor o2Editor cocos2d)
+        target_link_options(Editor PRIVATE
+            "-sUSE_WEBGL2=1" "-sMIN_WEBGL_VERSION=2" "-sMAX_WEBGL_VERSION=2" "-sFULL_ES3=1"
+            "-sALLOW_MEMORY_GROWTH=1" "-sINITIAL_MEMORY=1024MB" "-sMAXIMUM_MEMORY=4GB" "-sSTACK_SIZE=16MB"
+            "-sFORCE_FILESYSTEM=1" "-sEXPORTED_RUNTIME_METHODS=[ccall,cwrap,UTF8ToString,FS,IDBFS,addRunDependency,removeRunDependency]"
+            "-lidbfs.js"
+            "-sASSERTIONS=1" "-sENVIRONMENT=web" "-sABORTING_MALLOC=0" "--profiling-funcs"
+            "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/EditorData@/EditorData"
+            "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/EditorData.json@/EditorData.json"
+            "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/Data@/Data"
+            "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/Data.json@/Data.json"
+            "--preload-file=${COCOS2DX_ROOT_PATH}/Platforms/WebAssembly/EditorConfigDefault.json@/EditorConfigDefault.json"
+            "--preload-file=${COCOS2DX_ROOT_PATH}/BuiltAssets/WebAssembly/FrameworkData@/FrameworkData"
+            "--shell-file=${COCOS2DX_ROOT_PATH}/Platforms/WebAssembly/editor.html")
+        set_property(TARGET Editor APPEND PROPERTY LINK_DEPENDS
+            "${COCOS2DX_ROOT_PATH}/Platforms/WebAssembly/editor.html")
+    elseif (WIN32 OR UNIX)
         target_sources(Editor PRIVATE
             "EditorMain.cpp"
             "${COCOS2DX_ROOT_PATH}/cocos/base/o2Integration/CCEditorApplication.h"
@@ -489,15 +520,19 @@ if(O2_EDITOR)
                       COMMAND ${COCOS2DX_ROOT_PATH}/o2/CodeTool/Bin/o2CodeTool -project cocosEditorIntegration -sources "${CMAKE_CURRENT_SOURCE_DIR}/EditorIntegration" -parent_projects "${COCOS2DX_ROOT_PATH}/o2/Framework/Sources/o2/CodeToolCache.xml ${COCOS2DX_ROOT_PATH}/o2/Editor/Sources/o2Editor/CodeToolCache.xml ${COCOS2DX_ROOT_PATH}/cocos/CodeToolCache.xml"
                       COMMENT "Run CodeTool: cocosEditorIntegration project\n"
     )
-    add_dependencies(o2CocosEditorIntegrationCodegen o2CodeTool)
-    add_dependencies(Editor o2CocosEditorIntegrationCodegen)
+    if(NOT EMSCRIPTEN)
+        add_dependencies(o2CocosEditorIntegrationCodegen o2CodeTool)
+        add_dependencies(Editor o2CocosEditorIntegrationCodegen)
+    endif()
 
 
-    target_link_libraries(Editor PUBLIC cpp_tests_lib o2Editor cocos2d)  
-    add_dependencies(Editor cpp_tests_lib o2Editor cocos2d BuildEditorAssets)
-    
-    # Setup output directories same as cpp-tests
-    setup_cocos_app_config(Editor)
+    if(NOT EMSCRIPTEN)
+        target_link_libraries(Editor PUBLIC cpp_tests_lib o2Editor cocos2d)
+        add_dependencies(Editor cpp_tests_lib o2Editor cocos2d BuildEditorAssets)
+
+        # Setup output directories same as cpp-tests
+        setup_cocos_app_config(Editor)
+    endif()
     
     if(WINDOWS)
         # "too large PDB" error often occurs in cpp-tests when using default "/Zi"

@@ -34,7 +34,11 @@ THE SOFTWARE.
 #include <map>
 #include <string>
 #include <sstream>
+#if defined(__EMSCRIPTEN__)
+// The browser has no font database to query: fonts come from the application files
+#else
 #include <fontconfig/fontconfig.h>
+#endif
 
 #include "ft2build.h"
 #include FT_FREETYPE_H
@@ -78,6 +82,10 @@ NS_CC_BEGIN
 
 int Device::getDPI()
 {
+#if defined(__EMSCRIPTEN__)
+    // No X display to ask: the canvas density is handled on the page side
+    return 96;
+#else
     static int dpi = -1;
     if (dpi == -1)
     {
@@ -99,6 +107,7 @@ int Device::getDPI()
         XCloseDisplay (dpy);
     }
     return dpi;
+#endif
 }
 
 void Device::setAccelerometerEnabled(bool isEnabled)
@@ -116,14 +125,18 @@ class BitmapDC
 public:
     BitmapDC() {
         libError = FT_Init_FreeType( &library );
+#if !defined(__EMSCRIPTEN__)
         FcInit();
+#endif
         _data = NULL;
         reset();
     }
 
     ~BitmapDC() {
         FT_Done_FreeType(library);
+#if !defined(__EMSCRIPTEN__)
         FcFini();
+#endif
         
         reset();
     }
@@ -355,6 +368,11 @@ public:
             }
         }
 
+#if defined(__EMSCRIPTEN__)
+        // Nothing to match against: the name is returned as is, and only fonts shipped with the
+        // application resolve to a file
+        return family_name;
+#else
         // use fontconfig to match the parameter against the fonts installed on the system
         FcPattern *pattern = FcPatternBuild (0, FC_FAMILY, FcTypeString, family_name, (char *) 0);
         FcConfigSubstitute(0, pattern, FcMatchPattern);
@@ -378,6 +396,7 @@ public:
         FcPatternDestroy(pattern);
 
         return family_name;
+#endif
     }
 
     bool getBitmap(const char *text, const FontDefinition& textDefinition, Device::TextAlign eAlignMask) {
