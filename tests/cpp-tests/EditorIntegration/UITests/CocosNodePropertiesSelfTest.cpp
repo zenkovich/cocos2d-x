@@ -40,6 +40,9 @@
 #include "o2/Scene/UI/Widgets/HorizontalProgress.h"
 #include "o2Editor/Properties/Basic/FloatProperty.h"
 #include "o2Editor/Properties/Basic/IntegerProperty.h"
+#include "o2/Scene/UI/Widgets/EditBox.h"
+#include "o2/Scene/UI/Widgets/EditBoxDropDown.h"
+#include "o2Editor/Properties/Basic/StringProperty.h"
 #include "o2Editor/Properties/IObjectPropertiesViewer.h"
 #include "o2Editor/Properties/Properties.h"
 #include "o2Editor/UI/SpoilerWithHead.h"
@@ -243,6 +246,26 @@ namespace
 			printf("       %s reverts: %s\n", typeName.Data(), reverted.Data());
 
 		Check(reverted.IsEmpty(), typeName + " rows keep the written value");
+
+		// A row is only done when the change shows up in what the node draws: the label has to
+		// re-layout its text, not just store the string
+		if (&type == &TypeOf(cocos2d::Label))
+		{
+			auto label = (cocos2d::Label*)node;
+			if (auto textField = DynamicCast<TPropertyField<String>>(FindField(fields, "Text")))
+			{
+				textField->SetValue("self test text", true);
+				AppTestDriver::PumpFrames(3);
+
+				Check(label->getString() == "self test text", "label text row reaches the node");
+
+				// getStringLength returns what the last layout produced, not the stored string
+				Check(label->getStringLength() == (int)String("self test text").Length(),
+					  "label re-lays out after the text change");
+			}
+			else
+				Check(false, "label has the Text row");
+		}
 
 		// Rows built from o2 properties go through the cocos setters
 		if (auto tagField = DynamicCast<IntegerProperty>(FindField(fields, "Tag")))

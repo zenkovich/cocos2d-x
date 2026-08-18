@@ -2602,6 +2602,10 @@ void Label::onEditorPropertyChanged()
 
     _contentDirty = true;
     _systemFontDirty = true;
+
+    // Outside play the dirty flag alone changes nothing: nobody runs the update between the edit
+    // and the draw, so the text is rebuilt right here
+    updateContent();
 }
 
 NS_CC_END
