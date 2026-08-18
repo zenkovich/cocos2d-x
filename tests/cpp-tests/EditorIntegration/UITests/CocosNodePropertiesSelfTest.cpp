@@ -37,6 +37,8 @@
 
 #include "o2Editor/EditorApplication.h"
 #include "o2Editor/Properties/Basic/BooleanProperty.h"
+#include "o2/Scene/UI/Widgets/HorizontalProgress.h"
+#include "o2Editor/Properties/Basic/FloatProperty.h"
 #include "o2Editor/Properties/Basic/IntegerProperty.h"
 #include "o2Editor/Properties/IObjectPropertiesViewer.h"
 #include "o2Editor/Properties/Properties.h"
@@ -198,6 +200,49 @@ namespace
 
 		// Header (visibility, name) and the transform rows are built for every node type
 		Check(fields.Count() >= 7, typeName + " viewer builds the base rows");
+
+		// Every editable row must keep what is written into it: a row bound to a value the node
+		// recomputes or ignores silently reverts, which is invisible from the code alone
+		String reverted;
+		for (auto& field : fields)
+		{
+			String caption = field->GetCaption();
+			if (caption.IsEmpty())
+				continue;
+
+			bool kept = true;
+			if (auto boolField = DynamicCast<BooleanProperty>(field))
+			{
+				bool value = !boolField->GetCommonValue();
+				boolField->SetValue(value, true);
+				AppTestDriver::PumpFrames(2);
+				kept = boolField->GetCommonValue() == value;
+			}
+			else if (auto intField = DynamicCast<IntegerProperty>(field))
+			{
+				int value = intField->GetCommonValue() + 3;
+				intField->SetValue(value, true);
+				AppTestDriver::PumpFrames(2);
+				kept = intField->GetCommonValue() == value;
+			}
+			else if (auto floatField = DynamicCast<TPropertyField<float>>(field))
+			{
+				float value = floatField->GetCommonValue() + 3.0f;
+				floatField->SetValue(value, true);
+				AppTestDriver::PumpFrames(2);
+				kept = Math::Equals(floatField->GetCommonValue(), value);
+			}
+			else
+				continue;
+
+			if (!kept)
+				reverted += (reverted.IsEmpty() ? "" : ", ") + caption;
+		}
+
+		if (!reverted.IsEmpty())
+			printf("       %s reverts: %s\n", typeName.Data(), reverted.Data());
+
+		Check(reverted.IsEmpty(), typeName + " rows keep the written value");
 
 		// Rows built from o2 properties go through the cocos setters
 		if (auto tagField = DynamicCast<IntegerProperty>(FindField(fields, "Tag")))

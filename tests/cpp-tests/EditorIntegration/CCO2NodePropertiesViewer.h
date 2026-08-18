@@ -52,8 +52,7 @@ protected:
 	o2::Ref<Editor::IPropertyField> mEnableProperty;  // Visible toggle
 	o2::Ref<Editor::IPropertyField> mNameProperty;    // Node name
 
-	// Transform
-	o2::Ref<Editor::SpoilerWithHead> mTransformSpoiler;
+	// Transform rows, part of the header block
 	o2::Ref<Editor::IPropertyField>  mPositionProperty;
 	o2::Ref<Editor::IPropertyField>  mSizeProperty;
 	o2::Ref<Editor::IPropertyField>  mScaleProperty;
@@ -117,7 +116,6 @@ CLASS_FIELDS_META(CocosNodeViewer)
     FIELD().PROTECTED().NAME(mHeader);
     FIELD().PROTECTED().NAME(mEnableProperty);
     FIELD().PROTECTED().NAME(mNameProperty);
-    FIELD().PROTECTED().NAME(mTransformSpoiler);
     FIELD().PROTECTED().NAME(mPositionProperty);
     FIELD().PROTECTED().NAME(mSizeProperty);
     FIELD().PROTECTED().NAME(mScaleProperty);

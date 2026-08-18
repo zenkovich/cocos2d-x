@@ -13,6 +13,9 @@
 #include "o2Editor/Properties/IObjectPropertiesViewer.h"
 #include "o2Editor/Properties/Properties.h"
 #include "o2Editor/Properties/Basic/BooleanProperty.h"
+#include "o2/Scene/UI/Widgets/HorizontalProgress.h"
+#include "o2Editor/Properties/Basic/FloatProperty.h"
+#include "o2Editor/Properties/Basic/Vector2FloatProperty.h"
 #include "o2Editor/Properties/Basic/StringProperty.h"
 
 using namespace o2;
@@ -24,8 +27,9 @@ CocosNodeViewer::CocosNodeViewer(o2::RefCounter* refCounter) :
 	PushEditorScopeOnStack scope;
 
 	auto scrollArea = o2UI.CreateScrollArea("backless");
-	*scrollArea->layout = WidgetLayout::BothStretch(0, 0, 15, 0);
-	scrollArea->SetViewLayout(Layout::BothStretch());
+	*scrollArea->layout = WidgetLayout::BothStretch();
+	// The view keeps the scroll bar space free, otherwise the rows run under it
+	scrollArea->SetViewLayout(Layout::BothStretch(0, 0, 15, 0));
 	scrollArea->SetClippingLayout(Layout::BothStretch());
 	scrollArea->name = "scroll area";
 	mContentWidget = scrollArea;
@@ -68,49 +72,53 @@ void CocosNodeViewer::BuildHeader()
 
 void CocosNodeViewer::BuildTransform(const o2::Ref<o2::VerticalLayout>& rootLayout)
 {
-	mTransformSpoiler = o2UI.CreateWidget<SpoilerWithHead>();
-	mTransformSpoiler->borderBottom = 5;
-	mTransformSpoiler->SetCaption("Transform");
-	mTransformSpoiler->GetIcon()->SetImageName("ui/UI4_transform_icon_white.png");
-	mTransformSpoiler->SetExpanded(true);
-	rootLayout->AddChild(mTransformSpoiler);
-
-	auto addIconRow = [&](const String& iconPath, const Type* type, const String& caption) -> Ref<IPropertyField>
+	// Rows in the actor viewer style: an icon on the left and a colored vector field, no captions
+	auto addRow = [&](const String& iconPath, const Ref<Widget>& field) -> Ref<Widget>
 	{
 		auto container = mmake<Widget>();
-		container->name = caption;
+		container->name = iconPath;
 		container->layout->minHeight = 20;
-		mTransformSpoiler->AddChild(container);
+		rootLayout->AddChild(container);
 
 		auto icon = o2UI.CreateImage(iconPath);
 		*icon->layout = WidgetLayout::Based(BaseCorner::LeftTop, Vec2F(20, 20), Vec2F(0, 0));
 		container->AddChild(icon);
 
-		auto field = o2EditorProperties.CreateRegularField(type, caption);
-		*DynamicCast<Widget>(field)->layout = WidgetLayout::HorStretch(VerAlign::Top, 20, 0, 20, 0);
-		container->AddChild(DynamicCast<Widget>(field));
+		*field->layout = WidgetLayout::HorStretch(VerAlign::Top, 20, 0, 20, 0);
+		container->AddChild(field);
 
+		return container;
+	};
+
+	auto addVectorRow = [&](const String& iconPath) -> Ref<IPropertyField>
+	{
+		auto field = o2UI.CreateWidget<Vec2FProperty>("colored");
+		addRow(iconPath, field);
 		mAllFields.Add(field);
 		return field;
 	};
 
-	mPositionProperty = addIconRow("ui/UI4_position_icon.png", &TypeOf(Vec2F), "Position");
-	mSizeProperty     = addIconRow("ui/UI4_icon_size.png", &TypeOf(Vec2F), "Size");
-	mScaleProperty    = addIconRow("ui/UI4_scale_icon.png", &TypeOf(Vec2F), "Scale");
-	mRotationProperty = addIconRow("ui/UI4_rotate_icon.png", &TypeOf(float), "Rotation");
-	mAnchorProperty   = addIconRow("ui/UI4_pivot_icon.png", &TypeOf(Vec2F), "Anchor");
+	mPositionProperty = addVectorRow("ui/UI4_position_icon.png");
+	mSizeProperty     = addVectorRow("ui/UI4_icon_size.png");
+	mScaleProperty    = addVectorRow("ui/UI4_scale_icon.png");
+	mAnchorProperty   = addVectorRow("ui/UI4_pivot_icon.png");
 
-	// Rows without icons: sorting and color
-	auto addPlainRow = [&](const Type* type, const String& caption) -> Ref<IPropertyField>
+	auto rotationField = o2UI.CreateWidget<FloatProperty>();
+	addRow("ui/UI4_rotate_icon.png", rotationField);
+	mRotationProperty = rotationField;
+	mAllFields.Add(mRotationProperty);
+
+	// Sorting and color are captioned, they have no icon of their own
+	auto addCaptionedRow = [&](const Type* type, const String& caption) -> Ref<IPropertyField>
 	{
 		auto field = o2EditorProperties.CreateRegularField(type, caption);
-		mTransformSpoiler->AddChild(DynamicCast<Widget>(field));
+		rootLayout->AddChild(DynamicCast<Widget>(field));
 		mAllFields.Add(field);
 		return field;
 	};
 
-	mZOrderProperty = addPlainRow(&TypeOf(int), "Z order");
-	mColorProperty  = addPlainRow(&TypeOf(Color4), "Color");
+	mZOrderProperty = addCaptionedRow(&TypeOf(int), "Z order");
+	mColorProperty  = addCaptionedRow(&TypeOf(Color4), "Color");
 }
 
 void CocosNodeViewer::RefreshTypeViewer()
